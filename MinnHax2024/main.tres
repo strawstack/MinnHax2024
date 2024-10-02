@@ -1,12 +1,22 @@
-[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://dsj3wm5fygniu"]
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://dsj3wm5fygniu"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_7ql3w"]
 constant = Color(0, 0.674268, 0.382946, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0rmep"]
+frequency = 0.1114
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pwlh4"]
+noise = SubResource("FastNoiseLite_0rmep")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_gbeoe"]
+texture = SubResource("NoiseTexture2D_pwlh4")
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
+uniform sampler2D tex_frg_3;
 
 
 
@@ -15,14 +25,21 @@ void fragment() {
 	vec4 n_out2p0 = vec4(0.000000, 0.674268, 0.382946, 1.000000);
 
 
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
 // Output:0
 	ALBEDO = vec3(n_out2p0.xyz);
+	NORMAL = vec3(n_out3p0.xyz);
 
 
 }
 "
-graph_offset = Vector2(250.24, -112.446)
+graph_offset = Vector2(216.74, -1.64639)
 nodes/fragment/0/position = Vector2(860, 20)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_7ql3w")
 nodes/fragment/2/position = Vector2(604.497, -20.0334)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_gbeoe")
+nodes/fragment/3/position = Vector2(420, 80)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 8)
