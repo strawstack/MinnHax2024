@@ -1,0 +1,42 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://drp03q8cg06ar"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_eyf3s"]
+input_name = "viewport_size"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l2gy4"]
+frequency = 0.0012
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8lj1x"]
+noise = SubResource("FastNoiseLite_l2gy4")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_n1x7h"]
+texture = SubResource("NoiseTexture2D_8lj1x")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_4;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = VIEWPORT_SIZE;
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, n_out3p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+
+
+}
+"
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_eyf3s")
+nodes/fragment/3/position = Vector2(-580, 320)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_n1x7h")
+nodes/fragment/4/position = Vector2(-77.081, 243.709)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 0, 0)

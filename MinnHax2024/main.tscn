@@ -1,27 +1,23 @@
-[gd_scene load_steps=39 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=42 format=3 uid="uid://baeyvpsxdj0lh"]
 
+[ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://SkyShaderMat/sky.tres" id="1_d7pbc"]
 [ext_resource type="Shader" uid="uid://dsj3wm5fygniu" path="res://main.tres" id="1_hrq3o"]
 [ext_resource type="Shader" uid="uid://ug5deodmky6m" path="res://red.tres" id="1_hy5qq"]
 [ext_resource type="Shader" uid="uid://d0vshnmxcw61m" path="res://wall.tres" id="1_iioqs"]
 [ext_resource type="Script" path="res://movement.gd" id="1_yh34y"]
 [ext_resource type="Shader" uid="uid://csncqbd0ugcre" path="res://grey.tres" id="3_mmhd3"]
+[ext_resource type="Shader" uid="uid://drp03q8cg06ar" path="res://sphere.tres" id="7_n15io"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fjwlw"]
-sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(1, 1, 1, 1)
-sky_curve = 0.000222029
-ground_bottom_color = Color(0.834614, 0.834614, 0.834614, 1)
-ground_horizon_color = Color(1, 1, 1, 1)
-ground_curve = 0.0828212
-sun_angle_max = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77q3v"]
+shader = ExtResource("1_d7pbc")
 
-[sub_resource type="Sky" id="Sky_yyeu2"]
-sky_material = SubResource("ProceduralSkyMaterial_fjwlw")
+[sub_resource type="Sky" id="Sky_nd04t"]
+sky_material = SubResource("ShaderMaterial_77q3v")
 
-[sub_resource type="Environment" id="Environment_dkwal"]
+[sub_resource type="Environment" id="Environment_i5ftr"]
 background_mode = 2
-background_color = Color(0.919958, 0.672808, 0.490278, 1)
-sky = SubResource("Sky_yyeu2")
+sky = SubResource("Sky_nd04t")
+ambient_light_source = 3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xaydc"]
 
@@ -336,10 +332,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_512qm")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q3a3"]
+render_priority = 0
+shader = ExtResource("7_n15io")
+
 [node name="main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dkwal")
+environment = SubResource("Environment_i5ftr")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 42)
@@ -365,7 +365,6 @@ light_energy = 0.5
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -1, 10)
 
 [node name="Cube" type="MeshInstance3D" parent="MinnHax2025"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_w02wt")
 skeleton = NodePath("")
@@ -428,3 +427,8 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
 mesh = SubResource("ArrayMesh_xn2qt")
 skeleton = NodePath("")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 19)
+material_override = SubResource("ShaderMaterial_8q3a3")
+radius = 3.0
