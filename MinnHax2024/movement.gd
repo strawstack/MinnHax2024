@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-var speed = 0.25
-var shiftSpeed = 0.4
+var speed = 5
+var shiftSpeed = 10
 
 func _ready():
 	pass
@@ -31,12 +31,13 @@ func get_directions():
 
 func _process(delta):
 	var dir = get_directions()
-	var velocity = Vector3()
+	var vel = Vector3()
 	for d in ["forward", "right", "back", "left"]:
 		if Input.is_action_pressed(d):
-			velocity += dir[d]
+			vel += dir[d]
 	
 	if Input.is_action_just_pressed("escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	move_and_collide(velocity.normalized() * (shiftSpeed if Input.is_action_pressed("run") else speed))
+	velocity = vel.normalized() * (shiftSpeed if Input.is_action_pressed("run") else speed)
+	move_and_slide()
