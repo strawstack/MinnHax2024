@@ -23,7 +23,7 @@ function = 1
 function = 2
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_m8if5"]
-default_input_values = [0, 2.0, 1, 1.0]
+default_input_values = [0, 0.5, 1, 1.0]
 initialized = true
 script = ExtResource("1_d4wsl")
 
@@ -65,7 +65,7 @@ void fragment() {
 
 	float n_out7p0;
 // SinTIME:7
-	float n_in7p0 = 2.00000;
+	float n_in7p0 = 0.50000;
 	float n_in7p1 = 1.00000;
 	{
 		n_out7p0 = n_in7p1 * sin(n_in7p0 * TIME);
@@ -111,6 +111,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-811.696, -47.5898)
 nodes/fragment/0/position = Vector2(660, 160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_5weoa")
 nodes/fragment/2/position = Vector2(-500, 100)

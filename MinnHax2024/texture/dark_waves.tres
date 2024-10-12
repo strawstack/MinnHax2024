@@ -1,0 +1,127 @@
+[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://c5qla1qt0uqe0"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_id64i"]
+constant = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_riaxa"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ltllo"]
+noise = SubResource("FastNoiseLite_riaxa")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2oweb"]
+texture = SubResource("NoiseTexture2D_ltllo")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_seey3"]
+default_input_values = [0, 0.0, 1, 0.5, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_xv18k"]
+constant = 0.1
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_wy6in"]
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_mat72"]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_qvxdd"]
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_x476v"]
+function = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_12 : source_color;
+
+
+
+void fragment() {
+// ColorConstant:10
+	vec4 n_out10p0 = vec4(0.133333, 0.133333, 0.133333, 1.000000);
+
+
+	vec3 n_out7p0;
+// ColorFunc:7
+	{
+		vec3 c = vec3(n_out10p0.xyz);
+		vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+		vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+		vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+		float d = q.x - min(q.w, q.y);
+		float e = 1.0e-10;
+		n_out7p0 = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	}
+
+
+// VectorDecompose:3
+	float n_out3p0 = n_out7p0.x;
+	float n_out3p1 = n_out7p0.y;
+	float n_out3p2 = n_out7p0.z;
+
+
+// Texture2D:12
+	vec4 n_out12p0 = texture(tex_frg_12, UV);
+
+
+// FloatConstant:14
+	float n_out14p0 = 0.100000;
+
+
+	vec3 n_out13p0;
+// If:13
+	float n_in13p1 = 0.50000;
+	float n_in13p2 = 0.00001;
+	if(abs(n_out12p0.x - n_in13p1) < n_in13p2)
+	{
+		n_out13p0 = vec3(n_out3p2);
+	}
+	else if(n_out12p0.x < n_in13p1)
+	{
+		n_out13p0 = vec3(n_out14p0);
+	}
+	else
+	{
+		n_out13p0 = vec3(n_out3p2);
+	}
+
+
+// VectorCompose:5
+	vec3 n_out5p0 = vec3(n_out3p0, n_out3p1, n_out13p0.x);
+
+
+	vec3 n_out4p0;
+// ColorFunc:4
+	{
+		vec3 c = n_out5p0;
+		vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+		vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+		n_out4p0 = c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	}
+
+
+// Output:0
+	ALBEDO = n_out4p0;
+
+
+}
+"
+graph_offset = Vector2(-888.136, -70.5259)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDecompose_wy6in")
+nodes/fragment/3/position = Vector2(-541.551, 54.4302)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorFunc_mat72")
+nodes/fragment/4/position = Vector2(58.4491, 114.43)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_qvxdd")
+nodes/fragment/5/position = Vector2(-121.551, 74.4302)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorFunc_x476v")
+nodes/fragment/7/position = Vector2(-741.551, 74.4302)
+nodes/fragment/10/node = SubResource("VisualShaderNodeColorConstant_id64i")
+nodes/fragment/10/position = Vector2(-905.954, 65.2727)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_2oweb")
+nodes/fragment/12/position = Vector2(-860, 260)
+nodes/fragment/13/node = SubResource("VisualShaderNodeIf_seey3")
+nodes/fragment/13/position = Vector2(-320, 220)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatConstant_xv18k")
+nodes/fragment/14/position = Vector2(-520, 400)
+nodes/fragment/connections = PackedInt32Array(7, 0, 3, 0, 3, 0, 5, 0, 3, 1, 5, 1, 5, 0, 4, 0, 4, 0, 0, 0, 10, 0, 7, 0, 12, 0, 13, 0, 14, 0, 13, 5, 3, 2, 13, 3, 3, 2, 13, 4, 13, 0, 5, 2)
