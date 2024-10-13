@@ -258,7 +258,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1506.02, 294.677)
 nodes/fragment/3/node = SubResource("VisualShaderNodeIf_nm03e")
 nodes/fragment/3/position = Vector2(60, 120)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_pix3a")
