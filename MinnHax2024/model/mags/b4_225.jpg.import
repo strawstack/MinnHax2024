@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://nof4c7lj8q1q"
+path.s3tc="res://.godot/imported/b4_225.jpg-54d8224ed631c4b01f68a1b593a593dc.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "50e1d511e3156a4de83801b4e9de3453"
+}
+
+[deps]
+
+source_file="res://model/mags/b4_225.jpg"
+dest_files=["res://.godot/imported/b4_225.jpg-54d8224ed631c4b01f68a1b593a593dc.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
