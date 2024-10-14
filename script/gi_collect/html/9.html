@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VGCollect - Search Results for "Game informer"</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://vgcollect.com/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://vgcollect.com/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="https://vgcollect.com/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://vgcollect.com/assets/nanoscroller.css" rel="stylesheet">
+        <link href="https://vgcollect.com/assets/vgc/css/style.css" rel="stylesheet"><link href="https://vgcollect.com/assets/vgc/css/style-responsive.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://vgcollect.com/assets/favicon.ico">
+        <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="resize">
+
+        <div id="success-modal" class="modal hide">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Success</h3>
+            </div>
+            <div class="modal-body">
+                <p>Item(s) have been added.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+
+        <style>body .dropdown-toggle.show {
+  border-radius: .25rem .25rem 0 0;
+}
+
+body .dropdown-menu {
+  border-radius: 0 .25rem .25rem .25rem;
+}
+@media screen {.dropdown:hover .dropdown-menu {
+    display: block;
+}}</style><div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+
+            <div class="hidden-desktop navToggle" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </div>
+
+            
+            <a class="brand" href="https://vgcollect.com/"><img src="/assets/vgc/images/logo-temp.png" width="230" alt="VGCollect - Track your collection with our database"></a>
+            <div class="nav-collapse collapse">
+
+                <ul class="nav">
+                    <li class="hidden-desktop">
+                        <form class="form-inline" action="https://vgcollect.com/search/process" method="post">
+                            <input type="text" name="search-query" class="input-medium" style="width: 75%;">
+                            <button type="submit" class="btn">Search</button>
+                        </form>
+                    </li>
+                    <li class="hidden-desktop"><a href="https://vgcollect.com/search">Advanced Search</a></li>
+
+                                            <li><a href ="https://vgcollect.com/browse">Browse</a></li>
+                        <li><a href ="https://vgcollect.com/forum">Forum</a></li>
+                        <li><a href ="https://vgcollect.com/register">Sign Up</a></li>
+                        <li><a href ="https://vgcollect.com/">Login</a></li>
+                                        <li><a href ="https://vgcollect.com/random">Random</a></li>
+					                                        <!--<li class="hidden-desktop">
+                        <form class="form-inline" action="https://vgcollect.com/search/process" method="post">
+                            <input type="text" name="search-query" class="input-medium">
+                            <button type="submit" class="btn">Search</button>
+                        </form>
+                    </li>-->
+                </ul>
+
+                
+                <div class="search-box">
+                    <i class="icon-search icon-large"></i>
+                    <div class="search-box-hidden">
+                        <form class="form-inline search-form" action="https://vgcollect.com/search/process" method="post">
+                            <div class="input-append">
+                                <input class="input-xlarge" name="search-query" id="search-query" type="text" autocomplete="off">
+                                <button class="btn" type="submit">Search</button>
+                            </div>
+                            <div id="autosuggest">
+                                <div id="autosuggest-loader"><img src="https://vgcollect.com/images/loader.gif" alt=""></div>
+                                <ul></ul>
+                            </div>
+                        </form>
+                        <a href="https://vgcollect.com/search">Advanced</a>
+                    </div>
+                </div>
+
+                <div class="empty-box"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="wrapper container-fluid">
+
+                            <div class="sidebar pull-left">
+    <div class="nano">
+        <div class="content nano-content">
+
+            <div id="sidebar-profile">
+
+                <div class="avatar">
+                    <p></p>
+                    <a href ="https://vgcollect.com/about/"><img src="" alt="'s Avatar" style="width: 100px; height: 100px;"></a>
+                </div>
+
+                <div class="row-fluid profile-stats">
+                    <div class="span4">
+                        <a href ="https://vgcollect.com/"><strong></strong>Items</a>
+                    </div>
+                    <div class="span4">
+                        <a href ="https://vgcollect.com//followers"><strong></strong>Followers</a>
+                    </div>
+                    <div class="span4">
+                        <a href ="https://vgcollect.com//following" class="last"><strong></strong>Following</a>
+                    </div>
+                </div>
+
+               
+                 
+                                               
+            </div>
+
+            <ul id="console-list">
+
+                <li class="active"><a href ="https://vgcollect.com/">All Platforms</a></li>
+                            </ul>
+
+            <!--
+            <div class="footer">
+                <p><a href="https://vgcollect.com/">Home</a> &#183; <a href="https://vgcollect.com/browse">Browse</a> &#183; <a href="https://vgcollect.com/forum">Forum</a> &#183; <a id="toTop" href="#">Back to Top</a></p>
+                &copy; 2024 
+            </div>
+            -->
+        </div>
+    </div>
+</div>
+              
+
+            <div class="row-fluid">
+
+                <div class="span9 main">
+
+                    <div class="main_header">
+                        <h2>5579 result(s) for "Game informer"</h2>
+                    </div>
+
+                    
+                        
+
+    <div class="row-fluid paginate">
+
+        
+                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/8"><i class="icon-chevron-left"></i></a></div>
+            
+            
+                
+                    <!-- we are somewhere in the middle -->
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/7">7</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/8">8</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/9" class="active">9</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/10">10</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/11">11</a></div>
+                                        <div class="span1"><a href="#">...</a></div>
+                    <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/224">224</a></div>
+
+                
+            
+                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/10"><i class="icon-chevron-right"></i></a></div>
+                    
+            </div>
+                        <div class="clearfix"></div>
+
+                                                    <div class="item" id="item_94081">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94081">
+                                            <img src="https://vgcollect.com/images/front-box-art/94081.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94081">Game Informer Issue 148</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94082">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94082">
+                                            <img src="https://vgcollect.com/images/front-box-art/94082.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94082">Game Informer Issue 150</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94083">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94083">
+                                            <img src="https://vgcollect.com/images/front-box-art/94083.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94083">Game Informer Issue 151</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94282">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94282">
+                                            <img src="https://vgcollect.com/images/front-box-art/94282.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94282">Game Informer Issue 100</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94283">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94283">
+                                            <img src="https://vgcollect.com/images/front-box-art/94283.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94283">Game Informer Issue 101</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94284">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94284">
+                                            <img src="https://vgcollect.com/images/front-box-art/94284.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94284">Game Informer Issue 102</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94285">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94285">
+                                            <img src="https://vgcollect.com/images/front-box-art/94285.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94285">Game Informer Issue 103</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94286">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94286">
+                                            <img src="https://vgcollect.com/images/front-box-art/94286.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94286">Game Informer Issue 104</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94287">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94287">
+                                            <img src="https://vgcollect.com/images/front-box-art/94287.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94287">Game Informer Issue 105</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94288">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94288">
+                                            <img src="https://vgcollect.com/images/front-box-art/94288.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94288">Game Informer Issue 106</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94289">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94289">
+                                            <img src="https://vgcollect.com/images/front-box-art/94289.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94289">Game Informer Issue 107</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94290">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94290">
+                                            <img src="https://vgcollect.com/images/front-box-art/94290.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94290">Game Informer Issue 108</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94291">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94291">
+                                            <img src="https://vgcollect.com/images/front-box-art/94291.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94291">Game Informer Issue 109</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94292">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94292">
+                                            <img src="https://vgcollect.com/images/front-box-art/94292.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94292">Game Informer Issue 110</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94293">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94293">
+                                            <img src="https://vgcollect.com/images/front-box-art/94293.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94293">Game Informer Issue 111</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94296">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94296">
+                                            <img src="https://vgcollect.com/images/front-box-art/94296.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94296">Game Informer Issue 113</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94297">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94297">
+                                            <img src="https://vgcollect.com/images/front-box-art/94297.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94297">Game Informer Issue 114</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94298">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94298">
+                                            <img src="https://vgcollect.com/images/front-box-art/94298.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94298">Game Informer Issue 115</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94299">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94299">
+                                            <img src="https://vgcollect.com/images/front-box-art/94299.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94299">Game Informer Issue 116</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94300">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94300">
+                                            <img src="https://vgcollect.com/images/front-box-art/94300.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94300">Game Informer Issue 117</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94301">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94301">
+                                            <img src="https://vgcollect.com/images/front-box-art/94301.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94301">Game Informer Issue 118</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94302">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94302">
+                                            <img src="https://vgcollect.com/images/front-box-art/94302.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94302">Game Informer Issue 119</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94305">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94305">
+                                            <img src="https://vgcollect.com/images/front-box-art/94305.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94305">Game Informer Issue 121</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94309">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94309">
+                                            <img src="https://vgcollect.com/images/front-box-art/94309.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94309">Game Informer Issue 123</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                    <div class="item" id="item_94310">
+
+                                <div class="row-fluid">
+                                    <div class="span2 item-art">
+                                        <a href ="https://vgcollect.com/item/94310">
+                                            <img src="https://vgcollect.com/images/front-box-art/94310.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="span10">
+                                        
+                                        <div class="item-platform">
+                                            <a href="https://vgcollect.com/browse/magazine"><i class="icon-tag icon-white"></i> Magazine</a> - Official Release                                        </div>
+                                        <div class="item-name">
+                                            <a href = "https://vgcollect.com/item/94310">Game Informer Issue 124</a>
+                                        </div>
+                                        <div class="item-notes">
+                                                                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                                                
+
+    <div class="row-fluid paginate">
+
+        
+                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/8"><i class="icon-chevron-left"></i></a></div>
+            
+            
+                
+                    <!-- we are somewhere in the middle -->
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/7">7</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/8">8</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/9" class="active">9</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/10">10</a></div>
+                                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/11">11</a></div>
+                                        <div class="span1"><a href="#">...</a></div>
+                    <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/224">224</a></div>
+
+                
+            
+                            <div class="span1"><a href="https://vgcollect.com/search/Game%20informer/10"><i class="icon-chevron-right"></i></a></div>
+                    
+            </div>
+                    
+                </div>
+
+                <div class="span3 right_column">
+                        
+<div class="box latest forum">
+    <h3>Latest Threads</h3>
+            <div class="row-fluid">
+            <div class="span2">
+                <i class="icon-comment"></i>
+            </div>
+            <div class="span10">
+                <a href="https://vgcollect.com/forum/index.php/topic,12904.0.html">Senkyu / Battle Balls</a>
+                <div class="forum-name">by <a href="https://vgcollect.com/koemo1">koemo1</a></div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span2">
+                <i class="icon-comment"></i>
+            </div>
+            <div class="span10">
+                <a href="https://vgcollect.com/forum/index.php/topic,12889.0.html">VGCollect 2024 Secret Santa!</a>
+                <div class="forum-name">by <a href="https://vgcollect.com/dhaabi">dhaabi</a></div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span2">
+                <i class="icon-comment"></i>
+            </div>
+            <div class="span10">
+                <a href="https://vgcollect.com/forum/index.php/topic,12888.0.html">October 2024 - Recently Added to Collection/Recently Purchased </a>
+                <div class="forum-name">by <a href="https://vgcollect.com/realpoketendonl">realpoketendonl</a></div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span2">
+                <i class="icon-comment"></i>
+            </div>
+            <div class="span10">
+                <a href="https://vgcollect.com/forum/index.php/topic,12887.0.html">The Best Retro Game Music - 8bit and above</a>
+                <div class="forum-name">by <a href="https://vgcollect.com/bizzgeburt">bizzgeburt</a></div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span2">
+                <i class="icon-comment"></i>
+            </div>
+            <div class="span10">
+                <a href="https://vgcollect.com/forum/index.php/topic,12886.0.html">SOLD: PLEASE DELETE ADMIN</a>
+                <div class="forum-name">by <a href="https://vgcollect.com/marvelvscapcom2">marvelvscapcom2</a></div>
+            </div>
+        </div>
+        <div class="row-fluid pagination-centered">
+        <p><a href="https://vgcollect.com/forum">Visit Forum</a></p>
+    </div>
+</div>
+<div class="box latest">
+    <h3>Latest Items</h3>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/274623"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/274623.jpg" alt="Berta and Butterflies Box Art"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/274623">Berta and Butterflies</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/atari2600"><i class="icon-tag icon-white"></i> Atari 2600 [NA]</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/coffeejits">coffeejits</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/274622"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/274622.jpg" alt="Witching Hour Box Art"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/274622">Witching Hour</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/steam"><i class="icon-tag icon-white"></i> Steam</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/frieman4993">frieman4993</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/274621"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/274621.jpg" alt="Vividlope Box Art"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/274621">Vividlope</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/steam"><i class="icon-tag icon-white"></i> Steam</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/frieman4993">frieman4993</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/274620"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/274620.jpg" alt="Cub, The Box Art"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/274620">Cub, The</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/steam"><i class="icon-tag icon-white"></i> Steam</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/frieman4993">frieman4993</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/274619"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/274619.jpg" alt="Otherwar Box Art"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/274619">Otherwar</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/steam"><i class="icon-tag icon-white"></i> Steam</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/frieman4993">frieman4993</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="box latest">
+    <h3>Latest Items for Sale</h3>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/36473"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/36473.jpg" alt="Disney's Aladdin Box Art" onerror="this.onerror=null; this.src='https://vgcollect.com/images/front-box-thumbs/no_art.jpg'"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/36473">Disney's Aladdin</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/sfamjp"><i class="icon-tag icon-white"></i> Super Famicom</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/nicolauscamp">nicolauscamp</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/21548"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/21548.jpg" alt="50 Cent: Blood on the Sand Box Art" onerror="this.onerror=null; this.src='https://vgcollect.com/images/front-box-thumbs/no_art.jpg'"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/21548">50 Cent: Blood on the Sand</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/xbox360"><i class="icon-tag icon-white"></i> 360 [NA]</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/lbjoystick">lbjoystick</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/146168"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/146168.jpg" alt="Nioh 2 Box Art" onerror="this.onerror=null; this.src='https://vgcollect.com/images/front-box-thumbs/no_art.jpg'"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/146168">Nioh 2</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/ps4"><i class="icon-tag icon-white"></i> PS4 [NA]</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/twotonetheartist">twotonetheartist</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/165998"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/165998.jpg" alt="Nioh - PlayStation Hits Box Art" onerror="this.onerror=null; this.src='https://vgcollect.com/images/front-box-thumbs/no_art.jpg'"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/165998">Nioh - PlayStation Hits</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/ps4"><i class="icon-tag icon-white"></i> PS4 [NA]</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/twotonetheartist">twotonetheartist</a>
+                </div>
+            </div>
+        </div>
+            <div class="row-fluid">
+            <div class="span12">
+                <a href="https://vgcollect.com/item/61849"><img style="width: 50px; max-height: 175px;" class="pull-left" src="https://vgcollect.com/images/front-box-thumbs/61849.jpg" alt="Bloodborne Box Art" onerror="this.onerror=null; this.src='https://vgcollect.com/images/front-box-thumbs/no_art.jpg'"></a>
+                <div>
+                    <a href="https://vgcollect.com/item/61849">Bloodborne</a>
+                </div>
+                <div>
+                    <a href="https://vgcollect.com/browse/ps4"><i class="icon-tag icon-white"></i> PS4 [NA]</a>
+                </div>
+                <div>
+                    by <a href="https://vgcollect.com/twotonetheartist">twotonetheartist</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="box latest">
+    <h3>Released On This Day In</h3>
+    </div>
+
+<div class="box social">
+    <h3>Follow Us</h3>
+    <div class="row-fluid">
+        <div class="span4">
+            <a href="http://www.facebook.com/vgcollect"><img src="https://vgcollect.com/assets/vgc/images/48x48_facebook.png" alt=""></a>
+        </div>
+        <div class="span4">
+        </div>
+        <div class="span4">
+            <a href="http://www.twitter.com/vgcollect"><img src="https://vgcollect.com/assets/vgc/images/48x48_twitter.png" alt=""></a>
+        </div>
+    </div>
+</div>
+                </div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+    <div class="span12">
+        <div class="footer">
+            <a href="https://vgcollect.com/">HOME</a> | <a href="https://vgcollect.com/about">ABOUT</a> | <a href="https://vgcollect.com/history">HISTORY</a> | <a href="https://vgcollect.com/forum">FORUM</a> | <a href="https://vgcollect.com/pro">SUPPORT VGCOLLECT</a> | <a href="https://vgcollect.com/privacy">PRIVACY</a>
+        </div>
+    </div>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150919756-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150919756-1');
+</script>
+
+<script>
+    var sc_project = 6770948;
+    var sc_invisible = 1;
+    var sc_security = "7c1f2947";
+</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter_xhtml.js"></script>
+<noscript><div class="statcounter"><a title="create counter" href="https://statcounter.com/free-hit-counter/" class="statcounter"><img class="statcounter" src="https://c.statcounter.com/6770948/0/7c1f2947/1/" alt="create counter" /></a></div></noscript>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="https://vgcollect.com/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://vgcollect.com/assets/vgc/js/nav.js"></script>
+        <script src="https://vgcollect.com/assets/jquery.nanoscroller.min.js"></script>
+
+            </body>
+</html>
