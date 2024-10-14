@@ -14,7 +14,7 @@ for ob in sel:
         
         # Create texture
         texImage = oba.node_tree.nodes.new('ShaderNodeTexImage')
-        texImage.image = bpy.data.images.load(f"C:\\Users\\rhsha\\Desktop\\repo\\MinnHaxProject2024\\script\\gi_collect\\img\\{numbers[index]}.jpg")
+        texImage.image = bpy.data.images.load(f"C:\\Users\\rhsha\\Desktop\\repo\\MinnHaxProject2024\\script\\gi_collect\\img_compress\\{numbers[index]}.jpg")
 
         # Assign to Base Color
         bsdf = oba.node_tree.nodes["Principled BSDF"]
