@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4vh4y21jqu2u"]
+
+[ext_resource type="Script" path="res://fire.gd" id="1_qtvfe"]
+[ext_resource type="Texture2D" uid="uid://b46k76apjaf7n" path="res://fire/stones_wood1.png" id="2_7ku8f"]
+[ext_resource type="Texture2D" uid="uid://bs1s3p8djeu48" path="res://fire/stones_wood_coals1.png" id="3_u08up"]
+[ext_resource type="Texture2D" uid="uid://duv80okh2q4av" path="res://fire/flames1.png" id="4_ek2ra"]
+[ext_resource type="Texture2D" uid="uid://doh0qjsj63voa" path="res://fire/flames2.png" id="5_rktbn"]
+[ext_resource type="Texture2D" uid="uid://d1e2sl7c6ssmb" path="res://fire/flames3.png" id="6_im714"]
+[ext_resource type="Texture2D" uid="uid://bysayggcbdumt" path="res://fire/log_seat.png" id="7_mxuxo"]
+[ext_resource type="Texture2D" uid="uid://bkd4rcbeu0mb7" path="res://fire/light/fire_light.png" id="8_3tta1"]
+[ext_resource type="Script" path="res://PointLight2D.gd" id="9_wgpkc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_or7e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ek2ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rktbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_im714")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 2.0
+}]
+
+[node name="fire" type="Node2D"]
+position = Vector2(5584, 912)
+script = ExtResource("1_qtvfe")
+
+[node name="stones_wood" type="Sprite2D" parent="."]
+position = Vector2(-3, -7)
+texture = ExtResource("2_7ku8f")
+
+[node name="stones_wood_coals" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -7)
+texture = ExtResource("3_u08up")
+
+[node name="flames" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2, -6)
+sprite_frames = SubResource("SpriteFrames_or7e0")
+animation = &"fire"
+frame = 1
+frame_progress = 0.464789
+
+[node name="leo_seat" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+texture = ExtResource("7_mxuxo")
+
+[node name="ben_seat" type="Sprite2D" parent="."]
+position = Vector2(-32, -32)
+texture = ExtResource("7_mxuxo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+energy = 0.0
+texture = ExtResource("8_3tta1")
+script = ExtResource("9_wgpkc")

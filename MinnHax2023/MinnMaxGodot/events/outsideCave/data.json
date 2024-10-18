@@ -1,0 +1,74 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo, you want to hold the camera?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah!"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "You can adjust it a bit with that 3DS nub."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "This thing’s crazy."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Thanks to Janet for recommending that we get one of those."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Yeah, I’ve started using mine a little bit too. There’s definitely like a little bit of a learning curve."
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": false
+		},		
+		{
+			"type": "function",
+			"name": "camera_rotate",
+			"value": true
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "This truly has a mind of its own. I don’t feel - I’m holding a turkey drumstick right now haha."
+		},
+		{
+			"type": "achievement",
+			"name": "Hold the Camera.",
+			"value": "camera_spin"
+		},		
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo!?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I don’t know how this happened."
+		},
+		{
+			"type": "function",
+			"name": "camera_rotate",
+			"value": false
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": true
+		}
+	]
+}

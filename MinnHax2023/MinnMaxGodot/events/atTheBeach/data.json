@@ -1,0 +1,33 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "dimLight"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Isn’t this cool lookin’. It’s like a martian landscape."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah, I haven’t been here before."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "I mean this is the thing that I’ve always wanted to do, and I’ve never been cool enough, is like come out here at night, and light a fire."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Wouldn’t it be awesome to just hang out here, light a fire, and tell stories."
+		}		
+	]
+}

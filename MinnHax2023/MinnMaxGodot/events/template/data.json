@@ -1,0 +1,60 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "message"
+		},
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "point_name/character",
+				"speed": 1
+			}
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": true
+		},
+		{
+			"type": "function",
+			"name": "showTag",
+			"value": "tag_name"
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": true
+		},
+		{
+			"type": "function",
+			"name": "pause",
+			"value": 1
+		},
+		{
+			"type": "function",
+			"name": "hillBlock",
+			"value": 1
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "ben",
+				"points": ["point_name"]
+			}
+		},
+		{
+			"type": "achievement",
+			"name": "ach_name",
+			"value": "[clip name]"
+		}
+	]
+}

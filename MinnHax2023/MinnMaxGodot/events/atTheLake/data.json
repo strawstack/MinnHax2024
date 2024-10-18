@@ -1,0 +1,79 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Okay Janet, we’re seeing some sogg down here. Uh, there's some ducks, and there's a little puddle happening. I just want to keep you in the loop."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "I appreciate it also ZD in the chat made the same joke that I made earlier with Leo which is that it does look like the Blair Witch a little bit."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "But with better cinematography."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "How dare you."
+		},
+		{
+			"type": "achievement",
+			"name": "Smell that Mississip.",
+			"value": "smell_that"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Oh, smell that Mississip."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "You can’t smell it at home but oof! Leo, how many times have you swam in it?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Maybe never?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Is that right?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I thought it was illegal."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Is it?"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "It seems like it would be yeah."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "At college a couple kids would go swimming in it. Was that the cool guy thing to do? Am I blowing it by not going skinny dipping into the Mississippi?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "They'd get whisked away wouldn't they?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Well, they all lost their lives yeah."
+		}
+	]
+}

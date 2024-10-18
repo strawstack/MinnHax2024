@@ -1,0 +1,44 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "I'm personally pro Crocs. I think I didn't like Crocs at first like I wasn't interested, but my boyfriend wanted us to get matching Crocs, and I was like what am I doing here of course of course I'll get matching Crocs with my boyfriend yeah why why not and then when I got them I'm like you know honestly it's very fun. Don’t knock it until you try it."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "The secret advantage of Crocs too is they're kind of like Sleds on your feet. Like if there was a downhill slope..."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "...that would prove my love of Crocs if I got my slide on."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "All right!"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "I'm scared."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Let’s see how this goes!"
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": true
+		}
+	]
+}

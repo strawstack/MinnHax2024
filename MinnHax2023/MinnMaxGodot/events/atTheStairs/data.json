@@ -1,0 +1,59 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "leo",
+				"speed": 1
+			}
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},
+		{
+			"type": "function",
+			"name": "hillBlock",
+			"value": 3
+		},		
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "leo",
+				"points": [
+					"leo_one", 
+					"leo_two",
+					"leo_three",
+					"leo_four",
+					"leo_five",
+					"leo_six",
+					"leo_seven",
+					"leo_eight"
+				]
+			}
+		},
+		{
+			"type": "achievement",
+			"name": "Hero!",
+			"value": "what_a_hero"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "What a hero!"
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": false
+		},				
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I’m going to take a breather for a minute."
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "On Lake Harriet, there’s a little entryway where we could walk into the lake for a little ice dip. Would you be on board for that?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "A polar plunge so to speak. I would be down for that. I take a cold shower when I don’t want to have coffee, but need energy."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Interesting, have you ever tried just taking a coffee shower?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Haha, a shower in-coffee. No, I haven’t."
+		}
+	]
+}

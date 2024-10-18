@@ -1,0 +1,84 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo’s taking a log breather. You cool breathing with the camera in your face?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Okay."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "That's how I like it… I wish I had brought water."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "What’s in your bag Leo?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Just a wallet, a notebook, and my phone and keys."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "A notebook, what’s that for?"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Inspiration. When it strikes, you know."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah… take notes… what’s happening?"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "How far are you from the car?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Several miles."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "No you're not. You’re not several miles. You’re like maybe one haha."
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "ben"
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": true
+		},
+		{
+			"type": "achievement",
+			"name": "Do the Alone thing.",
+			"value": "alone_thing"
+		},		
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "We’re doing the alone thing now. Survivalist. We need fresh water."
+		}
+	]
+}

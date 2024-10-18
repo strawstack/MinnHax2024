@@ -1,0 +1,106 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo, are you seeing what I'm seeing?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah, is that going to show up on the camera? Janet, can you see cool stuff here?"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "I see trees…"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I love that Louis Armstrong song."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Haha."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Across the river there's a little, uh, what do you call it, inlet, but people put a silly monster face on it. Okay, can you see that? Way over there?"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Umm, not quite."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Everybody digitally zoom in."
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": false
+		},		
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "monster_drain",
+				"speed": 1
+			}
+		},		
+		{
+			"type": "function",
+			"name": "zoom",
+			"value": {
+				"to": 2,
+				"speed": 1
+			}
+		},
+		{
+			"type": "function",
+			"name": "pause",
+			"value": 1
+		},
+		{
+			"type": "function",
+			"name": "zoom",
+			"value": {
+				"to": 1,
+				"speed": 1
+			}
+		},		
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "leo",
+				"speed": 1
+			}
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": true
+		},		
+		{
+			"type": "achievement",
+			"name": "Well.. we tried.",
+			"value": "we_tried"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Well… we tried. It’s probably the coolest thing you could possibly imagine."
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "ben"
+		}		
+	]
+}

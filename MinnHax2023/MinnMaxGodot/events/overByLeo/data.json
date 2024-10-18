@@ -1,0 +1,49 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": false
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "I think that's a new show plus everybody. Thank you for voting for this.Thank you for the subs greatly appreciate it, but, hey, hats-off Janet. Thank you for being a great host!"
+		},
+		{
+			"type": "achievement",
+			"name": "See ya later!",
+			"value": "bye"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Thanks. All right. See ya later!"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Mehaaaaay!"
+		},
+		{
+			"type": "function",
+			"name": "dimToBlack",
+			"value": 3
+		},
+		{
+			"type": "function",
+			"name": "pause",
+			"value": 1
+		},		
+		{
+			"type": "achievement",
+			"name": "Rob the DQ.",
+			"value": "card"
+		},
+		{
+			"type": "function",
+			"name": "start",
+			"value": 5
+		}
+	]
+}
