@@ -4,6 +4,10 @@ extends Node3D
 @export var player_start_point: Node3D
 @export var player: CharacterBody3D
 
+@export var tower: Node3D
+
+var towerTouched = false
+
 var debug = true
 
 func _ready():
@@ -59,3 +63,9 @@ func _on_exiting_jenga_area_3d_body_entered(body):
 
 func _on_entering_beginner_area_3d_body_entered(body):
 	pass # Replace with function body.
+
+func _on_hit_zone_area_3d_body_entered(body):
+	if not towerTouched:
+		towerTouched = true
+		for block in tower.get_children():
+			block.set_gravity_scale(0.5)

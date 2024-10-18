@@ -42,11 +42,9 @@ func _process(delta):
 	velocity = vel.normalized() * (shiftSpeed if Input.is_action_pressed("run") else speed)
 	move_and_slide()
 
-var push_force = 8000.0
+var push_force = 10.0
 func _physics_process(delta):
-	# after calling move_and_slide()
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
-			print("here")
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
