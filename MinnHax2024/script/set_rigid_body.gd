@@ -9,13 +9,12 @@ func _run():
 		
 		var rb = RigidBody3D.new()
 		var cs = CollisionShape3D.new()
-		var box = BoxShape3D.new()
-
-		box.set_size(Vector3(9, 2, 3)) 
 
 		obj.add_child(rb, true)
 		rb.owner = root
 		rb.add_child(cs, true)
 		cs.owner = root
 		
+		var box = BoxShape3D.new()
+		box.set_size(Vector3(9, 2, 3))
 		cs.set_shape(box)
