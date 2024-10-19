@@ -29,6 +29,12 @@ func get_directions():
 		"right": base.x
 	}
 
+func sync_photo_camera():
+	var rotY = get_rotation().y
+	$SubViewport/photo_camera.set_rotation(Vector3(0, rotY, 0))
+	var global_pos = to_global($photo_camera_placeholder.get_position())
+	$SubViewport/photo_camera.set_position(global_pos)
+
 func _process(delta):
 	var dir = get_directions()
 	var vel = Vector3()
@@ -41,6 +47,8 @@ func _process(delta):
 	
 	velocity = vel.normalized() * (shiftSpeed if Input.is_action_pressed("run") else speed)
 	move_and_slide()
+	
+	sync_photo_camera()
 
 var push_force = 10.0
 func _physics_process(delta):

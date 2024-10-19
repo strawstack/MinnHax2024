@@ -1,4 +1,4 @@
-[gd_scene load_steps=1726 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=1727 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="1_cg0b4"]
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_s1qui"]
@@ -39,6 +39,9 @@ sky_material = SubResource("ShaderMaterial_paypk")
 [sub_resource type="Environment" id="Environment_2kg6i"]
 background_mode = 2
 sky = SubResource("Sky_aajaa")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gous0"]
+viewport_path = NodePath("Player/SubViewport")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a767s"]
 
@@ -2594,7 +2597,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4ht28")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uapal"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5qne"]
 render_priority = 0
 shader = ExtResource("6_gsipt")
 
@@ -2619,7 +2622,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_uapal"),
+"material": SubResource("ShaderMaterial_m5qne"),
 "primitive": 3,
 "uv_scale": Vector4(1.06667, 2, 0, 0),
 "vertex_count": 24,
@@ -16553,12 +16556,25 @@ transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0
 light_energy = 0.3
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 318, 1, 14.2718)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 147, 1, -14.7282)
 safe_margin = 0.01
 script = ExtResource("1_yh34y")
 
+[node name="SubViewport" type="SubViewport" parent="Player"]
+
+[node name="photo_camera" type="Camera3D" parent="Player/SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 148, 1, -14.7282)
+
+[node name="camera_preview_render" type="Sprite3D" parent="Player"]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.405288, 0.0997562, -0.948166)
+texture = SubResource("ViewportTexture_gous0")
+
+[node name="photo_camera_placeholder" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_a767s")
