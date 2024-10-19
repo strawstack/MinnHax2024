@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var tram: Node3D
+@export var beam_elevator: Node3D
 @export var player_start_point: Node3D
 @export var player: CharacterBody3D
 
@@ -69,3 +70,12 @@ func _on_hit_zone_area_3d_body_entered(body):
 		towerTouched = true
 		for block in tower.get_children():
 			block.set_gravity_scale(0.5)
+
+func _on_white_room_area_3d_body_entered(body):
+	pass # Replace with function body.
+
+func _on_entering_jail_area_3d_body_entered(body):
+	pass # Replace with function body.
+
+func _on_beam_area_area_3d_body_entered(body):
+	beam_elevator.up()
