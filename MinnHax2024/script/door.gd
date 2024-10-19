@@ -3,12 +3,18 @@ extends Node3D
 @export var door: MeshInstance3D
 @export var barrier: StaticBody3D
 
-var openY = 10.667
-var closeY = 4.667
+@export var openY = 10.667
+@export var closeY = 4.667
+
+@export var startOpen: bool = false
 
 var gc
 func _ready():
 	gc = get_tree().get_root().get_node("main")
+
+	if startOpen:
+		open()
+		isOpen = true
 
 func open():
 	toggleBlocking(false)
