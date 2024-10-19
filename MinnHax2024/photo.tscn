@@ -45,6 +45,8 @@ shadow_mesh = SubResource("ArrayMesh_fyh5r")
 noise = SubResource("FastNoiseLite_ki2kf")
 
 [node name="Photo" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 13
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qtw18")

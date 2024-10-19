@@ -1956,6 +1956,41 @@ shadow_mesh = SubResource("ArrayMesh_k42po")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwmla"]
 data = PackedVector3Array(-5, -7, 13.9996, -5, 1, -14, -5, 1, 13.9996, -5, -7, 13.9996, -5, -7, -14, -5, 1, -14, -5, -7, -14, 5, 1, -14, -5, 1, -14, -5, -7, -14, 5, -7, -14, 5, 1, -14, 5, -7, -14, 5, 1, 13.9996, 5, 1, -14, 5, -7, -14, 5, -7, 13.9996, 5, 1, 13.9996, 5, -7, 13.9996, -5, 1, 13.9996, 5, 1, 13.9996, 5, -7, 13.9996, -5, -7, 13.9996, -5, 1, 13.9996, -5, -7, -14, 5, -7, 13.9996, 5, -7, -14, -5, -7, -14, -5, -7, 13.9996, 5, -7, 13.9996, 5, 1, -14, -5, 1, 13.9996, -5, 1, -14, 5, 1, -14, 5, 1, 13.9996, -5, 1, 13.9996)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6wge"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t88uk"]
+_surfaces = [{
+"aabb": AABB(-1, -5.33333, -4, 9, 7, 9.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qeam6"]
+resource_name = "area_Cube_070"
+_surfaces = [{
+"aabb": AABB(-1, -5.33333, -4, 9, 7, 9.00001),
+"attribute_data": PackedByteArray(255, 127, 255, 15, 255, 31, 255, 127, 255, 111, 255, 127, 255, 127, 255, 127, 0, 0, 255, 127, 255, 63, 255, 15, 255, 31, 0, 0, 255, 111, 255, 255, 255, 63, 255, 127, 0, 0, 255, 255, 255, 95, 255, 15, 0, 0, 255, 127, 255, 223, 255, 255, 255, 95, 255, 127, 255, 111, 255, 255, 255, 95, 255, 15, 0, 0, 0, 0, 255, 223, 255, 127, 255, 95, 255, 127, 255, 111, 255, 127, 255, 31, 255, 127, 255, 31, 0, 0, 255, 63, 255, 127, 255, 63, 0, 0),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 9, 0, 4, 0, 2, 0, 7, 0, 9, 0, 5, 0, 18, 0, 8, 0, 5, 0, 15, 0, 18, 0, 17, 0, 14, 0, 19, 0, 17, 0, 12, 0, 14, 0, 10, 0, 3, 0, 13, 0, 10, 0, 0, 0, 3, 0, 6, 0, 11, 0, 16, 0, 6, 0, 1, 0, 11, 0, 23, 0, 20, 0, 21, 0, 23, 0, 22, 0, 20, 0),
+"material": SubResource("StandardMaterial3D_i6wge"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 127, 255, 127, 84, 85, 170, 170, 255, 255, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 255, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t88uk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fdpmb"]
+data = PackedVector3Array(-1, -5.3333, 4.9999, -1, 1.6667, -4, -1, 1.6667, 4.9999, -1, -5.3333, 4.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 8, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 8, -5.3333, -4, 8, 1.6667, -4, 8, -5.3333, -4, 8, 1.6667, 4.9999, 8, 1.6667, -4, 8, -5.3333, -4, 8, -5.3333, 4.9999, 8, 1.6667, 4.9999, 8, -5.3333, 4.9999, -1, 1.6667, 4.9999, 8, 1.6667, 4.9999, 8, -5.3333, 4.9999, -1, -5.3333, 4.9999, -1, 1.6667, 4.9999, -1, -5.3333, -4, 8, -5.3333, 4.9999, 8, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 4.9999, 8, -5.3333, 4.9999, 8, 1.6667, -4, -1, 1.6667, 4.9999, -1, 1.6667, -4, 8, 1.6667, -4, 8, 1.6667, 4.9999, -1, 1.6667, 4.9999)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpxv1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ube5r"]
@@ -5435,41 +5470,6 @@ shadow_mesh = SubResource("ArrayMesh_u5s0h")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s77uv"]
 data = PackedVector3Array(-2, -4.6667, -1, -2, 2.3333, -4, -2, 2.3333, -1, -2, -4.6667, -1, -2, -4.6667, -4, -2, 2.3333, -4, -2, -4.6667, -4, 2, 2.3333, -4, -2, 2.3333, -4, -2, -4.6667, -4, 2, -4.6667, -4, 2, 2.3333, -4, 2, -4.6667, -4, 2, 2.3333, -1, 2, 2.3333, -4, 2, -4.6667, -4, 2, -4.6667, -1, 2, 2.3333, -1, 2, -4.6667, -1, -2, 2.3333, -1, 2, 2.3333, -1, 2, -4.6667, -1, -2, -4.6667, -1, -2, 2.3333, -1, -2, -4.6667, -4, 2, -4.6667, -1, 2, -4.6667, -4, -2, -4.6667, -4, -2, -4.6667, -1, 2, -4.6667, -1, 2, 2.3333, -4, -2, 2.3333, -1, -2, 2.3333, -4, 2, 2.3333, -4, 2, 2.3333, -1, -2, 2.3333, -1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6wge"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_t88uk"]
-_surfaces = [{
-"aabb": AABB(-1, -5.33333, -4, 9, 7, 9.00001),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_qeam6"]
-resource_name = "area_Cube_070"
-_surfaces = [{
-"aabb": AABB(-1, -5.33333, -4, 9, 7, 9.00001),
-"attribute_data": PackedByteArray(255, 127, 255, 15, 255, 31, 255, 127, 255, 111, 255, 127, 255, 127, 255, 127, 0, 0, 255, 127, 255, 63, 255, 15, 255, 31, 0, 0, 255, 111, 255, 255, 255, 63, 255, 127, 0, 0, 255, 255, 255, 95, 255, 15, 0, 0, 255, 127, 255, 223, 255, 255, 255, 95, 255, 127, 255, 111, 255, 255, 255, 95, 255, 15, 0, 0, 0, 0, 255, 223, 255, 127, 255, 95, 255, 127, 255, 111, 255, 127, 255, 31, 255, 127, 255, 31, 0, 0, 255, 63, 255, 127, 255, 63, 0, 0),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray(2, 0, 9, 0, 4, 0, 2, 0, 7, 0, 9, 0, 5, 0, 18, 0, 8, 0, 5, 0, 15, 0, 18, 0, 17, 0, 14, 0, 19, 0, 17, 0, 12, 0, 14, 0, 10, 0, 3, 0, 13, 0, 10, 0, 0, 0, 3, 0, 6, 0, 11, 0, 16, 0, 6, 0, 1, 0, 11, 0, 23, 0, 20, 0, 21, 0, 23, 0, 22, 0, 20, 0),
-"material": SubResource("StandardMaterial3D_i6wge"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 127, 255, 127, 84, 85, 170, 170, 255, 255, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 255, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_t88uk")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fdpmb"]
-data = PackedVector3Array(-1, -5.3333, 4.9999, -1, 1.6667, -4, -1, 1.6667, 4.9999, -1, -5.3333, 4.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 8, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 8, -5.3333, -4, 8, 1.6667, -4, 8, -5.3333, -4, 8, 1.6667, 4.9999, 8, 1.6667, -4, 8, -5.3333, -4, 8, -5.3333, 4.9999, 8, 1.6667, 4.9999, 8, -5.3333, 4.9999, -1, 1.6667, 4.9999, 8, 1.6667, 4.9999, 8, -5.3333, 4.9999, -1, -5.3333, 4.9999, -1, 1.6667, 4.9999, -1, -5.3333, -4, 8, -5.3333, 4.9999, 8, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 4.9999, 8, -5.3333, 4.9999, 8, 1.6667, -4, -1, 1.6667, 4.9999, -1, 1.6667, -4, 8, 1.6667, -4, 8, 1.6667, 4.9999, -1, 1.6667, 4.9999)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xfwvy"]
 render_priority = 0
@@ -16660,6 +16660,8 @@ light_energy = 0.3
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 147, 1, -14.7282)
+collision_layer = 2
+collision_mask = 21
 safe_margin = 0.01
 script = ExtResource("1_yh34y")
 
@@ -17129,6 +17131,8 @@ mesh = SubResource("ArrayMesh_b2mmb")
 skeleton = NodePath("")
 
 [node name="entering_art_Area3D" type="Area3D" parent="triggers/entering_art"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_art/entering_art_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_onp0g")
@@ -17140,6 +17144,8 @@ mesh = SubResource("ArrayMesh_vfiar")
 skeleton = NodePath("")
 
 [node name="entering_arcade_Area3D" type="Area3D" parent="triggers/entering_arcade"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_arcade/entering_arcade_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_ayeum")
@@ -17151,6 +17157,8 @@ mesh = SubResource("ArrayMesh_v8or3")
 skeleton = NodePath("")
 
 [node name="exiting_art_Area3D" type="Area3D" parent="triggers/exiting_art"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_art/exiting_art_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_0ydke")
@@ -17162,6 +17170,8 @@ mesh = SubResource("ArrayMesh_bcubg")
 skeleton = NodePath("")
 
 [node name="exiting_arcade_Area3D" type="Area3D" parent="triggers/exiting_arcade"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_arcade/exiting_arcade_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_xe55n")
@@ -17173,6 +17183,8 @@ mesh = SubResource("ArrayMesh_xj3ke")
 skeleton = NodePath("")
 
 [node name="entering_jenga_Area3D" type="Area3D" parent="triggers/entering_jenga"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_jenga/entering_jenga_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_uigg7")
@@ -17184,6 +17196,8 @@ mesh = SubResource("ArrayMesh_1ge4s")
 skeleton = NodePath("")
 
 [node name="entering_gi_Area3D" type="Area3D" parent="triggers/entering_gi"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_gi/entering_gi_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_j7rlh")
@@ -17195,6 +17209,8 @@ mesh = SubResource("ArrayMesh_dy41i")
 skeleton = NodePath("")
 
 [node name="exiting_gi_Area3D" type="Area3D" parent="triggers/exiting_gi"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_gi/exiting_gi_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_qg6q7")
@@ -17206,6 +17222,8 @@ mesh = SubResource("ArrayMesh_fjuey")
 skeleton = NodePath("")
 
 [node name="exiting_jenga_Area3D" type="Area3D" parent="triggers/exiting_jenga"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_jenga/exiting_jenga_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_xe057")
@@ -17217,6 +17235,8 @@ mesh = SubResource("ArrayMesh_ijnha")
 skeleton = NodePath("")
 
 [node name="entering_beginner_Area3D" type="Area3D" parent="triggers/entering_beginner"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_beginner/entering_beginner_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_cq7qi")
@@ -17227,6 +17247,8 @@ visible = false
 skeleton = NodePath("")
 
 [node name="reception_Area3D" type="Area3D" parent="triggers/reception"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/reception/reception_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_fqdyn")
@@ -17238,9 +17260,24 @@ mesh = SubResource("ArrayMesh_qn5u5")
 skeleton = NodePath("")
 
 [node name="entering_jail_Area3D" type="Area3D" parent="triggers/entering_jail"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_jail/entering_jail_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_uwmla")
+
+[node name="hit_zone" type="MeshInstance3D" parent="triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 5.33333, -25)
+visible = false
+mesh = SubResource("ArrayMesh_qeam6")
+skeleton = NodePath("")
+
+[node name="hit_zone_Area3D" type="Area3D" parent="triggers/hit_zone"]
+collision_layer = 16
+collision_mask = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/hit_zone/hit_zone_Area3D"]
+shape = SubResource("ConcavePolygonShape3D_fdpmb")
 
 [node name="beam_area" type="MeshInstance3D" parent="triggers"]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 324, 10.6667, -21)
@@ -17249,6 +17286,8 @@ mesh = SubResource("ArrayMesh_v45vx")
 skeleton = NodePath("")
 
 [node name="beam_area_Area3D" type="Area3D" parent="triggers/beam_area"]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/beam_area/beam_area_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_lveo4")
@@ -18131,21 +18170,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas/jenga/walls/Cube_514/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s77uv")
 
-[node name="hit_zone" type="MeshInstance3D" parent="areas/jenga"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 5.33333, -25)
-visible = false
-mesh = SubResource("ArrayMesh_qeam6")
-skeleton = NodePath("")
-
-[node name="hit_zone_Area3D" type="Area3D" parent="areas/jenga/hit_zone"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/jenga/hit_zone/hit_zone_Area3D"]
-shape = SubResource("ConcavePolygonShape3D_fdpmb")
-
 [node name="tower" type="Node3D" parent="areas/jenga"]
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 0, -4)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1920" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D2"]
@@ -18159,6 +18189,8 @@ shape = SubResource("BoxShape3D_ep3ti")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 1, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1921" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D"]
@@ -18171,6 +18203,8 @@ shape = SubResource("BoxShape3D_7wyge")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 3, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1922" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D3"]
@@ -18182,6 +18216,8 @@ shape = SubResource("BoxShape3D_yvkvx")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 5, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1923" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D4"]
@@ -18194,6 +18230,8 @@ shape = SubResource("BoxShape3D_bihe1")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 7, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1925" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D5"]
@@ -18205,6 +18243,8 @@ shape = SubResource("BoxShape3D_4hpcx")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 7, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1924" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D6"]
@@ -18216,6 +18256,8 @@ shape = SubResource("BoxShape3D_top82")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 9, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1926" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D7"]
@@ -18228,6 +18270,8 @@ shape = SubResource("BoxShape3D_ig1gi")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 9, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1927" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D8"]
@@ -18240,6 +18284,8 @@ shape = SubResource("BoxShape3D_aaqhe")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 11, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1928" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D9"]
@@ -18251,6 +18297,8 @@ shape = SubResource("BoxShape3D_cp2y7")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 11, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1929" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D10"]
@@ -18262,6 +18310,8 @@ shape = SubResource("BoxShape3D_trrj2")
 
 [node name="RigidBody3D11" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 11, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1930" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D11"]
@@ -18273,6 +18323,8 @@ shape = SubResource("BoxShape3D_1p4l0")
 
 [node name="RigidBody3D12" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 13, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1931" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D12"]
@@ -18285,6 +18337,8 @@ shape = SubResource("BoxShape3D_61ag2")
 
 [node name="RigidBody3D13" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 13, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1932" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D13"]
@@ -18297,6 +18351,8 @@ shape = SubResource("BoxShape3D_tn32b")
 
 [node name="RigidBody3D14" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 13, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1933" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D14"]
@@ -18309,6 +18365,8 @@ shape = SubResource("BoxShape3D_y76nr")
 
 [node name="RigidBody3D15" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 15, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1934" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D15"]
@@ -18320,6 +18378,8 @@ shape = SubResource("BoxShape3D_m3muj")
 
 [node name="RigidBody3D16" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 17, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1935" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D16"]
@@ -18332,6 +18392,8 @@ shape = SubResource("BoxShape3D_886hn")
 
 [node name="RigidBody3D17" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 17, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1936" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D17"]
@@ -18344,6 +18406,8 @@ shape = SubResource("BoxShape3D_3lpqj")
 
 [node name="RigidBody3D18" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 19, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1937" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D18"]
@@ -18355,6 +18419,8 @@ shape = SubResource("BoxShape3D_igqci")
 
 [node name="RigidBody3D19" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 19, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1938" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D19"]
@@ -18366,6 +18432,8 @@ shape = SubResource("BoxShape3D_cg8au")
 
 [node name="RigidBody3D20" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 21, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1939" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D20"]
@@ -18378,6 +18446,8 @@ shape = SubResource("BoxShape3D_qbpmg")
 
 [node name="RigidBody3D21" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 21, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1940" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D21"]
@@ -18390,6 +18460,8 @@ shape = SubResource("BoxShape3D_6edal")
 
 [node name="RigidBody3D22" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 21, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1941" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D22"]
@@ -18402,6 +18474,8 @@ shape = SubResource("BoxShape3D_y8hvm")
 
 [node name="RigidBody3D23" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 23, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1942" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D23"]
@@ -18413,6 +18487,8 @@ shape = SubResource("BoxShape3D_u7ht5")
 
 [node name="RigidBody3D24" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 23, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1943" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D24"]
@@ -18424,6 +18500,8 @@ shape = SubResource("BoxShape3D_b77u2")
 
 [node name="RigidBody3D25" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 25, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1944" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D25"]
@@ -18436,6 +18514,8 @@ shape = SubResource("BoxShape3D_n1xnk")
 
 [node name="RigidBody3D26" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 27, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1945" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D26"]
@@ -18447,6 +18527,8 @@ shape = SubResource("BoxShape3D_4m4hs")
 
 [node name="RigidBody3D27" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 29, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1946" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D27"]
@@ -18459,6 +18541,8 @@ shape = SubResource("BoxShape3D_fxedi")
 
 [node name="RigidBody3D28" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 29, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1947" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D28"]
@@ -18471,6 +18555,8 @@ shape = SubResource("BoxShape3D_cov1t")
 
 [node name="RigidBody3D29" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 31, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1948" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D29"]
@@ -18482,6 +18568,8 @@ shape = SubResource("BoxShape3D_ivmg7")
 
 [node name="RigidBody3D30" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 31, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1949" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D30"]
@@ -18493,6 +18581,8 @@ shape = SubResource("BoxShape3D_g5bwg")
 
 [node name="RigidBody3D31" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 33, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1950" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D31"]
@@ -18505,6 +18595,8 @@ shape = SubResource("BoxShape3D_6qlk1")
 
 [node name="RigidBody3D32" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 35, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1951" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D32"]
@@ -18516,6 +18608,8 @@ shape = SubResource("BoxShape3D_il5ix")
 
 [node name="RigidBody3D33" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 37, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1952" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D33"]
@@ -18528,6 +18622,8 @@ shape = SubResource("BoxShape3D_2yhxe")
 
 [node name="RigidBody3D34" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 37, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1953" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D34"]
@@ -18540,6 +18636,8 @@ shape = SubResource("BoxShape3D_hdqsx")
 
 [node name="RigidBody3D35" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 39, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1954" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D35"]
@@ -18551,6 +18649,8 @@ shape = SubResource("BoxShape3D_cc1lj")
 
 [node name="RigidBody3D36" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 39, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1955" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D36"]
@@ -18562,6 +18662,8 @@ shape = SubResource("BoxShape3D_etiow")
 
 [node name="RigidBody3D37" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 39, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1956" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D37"]
@@ -18573,6 +18675,8 @@ shape = SubResource("BoxShape3D_28ygh")
 
 [node name="RigidBody3D38" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 41, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1957" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D38"]
@@ -18585,6 +18689,8 @@ shape = SubResource("BoxShape3D_248i7")
 
 [node name="RigidBody3D39" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 41, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1958" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D39"]
@@ -18597,6 +18703,8 @@ shape = SubResource("BoxShape3D_v7hok")
 
 [node name="RigidBody3D40" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 41, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1959" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D40"]
@@ -18609,6 +18717,8 @@ shape = SubResource("BoxShape3D_sl5iw")
 
 [node name="RigidBody3D41" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 43, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1960" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D41"]
@@ -18620,6 +18730,8 @@ shape = SubResource("BoxShape3D_enxhb")
 
 [node name="RigidBody3D42" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 43, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1961" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D42"]
@@ -18631,6 +18743,8 @@ shape = SubResource("BoxShape3D_3b325")
 
 [node name="RigidBody3D43" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 43, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1962" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D43"]
@@ -18642,6 +18756,8 @@ shape = SubResource("BoxShape3D_owq40")
 
 [node name="RigidBody3D44" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.5, 45, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1963" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D44"]
@@ -18654,6 +18770,8 @@ shape = SubResource("BoxShape3D_1hdfp")
 
 [node name="RigidBody3D45" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 45, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1964" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D45"]
@@ -18666,6 +18784,8 @@ shape = SubResource("BoxShape3D_aeqcd")
 
 [node name="RigidBody3D46" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 45, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1965" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D46"]
@@ -18678,6 +18798,8 @@ shape = SubResource("BoxShape3D_0moao")
 
 [node name="RigidBody3D47" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 47, -27.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1966" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D47"]
@@ -18689,6 +18811,8 @@ shape = SubResource("BoxShape3D_w0bf8")
 
 [node name="RigidBody3D48" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 47, -24.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1967" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D48"]
@@ -18700,6 +18824,8 @@ shape = SubResource("BoxShape3D_gl3ud")
 
 [node name="RigidBody3D49" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.5, 47, -21.5)
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 
 [node name="Cube_1968" type="MeshInstance3D" parent="areas/jenga/tower/RigidBody3D49"]
@@ -20775,6 +20901,6 @@ skeleton = NodePath("")
 [connection signal="body_entered" from="triggers/entering_beginner/entering_beginner_Area3D" to="." method="_on_entering_beginner_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/reception/reception_Area3D" to="." method="_on_reception_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_jail/entering_jail_Area3D" to="." method="_on_entering_jail_area_3d_body_entered"]
+[connection signal="body_entered" from="triggers/hit_zone/hit_zone_Area3D" to="." method="_on_hit_zone_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/beam_area/beam_area_Area3D" to="." method="_on_beam_area_area_3d_body_entered"]
-[connection signal="body_entered" from="areas/jenga/hit_zone/hit_zone_Area3D" to="." method="_on_hit_zone_area_3d_body_entered"]
 [connection signal="body_entered" from="areas/beginner/Cube_578/white_room_Area3D" to="." method="_on_white_room_area_3d_body_entered"]
