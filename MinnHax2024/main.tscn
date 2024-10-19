@@ -1,4 +1,4 @@
-[gd_scene load_steps=1736 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=1734 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="1_cg0b4"]
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_s1qui"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://0n4hc6nw6823" path="res://model/mags/b3.glb" id="16_a4pp4"]
 [ext_resource type="PackedScene" uid="uid://dmu6kbu1aqrtn" path="res://model/mags/b4.glb" id="17_y6gcm"]
 [ext_resource type="Shader" uid="uid://3qe5jigw32sw" path="res://texture/wood.tres" id="18_xyk6b"]
-[ext_resource type="Script" path="res://beam_elevator.gd" id="25_4lrqb"]
+[ext_resource type="Script" path="res://script/beam_elevator.gd" id="25_4lrqb"]
 [ext_resource type="Shader" uid="uid://b0dn652lcpeih" path="res://texture/beginner_floor.tres" id="25_exmgy"]
 [ext_resource type="Shader" uid="uid://d0vshnmxcw61m" path="res://texture/beginner_wall.tres" id="25_xj86q"]
 [ext_resource type="Shader" uid="uid://b8ut14p5xd2hc" path="res://texture/beginner_very_dark.tres" id="26_7rsui"]
@@ -144,38 +144,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_le0n2")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_fyh5r"]
-_surfaces = [{
-"aabb": AABB(-0.2, -0.015, -0.15, 0.40001, 0.03001, 0.3),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray(0, 0, 6, 0, 4, 0, 0, 0, 2, 0, 6, 0, 3, 0, 6, 0, 2, 0, 3, 0, 7, 0, 6, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 1, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray(253, 255, 233, 255, 0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 253, 255, 233, 255, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 233, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 233, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_sotdc"]
-resource_name = "camera_Cube_004"
-_surfaces = [{
-"aabb": AABB(-0.2, -0.015, -0.15, 0.40001, 0.03001, 0.3),
-"attribute_data": PackedByteArray(221, 244, 255, 255, 166, 183, 255, 255, 110, 250, 177, 144, 110, 250, 255, 255, 76, 239, 203, 181, 255, 255, 177, 144, 76, 239, 203, 181, 255, 127, 255, 255, 110, 250, 88, 200, 221, 244, 203, 181, 166, 183, 203, 181, 255, 255, 88, 200, 221, 244, 203, 181, 166, 183, 203, 181, 110, 250, 255, 255, 110, 250, 203, 181, 76, 239, 255, 255, 255, 255, 255, 255, 76, 239, 255, 255, 255, 127, 203, 181, 110, 250, 88, 200, 221, 244, 255, 255, 166, 183, 255, 255, 255, 255, 88, 200),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray(1, 0, 19, 0, 13, 0, 1, 0, 7, 0, 19, 0, 9, 0, 18, 0, 6, 0, 9, 0, 21, 0, 18, 0, 23, 0, 14, 0, 20, 0, 23, 0, 17, 0, 14, 0, 16, 0, 10, 0, 4, 0, 16, 0, 22, 0, 10, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 15, 0, 0, 0, 12, 0, 15, 0, 3, 0, 0, 0),
-"material": SubResource("StandardMaterial3D_flb6t"),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(2, 2, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray(253, 255, 233, 255, 0, 0, 255, 255, 253, 255, 233, 255, 0, 0, 84, 213, 253, 255, 233, 255, 0, 0, 84, 213, 253, 255, 0, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 84, 213, 253, 255, 0, 0, 0, 0, 84, 213, 253, 255, 233, 255, 255, 255, 255, 191, 253, 255, 233, 255, 255, 255, 84, 213, 253, 255, 233, 255, 255, 255, 84, 213, 253, 255, 0, 0, 255, 255, 255, 191, 253, 255, 0, 0, 255, 255, 84, 213, 253, 255, 0, 0, 255, 255, 84, 213, 0, 0, 233, 255, 0, 0, 255, 255, 0, 0, 233, 255, 0, 0, 84, 213, 0, 0, 233, 255, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 233, 255, 255, 255, 255, 191, 0, 0, 233, 255, 255, 255, 84, 213, 0, 0, 233, 255, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 84, 213, 255, 63, 255, 191, 84, 213, 170, 42, 170, 170, 84, 85, 255, 63, 255, 191, 84, 85, 84, 85, 170, 170, 84, 85, 255, 127, 255, 127, 84, 213, 170, 42, 170, 170, 84, 85, 255, 127, 255, 127, 85, 85, 84, 85, 170, 170, 84, 85, 255, 63, 255, 191, 84, 213, 170, 42, 84, 85, 170, 170, 255, 63, 255, 191, 85, 85, 84, 85, 84, 85, 170, 170, 255, 127, 255, 127, 84, 213, 170, 42, 84, 85, 170, 170, 255, 127, 255, 127, 85, 85, 84, 85, 84, 85, 170, 170)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_fyh5r")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a767s"]
 
@@ -16672,12 +16640,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cr4dw")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("tram", "beam_elevator", "player_start_point", "player", "tower")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("tram", "beam_elevator", "player_start_point", "player", "photos", "tower")]
 script = ExtResource("1_s1qui")
 tram = NodePath("tram")
 beam_elevator = NodePath("areas/beginner/beam")
 player_start_point = NodePath("tram/player_start")
 player = NodePath("Player")
+photos = NodePath("photos")
 tower = NodePath("areas/jenga/tower")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -16709,7 +16678,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489508, -0.750366)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="camera" type="Node3D" parent="Player/Camera3D"]
-transform = Transform3D(0.906308, -0.178606, 0.383022, 0, 0.906308, 0.422618, -0.422618, -0.383022, 0.821394, -0.637078, -0.692828, -1.00339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637078, -0.692828, -1.00339)
 
 [node name="photo_camera_placeholder" type="Node3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 0.00373173, 0.0541982, -0.233826)
@@ -16733,10 +16702,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149671, 0.1909, 0.030899)
 mesh = SubResource("ArrayMesh_kbtxb")
 skeleton = NodePath("")
 
-[node name="photo" type="MeshInstance3D" parent="Player/Camera3D/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503292, -0.1691, -0.0691071)
-mesh = SubResource("ArrayMesh_sotdc")
-skeleton = NodePath("")
+[node name="photo_start" type="Node3D" parent="Player/Camera3D/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0520163, -0.17057, -0.0679169)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Camera3D"]
 current = true
@@ -20788,6 +20755,8 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -20)
 mesh = SubResource("ArrayMesh_fpewx")
 skeleton = NodePath("")
+
+[node name="photos" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="triggers/entering_art/entering_art_Area3D" to="." method="_on_entering_art_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_arcade/entering_arcade_Area3D" to="." method="_on_entering_arcade_area_3d_body_entered"]

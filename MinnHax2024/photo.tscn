@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dat2s8v2oq8bn"]
+
+[ext_resource type="Script" path="res://photo.gd" id="1_qtw18"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5nmi"]
+albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fyh5r"]
+_surfaces = [{
+"aabb": AABB(-0.2, -0.015, -0.15, 0.40001, 0.03001, 0.3),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 6, 0, 4, 0, 0, 0, 2, 0, 6, 0, 3, 0, 6, 0, 2, 0, 3, 0, 7, 0, 6, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 1, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(253, 255, 233, 255, 0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 253, 255, 233, 255, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 233, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 233, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sotdc"]
+resource_name = "camera_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.2, -0.015, -0.15, 0.40001, 0.03001, 0.3),
+"attribute_data": PackedByteArray(221, 244, 255, 255, 166, 183, 255, 255, 110, 250, 177, 144, 110, 250, 255, 255, 76, 239, 203, 181, 255, 255, 177, 144, 76, 239, 203, 181, 255, 127, 255, 255, 110, 250, 88, 200, 221, 244, 203, 181, 166, 183, 203, 181, 255, 255, 88, 200, 221, 244, 203, 181, 166, 183, 203, 181, 110, 250, 255, 255, 110, 250, 203, 181, 76, 239, 255, 255, 255, 255, 255, 255, 76, 239, 255, 255, 255, 127, 203, 181, 110, 250, 88, 200, 221, 244, 255, 255, 166, 183, 255, 255, 255, 255, 88, 200),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(1, 0, 19, 0, 13, 0, 1, 0, 7, 0, 19, 0, 9, 0, 18, 0, 6, 0, 9, 0, 21, 0, 18, 0, 23, 0, 14, 0, 20, 0, 23, 0, 17, 0, 14, 0, 16, 0, 10, 0, 4, 0, 16, 0, 22, 0, 10, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 15, 0, 0, 0, 12, 0, 15, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_l5nmi"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(253, 255, 233, 255, 0, 0, 255, 255, 253, 255, 233, 255, 0, 0, 84, 213, 253, 255, 233, 255, 0, 0, 84, 213, 253, 255, 0, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 84, 213, 253, 255, 0, 0, 0, 0, 84, 213, 253, 255, 233, 255, 255, 255, 255, 191, 253, 255, 233, 255, 255, 255, 84, 213, 253, 255, 233, 255, 255, 255, 84, 213, 253, 255, 0, 0, 255, 255, 255, 191, 253, 255, 0, 0, 255, 255, 84, 213, 253, 255, 0, 0, 255, 255, 84, 213, 0, 0, 233, 255, 0, 0, 255, 255, 0, 0, 233, 255, 0, 0, 84, 213, 0, 0, 233, 255, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 233, 255, 255, 255, 255, 191, 0, 0, 233, 255, 255, 255, 84, 213, 0, 0, 233, 255, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 84, 213, 255, 63, 255, 191, 84, 213, 170, 42, 170, 170, 84, 85, 255, 63, 255, 191, 84, 85, 84, 85, 170, 170, 84, 85, 255, 127, 255, 127, 84, 213, 170, 42, 170, 170, 84, 85, 255, 127, 255, 127, 85, 85, 84, 85, 170, 170, 84, 85, 255, 63, 255, 191, 84, 213, 170, 42, 84, 85, 170, 170, 255, 63, 255, 191, 85, 85, 84, 85, 84, 85, 170, 170, 255, 127, 255, 127, 84, 213, 170, 42, 84, 85, 170, 170, 255, 127, 255, 127, 85, 85, 84, 85, 84, 85, 170, 170)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fyh5r")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fp85l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ki2kf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ing4l"]
+noise = SubResource("FastNoiseLite_ki2kf")
+
+[node name="Photo" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_qtw18")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
+mesh = SubResource("ArrayMesh_sotdc")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 9.82917e-14, 0, 0.4, 0, -9.82917e-14, 0, 0.4, 0, 0.185, 0)
+shape = SubResource("BoxShape3D_fp85l")
+
+[node name="camera_preview_render" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, 0.016, 0)
+texture = SubResource("NoiseTexture2D_ing4l")

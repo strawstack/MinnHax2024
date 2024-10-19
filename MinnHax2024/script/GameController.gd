@@ -4,6 +4,7 @@ extends Node3D
 @export var beam_elevator: Node3D
 @export var player_start_point: Node3D
 @export var player: CharacterBody3D
+@export var photos: Node3D
 
 @export var tower: Node3D
 

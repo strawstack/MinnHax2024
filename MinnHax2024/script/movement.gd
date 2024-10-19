@@ -9,8 +9,11 @@ var isCameraUp = false
 var tweenCamera: Tween
 var tweenCameraRot: Tween
 
+var photoScene = preload("res://photo.tscn")
+
+var gc
 func _ready():
-	pass
+	gc = get_tree().get_root().get_node("main")
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -50,6 +53,15 @@ func moveCamera(target, tRot):
 	tweenCamera.tween_property($Camera3D/camera, "position", target, 0.5)
 	tweenCameraRot.tween_property($Camera3D/camera, "rotation", tRot, 0.5)
 
+func takePhoto():
+	var photo = photoScene.instantiate()
+	gc.photos.add_child(photo)
+	photo.set_position($Camera3D/camera/photo_start.get_global_position())
+	var vp = $Camera3D/camera/camera_preview_render.get_texture()
+	var texture = ImageTexture.create_from_image(vp.get_image())
+	photo.setTexture(texture)
+	photo.eject(get_directions()["forward"])
+
 func _process(delta):
 	var dir = get_directions()
 	var vel = Vector3()
@@ -75,6 +87,10 @@ func _process(delta):
 		else:
 			isCameraUp = true
 			moveCamera($camera_up.get_position() - $Camera3D.get_position(), $camera_up.get_rotation())
+	
+	# Take photo
+	if Input.is_action_just_pressed("lmb"):
+		takePhoto()
 
 var push_force = 10.0
 func _physics_process(delta):
