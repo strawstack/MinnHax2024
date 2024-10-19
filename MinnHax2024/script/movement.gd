@@ -53,13 +53,24 @@ func moveCamera(target, tRot):
 	tweenCamera.tween_property($Camera3D/camera, "position", target, 0.5)
 	tweenCameraRot.tween_property($Camera3D/camera, "rotation", tRot, 0.5)
 
+func flashOff():
+	$Camera3D/camera/SpotLight3D.set_param(Light3D.PARAM_ENERGY, 0)
+
 func takePhoto():
 	var photo = photoScene.instantiate()
 	gc.photos.add_child(photo)
 	photo.set_position($Camera3D/camera/photo_start.get_global_position())
+
+	# Turn flash on then off after some time
+	$Camera3D/camera/SpotLight3D.set_param(Light3D.PARAM_ENERGY, 3.0)
+	var tween = get_tree().create_tween()
+	tween.tween_interval(0.1).finished
+	tween.tween_callback(flashOff)
+	
 	var vp = $Camera3D/camera/camera_preview_render.get_texture()
 	var texture = ImageTexture.create_from_image(vp.get_image())
 	photo.setTexture(texture)
+
 	photo.eject(get_directions()["forward"])
 
 func _process(delta):
