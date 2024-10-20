@@ -1,4 +1,4 @@
-[gd_scene load_steps=1856 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=1858 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -2111,6 +2111,9 @@ shadow_mesh = SubResource("ArrayMesh_ube5r")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lveo4"]
 data = PackedVector3Array(-0.5, -10.6667, 5.5, -0.5, -0.6667, 4.5, -0.5, -0.6667, 5.5, -0.5, -10.6667, 5.5, -0.5, -10.6667, 4.5, -0.5, -0.6667, 4.5, -0.5, -10.6667, 4.5, 0.5, -0.6667, 4.5, -0.5, -0.6667, 4.5, -0.5, -10.6667, 4.5, 0.5, -10.6667, 4.5, 0.5, -0.6667, 4.5, 0.5, -10.6667, 4.5, 0.5, -0.6667, 5.5, 0.5, -0.6667, 4.5, 0.5, -10.6667, 4.5, 0.5, -10.6667, 5.5, 0.5, -0.6667, 5.5, 0.5, -10.6667, 5.5, -0.5, -0.6667, 5.5, 0.5, -0.6667, 5.5, 0.5, -10.6667, 5.5, -0.5, -10.6667, 5.5, -0.5, -0.6667, 5.5, -0.5, -10.6667, 4.5, 0.5, -10.6667, 5.5, 0.5, -10.6667, 4.5, -0.5, -10.6667, 4.5, -0.5, -10.6667, 5.5, 0.5, -10.6667, 5.5, 0.5, -0.6667, 4.5, -0.5, -0.6667, 5.5, -0.5, -0.6667, 4.5, 0.5, -0.6667, 4.5, 0.5, -0.6667, 5.5, -0.5, -0.6667, 5.5, 0.5, -10.6667, 5.5, 0.5, -0.6667, 5.5, 0.5, -0.6667, 5.5, 0.5, -10.6667, 4.5, 0.5, -0.6667, 5.5, 0.5, -10.6667, 5.5, 0.5, -0.6667, 5.5, 0.5, -0.6667, 4.5, 0.5, -0.6667, 4.5, 0.5, -10.6667, 4.5, 0.5, -0.6667, 4.5, 0.5, -0.6667, 5.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lruji"]
+size = Vector3(1.5, 1.5, 2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g5tk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lbo7w"]
@@ -2957,6 +2960,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w11rj")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f7ub8"]
+data = PackedVector3Array(23, -7, 10.9997, 23, -6, -10, 23, -6, 10.9997, 23, -7, 10.9997, 23, -7, -10, 23, -6, -10, 23, -7, -10, 41, -6, -10, 23, -6, -10, 23, -7, -10, 41, -7, -10, 41, -6, -10, 41, -7, -10, 41, -6, 10.9997, 41, -6, -10, 41, -7, -10, 41, -7, 10.9997, 41, -6, 10.9997, 41, -7, 10.9997, 23, -6, 10.9997, 41, -6, 10.9997, 41, -7, 10.9997, 23, -7, 10.9997, 23, -6, 10.9997, 23, -7, -10, 41, -7, 10.9997, 41, -7, -10, 23, -7, -10, 23, -7, 10.9997, 41, -7, 10.9997, 41, -6, -10, 23, -6, 10.9997, 23, -6, -10, 41, -6, -10, 41, -6, 10.9997, 23, -6, 10.9997)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v01xq"]
 render_priority = 0
@@ -17993,14 +17999,17 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("tram", "beam_elevator", "player_start_point", "player", "photos", "tower")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait")]
 script = ExtResource("1_ffem2")
+player = NodePath("Player")
+playerCamera = NodePath("Player/Camera3D/Camera3D")
 tram = NodePath("tram")
 beam_elevator = NodePath("areas/beginner/beam")
-player_start_point = NodePath("tram/player_start")
-player = NodePath("Player")
 photos = NodePath("photos")
 tower = NodePath("areas/jenga/tower")
+player_start_point = NodePath("tram/player_start")
+walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
+arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2kg6i")
@@ -18645,6 +18654,15 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/beam_area/beam_area_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_lveo4")
 
+[node name="walking_sim_enter_Area3D" type="Area3D" parent="triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.187, 0, -24.5119)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/walking_sim_enter_Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755449, 0)
+shape = SubResource("BoxShape3D_lruji")
+
 [node name="areas" type="Node3D" parent="."]
 
 [node name="roof" type="Node3D" parent="areas"]
@@ -18807,6 +18825,11 @@ skeleton = NodePath("")
 transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, 116, 6, 7.99977)
 mesh = SubResource("ArrayMesh_bf0da")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="areas/floor/Cube_1896"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/floor/Cube_1896/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_f7ub8")
 
 [node name="Cube_1916" type="MeshInstance3D" parent="areas/floor"]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 135, -0.5, -25)
@@ -19302,6 +19325,12 @@ skeleton = NodePath("")
 
 [node name="machine" type="Node3D" parent="areas/arcade"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.147, 0, -24.6281)
+
+[node name="player_wait" type="Node3D" parent="areas/arcade/machine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.62911)
+
+[node name="cameraPoint" type="Node3D" parent="areas/arcade/machine"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 0.35)
 
 [node name="Sprite3D" type="Sprite3D" parent="areas/arcade/machine"]
 transform = Transform3D(0.115, 0, 0, 0, 0.0821222, 0.0805043, 0, -0.0805043, 0.0821222, 0, 1.67503, 0)
@@ -23363,6 +23392,7 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 [connection signal="body_entered" from="triggers/entering_jail/entering_jail_Area3D" to="." method="_on_entering_jail_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/hit_zone/hit_zone_Area3D" to="." method="_on_hit_zone_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/beam_area/beam_area_Area3D" to="." method="_on_beam_area_area_3d_body_entered"]
+[connection signal="body_entered" from="triggers/walking_sim_enter_Area3D" to="." method="_on_walking_sim_enter_area_3d_body_entered"]
 [connection signal="body_entered" from="areas/beginner/Cube_578/white_room_Area3D" to="." method="_on_white_room_area_3d_body_entered"]
 [connection signal="timeout" from="main/SubViewport/CanvasLayer/achievementBox/upTimer" to="main/SubViewport/CanvasLayer" method="_on_up_timer_timeout"]
 [connection signal="timeout" from="main/SubViewport/pauseTimer" to="main" method="_on_pause_timer_timeout"]

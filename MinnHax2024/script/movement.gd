@@ -16,6 +16,9 @@ func _ready():
 	gc = get_tree().get_root().get_node("main")
 
 func _input(event):
+	if gc.isPlayerFrozen():
+		return
+
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
@@ -74,6 +77,9 @@ func takePhoto():
 	photo.eject(get_directions()["forward"])
 
 func _process(delta):
+	if gc.isPlayerFrozen():
+		return
+
 	var dir = get_directions()
 	var vel = Vector3()
 	for d in ["forward", "right", "back", "left"]:

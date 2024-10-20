@@ -1,16 +1,22 @@
 extends Node3D
 
+@export var player: CharacterBody3D
+@export var playerCamera: Camera3D
+
 @export var tram: Node3D
 @export var beam_elevator: Node3D
-@export var player_start_point: Node3D
-@export var player: CharacterBody3D
 @export var photos: Node3D
-
 @export var tower: Node3D
 
-var towerTouched = false
+@export var player_start_point: Node3D
+@export var walkingSimCameraPoint: Node3D
+@export var arcadePlayerWait: Node3D
 
+# Variables
 var debug = true
+var playerFrozen = false
+var playingWalkingSim = false
+var towerTouched = false
 
 func _ready():
 	if debug:
@@ -18,6 +24,13 @@ func _ready():
 	else:
 		tram.start_tram()
 		player.set_position(player_start_point.get_position())
+
+func _process(delta):
+	if playingWalkingSim and Input.is_action_just_pressed("escape"):
+		exitWalkingSim()
+
+func isPlayerFrozen():
+	return playerFrozen
 
 func getPlayer():
 	return player
@@ -29,8 +42,35 @@ func boardTram():
 func exitTram():
 	player.reparent(self)
 
-func _process(delta):
-	pass
+func playWalkingSim():
+	playerFrozen = true
+	
+	# Reparent camera
+	playerCamera.reparent(self)
+	
+	# Animate camera
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property(playerCamera, "position", walkingSimCameraPoint.get_global_position(), 1)
+	tween.tween_property(playerCamera, "rotation", walkingSimCameraPoint.get_global_rotation(), 1)
+	
+	# Reposition player
+	player.set_position(arcadePlayerWait.get_global_position())
+	player.set_rotation_degrees(Vector3(0, -90, 0))
+	
+	playingWalkingSim = true
+
+func exitWalkingSim():
+	playerCamera.reparent(player.get_node("Camera3D"))
+	# Animate camera
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property(playerCamera, "position", Vector3.ZERO, 1)
+	tween.tween_property(playerCamera, "rotation", Vector3.ZERO, 1)
+	playerFrozen = false
+	playingWalkingSim = false
+
+#
+# Triggers
+#
 
 # Entering reception
 func _on_reception_area_3d_body_entered(body):
@@ -80,3 +120,6 @@ func _on_entering_jail_area_3d_body_entered(body):
 
 func _on_beam_area_area_3d_body_entered(body):
 	beam_elevator.up()
+
+func _on_walking_sim_enter_area_3d_body_entered(body):
+	playWalkingSim()

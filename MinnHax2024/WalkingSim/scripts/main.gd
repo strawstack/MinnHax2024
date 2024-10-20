@@ -190,7 +190,8 @@ func dimToBlack(value, callback):
 	tween.tween_callback(callback)
 
 func backToStartComplete():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	# get_tree().change_scene_to_file("res://main_menu.tscn")
+	pass
 
 func backToStart(value):
 	$SubViewport/pauseTimer.set_wait_time(value)
@@ -201,7 +202,7 @@ func fireOn():
 	$SubViewport/eventAssets/fire.turnOn()
 
 func fireOff():
-	$eventAssets/fire.turnOff()
+	$SubViewport/eventAssets/fire.turnOff()
 
 func setChildrenBoundsAndVisible(node, value):
 	node.set_visible(value)
