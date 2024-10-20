@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var gc: Node
+@export var mainRef: Node
 var tagsNode
 @export var charName: String = ""
 
@@ -64,7 +65,7 @@ func otherCharName():
 	return "leo" if charName == "ben" else "ben"
 
 func otherCharNode():
-	return get_tree().root.get_node("main" + "/" + otherCharName())
+	return mainRef.get_node("SubViewport" + "/" + otherCharName())
 
 func checkKeys(charState):
 	facingRequest = null

@@ -35,7 +35,7 @@ var pauseTimerCallback # set by pause function from json
 func fadeInComplete():
 	setState(func(s): s["event"] = true)
 	reportReady("light")
-	var pathName = "res://events/start/data.json"
+	var pathName = "res://WalkingSim/events/start/data.json"
 	tagsNode.callStartEvent(pathName)
 
 func _ready():

@@ -37,7 +37,7 @@ func triggerEvent(cell):
 		gc.setState(func(s): s["event"] = true)
 		var eventNode = tagLookup[hashCell]
 		var eventName = eventNode.name
-		var pathName = "res://events/" + eventName + "/data.json"
+		var pathName = "res://WalkingSim/events/" + eventName + "/data.json"
 		removeEvent(hashCell, eventNode)
 		callStartEvent(pathName)
 
