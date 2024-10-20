@@ -1,0 +1,39 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Hello and welcome to MinnMax! Today, we’re hanging out. It's Ben; it's Leo; and what are y'all up to?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Hi Janet Garcia, this is our new show; it's called Walking Simulator Simulator Simulator. Leo and I are gonna go for a little stroll along the big money we call it. You remember Janet; you've seen this bad boy."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Yeah, how could I forget."
+		},
+		{
+			"type": "achievement",
+			"name": "Walkin' MinnMax Style",
+			"value": "walk_minnmax_style"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "All right, this is what we call walking; we're going to start doing it, and we're walking MinnMax style."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "It’s our first time haha."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Wow, they’re so fast!"
+		}
+	]
+}

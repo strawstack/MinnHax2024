@@ -1,0 +1,59 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Chat wants to know if Leo’s crocks are in sport mode or not?"
+		},
+		{
+			"type": "achievement",
+			"name": "Initialize Sport Mode.",
+			"value": "sport_mode"
+		},		
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Oh, sorry. *click* Sport mode initialized."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "We’re going to do a little exploring this way. Can I show you what we're about to go explore Janet? "
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Sure."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "It may just look like a lump of ice, but I have a feeling there's something special happening in here."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Yeah, what makes you think that?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Cause I’ve been here before haha."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Did you put something in here?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "That’s right... it’s a little easter egg for everybody."
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "ben"
+		}		
+	]
+}

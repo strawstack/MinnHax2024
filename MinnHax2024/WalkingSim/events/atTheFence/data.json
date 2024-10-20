@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Look at this."
+		},
+		{
+			"type": "achievement",
+			"name": "Bring your spray paint.",
+			"value": "spray_paint"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Nice! Did you bring your spray-paint?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Of course, I’m working on a hell of a mural down here."
+		}
+	]
+}

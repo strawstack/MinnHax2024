@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgih6fkg40gsn"]
+
+[ext_resource type="Theme" uid="uid://lpqot0jjb06i" path="res://theme.tres" id="1_aulud"]
+
+[node name="Button3" type="Button"]
+offset_left = 256.0
+offset_top = 240.0
+offset_right = 384.0
+offset_bottom = 272.0
+theme = ExtResource("1_aulud")
+text = "More Info"

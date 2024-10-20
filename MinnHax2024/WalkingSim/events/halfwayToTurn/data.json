@@ -1,0 +1,34 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Let us know if the chat wants to see anything. We can show them our walking shoes, leg muscles, really whatever they want…"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I was expecting you to make fun of mine way sooner."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Your walking shoes? Yeah, what’s going on here."
+		},
+		{
+			"type": "achievement",
+			"name": "crocking it and rocking it",
+			"value": "crock_and_rock"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I’m crocking it and rocking it."
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Nice."
+		}
+	]
+}

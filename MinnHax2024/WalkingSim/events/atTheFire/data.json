@@ -1,0 +1,128 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "fireOn"
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": true
+		},
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "ben",
+				"points": ["ben_chair"]
+			}
+		},
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "leo",
+				"points": ["leo_chair"]
+			}
+		},			
+		{
+			"type": "function",
+			"name": "pause",
+			"value": 3
+		},
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": false
+		},		
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "house_over_water",
+				"speed": 3
+			}
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Chat is like 'those people are rich!'"
+		},
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "ben",
+				"speed": 3
+			}
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Do you think they’re happy Janet? Do you think by and large those people with those houses are happy?"
+		},
+		{
+			"type": "achievement",
+			"name": "Rich as Hell.",
+			"value": "hella_rich"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Oh, hell yeah cause they're rich as hell; they're, yeah, they're ridiculously rich."
+		},
+		{
+			"type": "function",
+			"name": "fireOff"
+		},
+		{
+			"type": "function",
+			"name": "raiseLight"
+		},		
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "ben",
+				"points": [
+					"after_fire_ben_one",
+					"after_fire_ben_two"
+				]
+			}
+		},
+		{
+			"type": "function",
+			"name": "move",
+			"value": {
+				"name": "leo",
+				"points": [
+					"after_fire_leo_one",
+					"after_fire_leo_two"
+				]
+			}
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": false
+		},
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "leo",
+				"speed": 0.5
+			}
+		},		
+		{
+			"type": "function",
+			"name": "camera_track",
+			"value": true
+		},		
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		}
+	]
+}

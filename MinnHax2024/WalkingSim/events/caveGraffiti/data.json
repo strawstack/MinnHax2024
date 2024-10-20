@@ -1,0 +1,79 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "There’s an interesting Graffiti in here to parse."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "There’s an interesting amount of ice water going down my back. Janet, I know it’s tough to convey through the internet, but this feels really cool in here."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "I honestly was getting hot, and this is like an air conditioned room. Have you caught a glimpse of this guy and tried to figure out who he is?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "I think it’s something to do with a certain Police Commissioner?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "It is because we got the donut there..."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Smart."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "... iconic policeman's hat."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Right. Right."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "The cross eyes."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Yep!"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Kind of a duh type of mindset is being depicted here."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "It's a lesson like you know if the police ever come back in this cave..."
+		},
+		{
+			"type": "achievement",
+			"name": "This cave is for the people.",
+			"value": "cave_for_people"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "This cave is for the people."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Haha."
+		}
+	]
+}

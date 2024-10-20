@@ -1,0 +1,74 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo, how much would I have to pay you with love, affection, and praise for you to just sprint up that hill as far as you can go?"
+		},
+		{
+			"type": "function",
+			"name": "hillBlock",
+			"value": 1
+		},		
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Don't do it Leo there's no dollar signs in love, affection, and praise."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Will you buy me Dairy Queen?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "No."
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "At the end of this episode?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Um yeah, that's on the way back right?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Yeah!"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Yeah sure!"
+		},
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "Good job Leo, but, in the future, you ask ‘what's your budget’; never tell them the rate right away haha."
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": true
+		},		
+		{
+			"type": "achievement",
+			"name": "Go Sonic Go!",
+			"value": "go_sonic"
+		},		
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Go Sonic Go!"
+		}		
+	]
+}

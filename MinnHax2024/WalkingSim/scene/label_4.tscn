@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bafmk6d8gd17v"]
+
+[ext_resource type="Theme" uid="uid://lpqot0jjb06i" path="res://theme.tres" id="1_7xqiu"]
+
+[node name="Label4" type="Label"]
+offset_left = 16.0
+offset_top = 272.0
+offset_right = 192.0
+offset_bottom = 368.0
+theme = ExtResource("1_7xqiu")
+theme_override_font_sizes/font_size = 18
+text = "Controls
+WASD or Arrow Keys to move.
+Space or Enter to advance dialogue. "
+vertical_alignment = 2

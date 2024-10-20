@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://lpqot0jjb06i"]
+
+[ext_resource type="FontFile" uid="uid://bldpr8duvoprc" path="res://WalkingSim/VarelaRound-Regular.ttf" id="1_nig4m"]
+
+[resource]
+default_font = ExtResource("1_nig4m")

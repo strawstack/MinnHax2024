@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "I don't want to spoil anything, but we might be coming up on a certain hot eat!"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Uh, this place does not have hot eats. I mean it does, but it's not the full menu."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Okay, it'll be hot when we get it though."
+		}
+	]
+}

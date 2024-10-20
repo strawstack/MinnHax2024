@@ -1,0 +1,57 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Leo, do you think if every time in your life you had the opportunity to eat a french fry, you didn't, you'd be one pound heavier?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "No..."
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "What does that tell you?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Gotta live and let live. This is the path down to the Mississippi if you want to take it?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Dude are you kidding me?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "If you want to start hiking immediately?"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Yeah, welcome to Hiking Simulator Simulator Simulator. It’s about time that that genre levels up. You know?"
+		},
+		{
+			"type": "function",
+			"name": "camera",
+			"value": {
+				"to": "leo",
+				"speed": 1
+			}
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},		
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Let's get vertical!"
+		}
+	]
+}

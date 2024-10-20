@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Are you seeing this?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "Woah!"
+		},
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		}
+	]
+}

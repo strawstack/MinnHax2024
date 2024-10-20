@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"type": "function",
+			"name": "switch",
+			"value": "leo"
+		},
+		{
+			"type": "function",
+			"name": "seperate",
+			"value": false
+		},				
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Haha, smooth!"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"type": "text",
+			"name": "janet",
+			"value": "How do you know where you are right now? Is there much signage? Do you feel it out? Do you sense it? Like what’s the situation here?"
+		},
+		{
+			"type": "text",
+			"name": "leo",
+			"value": "We're feeling it out, and we’re along the river."
+		},
+		{
+			"type": "achievement",
+			"name": "We’re infallible.",
+			"value": "infalable"
+		},
+		{
+			"type": "text",
+			"name": "ben",
+			"value": "Yeah, we’re infallible."
+		}
+	]
+}
