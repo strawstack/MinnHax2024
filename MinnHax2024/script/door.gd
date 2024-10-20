@@ -32,7 +32,7 @@ func close():
 
 var isOpen = false
 func _process(delta):
-	if Input.is_action_just_pressed("run"):
+	if gc.debug and Input.is_action_just_pressed("run"):
 		if isOpen:
 			close()
 			isOpen = false

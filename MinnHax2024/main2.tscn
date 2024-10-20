@@ -19327,7 +19327,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.147, 0, -24.6281)
 
 [node name="player_wait" type="Node3D" parent="areas/arcade/machine"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.62911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.629)
 
 [node name="cameraPoint" type="Node3D" parent="areas/arcade/machine"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 0.35)

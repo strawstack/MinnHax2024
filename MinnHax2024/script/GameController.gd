@@ -26,6 +26,9 @@ func _ready():
 		player.set_position(player_start_point.get_position())
 
 func _process(delta):
+	if debug and Input.is_action_just_pressed("special"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	if playingWalkingSim and Input.is_action_just_pressed("escape"):
 		exitWalkingSim()
 
@@ -55,9 +58,15 @@ func playWalkingSim():
 	
 	# Reposition player
 	player.set_position(arcadePlayerWait.get_global_position())
-	player.set_rotation_degrees(Vector3(0, -90, 0))
+	player.set_rotation_degrees(Vector3(0, 0, 0))
+	player.get_node("Camera3D").set_rotation_degrees(Vector3(0, 0, 0))
 	
 	playingWalkingSim = true
+
+func callbackUnfreezePlayer():
+	player.camera_anglev = 0 # reset to realign vertical look bounds
+	playerFrozen = false
+	playingWalkingSim = false
 
 func exitWalkingSim():
 	playerCamera.reparent(player.get_node("Camera3D"))
@@ -65,8 +74,7 @@ func exitWalkingSim():
 	var tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property(playerCamera, "position", Vector3.ZERO, 1)
 	tween.tween_property(playerCamera, "rotation", Vector3.ZERO, 1)
-	playerFrozen = false
-	playingWalkingSim = false
+	tween.tween_callback(callbackUnfreezePlayer)
 
 #
 # Triggers
