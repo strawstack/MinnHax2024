@@ -1,0 +1,59 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://da4ab6ia6skjh"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_kym1c"]
+constant = Color(0.227451, 0.290196, 1, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_51keg"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_bx0ky"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ad5mk"]
+default_input_values = [0, 0.0, 1, 0.5]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+
+void fragment() {
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(0.227451, 0.290196, 1.000000, 1.000000);
+
+
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+
+
+// FloatOp:5
+	float n_in5p1 = 0.50000;
+	float n_out5p0 = n_out4p1 * n_in5p1;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out5p0;
+
+
+}
+"
+graph_offset = Vector2(-438.699, -131.915)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_kym1c")
+nodes/fragment/2/position = Vector2(220, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_51keg")
+nodes/fragment/3/position = Vector2(-240, 180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_bx0ky")
+nodes/fragment/4/position = Vector2(60, 180)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_ad5mk")
+nodes/fragment/5/position = Vector2(220, 220)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 4, 0, 4, 1, 5, 0, 5, 0, 0, 1)
