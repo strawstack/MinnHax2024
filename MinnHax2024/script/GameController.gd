@@ -20,6 +20,9 @@ var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
 
+# state tracking
+var once = {}
+
 func _ready():
 	if debug:
 		pass
@@ -82,14 +85,23 @@ func getAudio(clipName):
 	return audioLoad.getAudio(clipName)
 
 #
-# Triggers
+# Signals
 #
+
+func onlyOnce(signalName):
+	if not signalName in once:
+		once[signalName] = true
+		return true
+	return false
 
 # Entering reception
 func _on_reception_area_3d_body_entered(body):
-	orby.trackPlayer(true)
-	await orby.moveToName("r1")
-	orby.say("testing")
+	if onlyOnce("_on_reception_area_3d_body_entered"):
+		orby.lookAtName("player")
+		await orby.moveToName("r1")
+		await orby.say("testing")
+		await orby.lookAtAndMoveToName("pre_gi_heart")
+		orby.lookAtName("gi_heart")
 
 # Entering GI
 func _on_entering_gi_area_3d_body_entered(body):
