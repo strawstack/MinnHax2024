@@ -3,6 +3,7 @@ extends Node3D
 @export var player: CharacterBody3D
 @export var playerCamera: Camera3D
 @export var orby: Node3D
+@export var audioLoad: Node3D
 
 @export var tram: Node3D
 @export var beam_elevator: Node3D
@@ -77,6 +78,9 @@ func exitWalkingSim():
 	tween.tween_property(playerCamera, "rotation", Vector3.ZERO, 1)
 	tween.tween_callback(callbackUnfreezePlayer)
 
+func getAudio(clipName):
+	return audioLoad.getAudio(clipName)
+
 #
 # Triggers
 #
@@ -84,7 +88,8 @@ func exitWalkingSim():
 # Entering reception
 func _on_reception_area_3d_body_entered(body):
 	orby.trackPlayer(true)
-	orby.moveToName("r1")
+	await orby.moveToName("r1")
+	orby.say("testing")
 
 # Entering GI
 func _on_entering_gi_area_3d_body_entered(body):

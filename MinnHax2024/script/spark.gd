@@ -6,7 +6,7 @@ var oneSecPer = 2.0
 var isTrackingPlayer = false
 var player
 
-var SMOOTH_SPEED = 10
+var SMOOTH_SPEED = 1
 
 var gc
 func _ready():
@@ -34,6 +34,11 @@ func lookAtAndMoveTo(target):
 
 func trackPlayer(state):
 	isTrackingPlayer = state
+
+func say(clipName):
+	var audioStream = gc.getAudio(clipName)
+	$AudioStreamPlayer3D.set_stream(audioStream)
+	$AudioStreamPlayer3D.play()
 
 func _process(delta):
 	if isTrackingPlayer:
