@@ -106,7 +106,7 @@ func _process(delta):
 			moveCamera($camera_up.get_position() - $Camera3D.get_position(), $camera_up.get_rotation())
 	
 	# Take photo
-	if Input.is_action_just_pressed("lmb"):
+	if isCameraUp and Input.is_action_just_pressed("lmb"):
 		takePhoto()
 
 var push_force = 10.0

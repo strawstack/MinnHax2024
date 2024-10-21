@@ -2,6 +2,7 @@ extends Node3D
 
 @export var player: CharacterBody3D
 @export var playerCamera: Camera3D
+@export var orby: Node3D
 
 @export var tram: Node3D
 @export var beam_elevator: Node3D
@@ -82,7 +83,8 @@ func exitWalkingSim():
 
 # Entering reception
 func _on_reception_area_3d_body_entered(body):
-	print("Entering reception")
+	orby.trackPlayer(true)
+	orby.moveToName("r1")
 
 # Entering GI
 func _on_entering_gi_area_3d_body_entered(body):

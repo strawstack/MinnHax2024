@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dat2s8v2oq8bn"]
 
-[ext_resource type="Script" path="res://photo.gd" id="1_qtw18"]
+[ext_resource type="Script" path="res://script/photo.gd" id="1_qtw18"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5nmi"]
 albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
