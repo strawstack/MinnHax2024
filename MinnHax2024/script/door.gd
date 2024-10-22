@@ -22,6 +22,7 @@ func open():
 	var pos = door.get_position()
 	pos.y = openY
 	tween.tween_property(door, "position", pos, 0.5)
+	await tween.finished
 
 func close():
 	toggleBlocking(true)
@@ -32,13 +33,14 @@ func close():
 
 var isOpen = false
 func _process(delta):
-	if gc.debug and Input.is_action_just_pressed("run"):
-		if isOpen:
-			close()
-			isOpen = false
-		else:
-			open()
-			isOpen = true
+	if false:
+		if gc.debug and Input.is_action_just_pressed("run"):
+			if isOpen:
+				close()
+				isOpen = false
+			else:
+				open()
+				isOpen = true
 
 func toggleBlocking(state):
 	if state == true:

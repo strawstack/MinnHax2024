@@ -84,7 +84,7 @@ func _process(delta):
 	$body.set_rotation(Vector3(lerp_angle($body.rotation.x, xa, delta * SMOOTH_SPEED), 0, 0))
 	set_rotation(Vector3(0, lerp_angle(rotation.y, ya, delta * SMOOTH_SPEED), 0))
 	
-	var small = 0.05
+	var small = 0.1
 	var dya = angleDiff(rotation.y, ya)
 	if dya < small and targetingInProgress:
 		targetingInProgress = false

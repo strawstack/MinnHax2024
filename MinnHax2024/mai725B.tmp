@@ -18170,16 +18170,11 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_sm8t0")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="orby/body"]
-light_color = Color(0.317647, 0.439216, 1, 1)
-light_energy = 6.0
-
-[node name="eye" type="MeshInstance3D" parent="orby/body" node_paths=PackedStringArray("omniLight3D")]
+[node name="eye" type="MeshInstance3D" parent="orby/body"]
 transform = Transform3D(2.81496e-08, 0, -0.643988, 0, -0.643988, 0, 0.643988, 0, 2.81496e-08, 0, 0, -1.3)
 mesh = SubResource("ArrayMesh_fjv6s")
 skeleton = NodePath("")
 script = ExtResource("7_8xcr3")
-omniLight3D = NodePath("../OmniLight3D")
 
 [node name="orbyPoints" type="Node3D" parent="."]
 

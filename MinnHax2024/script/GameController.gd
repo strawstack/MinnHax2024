@@ -22,6 +22,13 @@ var towerTouched = false
 
 # state tracking
 var once = {}
+var overlap = {}
+
+# Triggers
+@export var entering_gi: Area3D
+
+# Doors
+@export var lobby_heart_door: Node3D
 
 func _ready():
 	if debug:
@@ -84,12 +91,18 @@ func exitWalkingSim():
 func getAudio(clipName):
 	return audioLoad.getAudio(clipName)
 
+func waitOnArea(area3D):
+	if area3D.name in overlap:
+		return true
+	else:
+		await area3D.body_entered
+
 #
 # Signals
 #
 
 func onlyOnce(signalName):
-	if not signalName in once:
+	if not (signalName in once):
 		once[signalName] = true
 		return true
 	return false
@@ -99,11 +112,22 @@ func _on_reception_area_3d_body_entered(body):
 	if onlyOnce("_on_reception_area_3d_body_entered"):
 		orby.lookAtName("player")
 		await orby.moveToName("r1")
-		await orby.say("testing")
+		await orby.say("testing") # Tour guide introduction, and lets start the tour
 		await orby.lookAtAndMoveToName("pre_gi_heart")
-		orby.lookAtName("gi_heart")
+		await orby.lookAtName("gi_heart")
+		await lobby_heart_door.open()
+		await orby.moveToName("gi_heart")
+		await orby.lookAtAndMoveToName("mag_two")
+		orby.lookAtName("player")
+		await entering_gi.body_entered
+		lobby_heart_door.close()
+		await orby.say("testing") # Talking about mag collection
+		await get_tree().create_timer(5.0).timeout
+		orby.say("testing") # Meet me over by the door when you're ready
+		await orby.lookAtAndMoveToName("pre_art_heart")
+		await orby.lookAtName("player")
 
-# Entering GI
+# Track entering_gi overlap
 func _on_entering_gi_area_3d_body_entered(body):
 	print("Entering GI")
 
@@ -150,3 +174,6 @@ func _on_beam_area_area_3d_body_entered(body):
 
 func _on_walking_sim_enter_area_3d_body_entered(body):
 	playWalkingSim()
+
+
+

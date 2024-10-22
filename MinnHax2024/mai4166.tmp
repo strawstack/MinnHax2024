@@ -1,4 +1,4 @@
-[gd_scene load_steps=1872 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=1871 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -10,7 +10,6 @@
 [ext_resource type="Shader" uid="uid://da4ab6ia6skjh" path="res://texture/cone_light_beam.tres" id="4_ddiqk"]
 [ext_resource type="Shader" uid="uid://dkprfsvwk1tdh" path="res://texture/smoke_and_thread.tres" id="5_xsd60"]
 [ext_resource type="Shader" uid="uid://bc35nvfws5yd4" path="res://texture/floor_plain.tres" id="6_lux4f"]
-[ext_resource type="Script" path="res://script/eye_pulse.gd" id="7_8xcr3"]
 [ext_resource type="Shader" uid="uid://ngyq51cndac4" path="res://texture/glass_window.tres" id="7_202cc"]
 [ext_resource type="Texture2D" uid="uid://cy5m22kbd53u5" path="res://model/mm_v2_minnmax_logo_texture.png" id="8_hsqus"]
 [ext_resource type="Shader" uid="uid://hjqe1q0cjfck" path="res://texture/stripes.tres" id="9_6fepl"]
@@ -205,7 +204,7 @@ shadow_mesh = SubResource("ArrayMesh_wqlcy")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6i8w"]
 albedo_color = Color(0.188235, 0.239216, 1, 1)
 emission_enabled = true
-emission = Color(0.285339, 0.417295, 1, 1)
+emission = Color(0.186365, 0.23925, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vbnh3"]
 _surfaces = [{
@@ -18113,7 +18112,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "entering_gi", "lobby_heart_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -18126,8 +18125,6 @@ tower = NodePath("areas/jenga/tower")
 player_start_point = NodePath("tram/player_start")
 walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
-entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
-lobby_heart_door = NodePath("areas/lobby/heart_door")
 
 [node name="audioLoad" type="Node3D" parent="."]
 script = ExtResource("3_2m141")
@@ -18149,7 +18146,6 @@ orbyPoints = NodePath("../orbyPoints")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="orby"]
 stream = ExtResource("4_aay7y")
-bus = &"Orby"
 
 [node name="body" type="Node3D" parent="orby"]
 
@@ -18170,16 +18166,10 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_sm8t0")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="orby/body"]
-light_color = Color(0.317647, 0.439216, 1, 1)
-light_energy = 6.0
-
-[node name="eye" type="MeshInstance3D" parent="orby/body" node_paths=PackedStringArray("omniLight3D")]
+[node name="eye" type="MeshInstance3D" parent="orby/body"]
 transform = Transform3D(2.81496e-08, 0, -0.643988, 0, -0.643988, 0, 0.643988, 0, 2.81496e-08, 0, 0, -1.3)
 mesh = SubResource("ArrayMesh_fjv6s")
 skeleton = NodePath("")
-script = ExtResource("7_8xcr3")
-omniLight3D = NodePath("../OmniLight3D")
 
 [node name="orbyPoints" type="Node3D" parent="."]
 
@@ -18200,9 +18190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 5, 2)
 
 [node name="mag_three" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99, 5, 2)
-
-[node name="pre_art_heart" type="Node3D" parent="orbyPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 6, -4)
 
 [node name="art_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 4, -2)
@@ -23610,6 +23597,7 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 
 [connection signal="body_entered" from="triggers/reception/reception_Area3D" to="." method="_on_reception_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_gi/entering_gi_Area3D" to="." method="_on_entering_gi_area_3d_body_entered"]
+[connection signal="body_exited" from="triggers/entering_gi/entering_gi_Area3D" to="." method="_on_entering_gi_area_3d_body_exited"]
 [connection signal="body_entered" from="triggers/entering_art/entering_art_Area3D" to="." method="_on_entering_art_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_arcade/entering_arcade_Area3D" to="." method="_on_entering_arcade_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_art/exiting_art_Area3D" to="." method="_on_exiting_art_area_3d_body_entered"]
