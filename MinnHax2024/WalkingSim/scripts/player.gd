@@ -12,7 +12,10 @@ var facingLookup
 var facingRequest = null
 var moveRequest = null
 
+var gcc
+
 func _ready():
+	gcc = get_tree().get_root().get_node("main")
 	var curCell = currentCell()
 	tagsNode = gc.getTagsNode()
 	gc.setState(func(s): s[charName]["cell"] = curCell)
@@ -23,7 +26,7 @@ func _ready():
 		Vector2(0, 1),
 		Vector2(-1, 0)
 	]
-	
+
 func movingFalse():
 	var state = gc.getState()
 	var curCell = currentCell()
@@ -71,19 +74,19 @@ func checkKeys(charState):
 	facingRequest = null
 	moveRequest = null
 
-	if Input.is_action_pressed("up"):
+	if gcc.playingWalkingSim and Input.is_action_pressed("up"):
 		facingRequest = 0
 		moveRequest = charState["cell"] + Vector2(0, -1)
 		
-	elif Input.is_action_pressed("right"):
+	elif gcc.playingWalkingSim and Input.is_action_pressed("right"):
 		facingRequest = 1
 		moveRequest = charState["cell"] + Vector2(1, 0)
 
-	elif Input.is_action_pressed("down"):
+	elif gcc.playingWalkingSim and Input.is_action_pressed("down"):
 		facingRequest = 2
 		moveRequest = charState["cell"] + Vector2(0, 1)
 
-	elif Input.is_action_pressed("left"):
+	elif gcc.playingWalkingSim and Input.is_action_pressed("left"):
 		facingRequest = 3
 		moveRequest = charState["cell"] + Vector2(-1, 0)
 

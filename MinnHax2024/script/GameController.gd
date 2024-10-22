@@ -26,9 +26,12 @@ var overlap = {}
 
 # Triggers
 @export var entering_gi: Area3D
+@export var exiting_gi: Area3D
+@export var entering_art: Area3D
 
 # Doors
 @export var lobby_heart_door: Node3D
+@export var art_heart_door: Node3D
 
 func _ready():
 	if debug:
@@ -59,7 +62,7 @@ func exitTram():
 
 func playWalkingSim():
 	playerFrozen = true
-	
+
 	# Reparent camera
 	playerCamera.reparent(self)
 	
@@ -112,32 +115,53 @@ func _on_reception_area_3d_body_entered(body):
 	if onlyOnce("_on_reception_area_3d_body_entered"):
 		orby.lookAtName("player")
 		await orby.moveToName("r1")
-		await orby.say("testing") # Tour guide introduction, and lets start the tour
+		await orby.say("testing_once") # Tour guide introduction, and lets start the tour
 		await orby.lookAtAndMoveToName("pre_gi_heart")
 		await orby.lookAtName("gi_heart")
 		await lobby_heart_door.open()
 		await orby.moveToName("gi_heart")
 		await orby.lookAtAndMoveToName("mag_two")
 		orby.lookAtName("player")
-		await entering_gi.body_entered
-		lobby_heart_door.close()
-		await orby.say("testing") # Talking about mag collection
-		await get_tree().create_timer(5.0).timeout
-		orby.say("testing") # Meet me over by the door when you're ready
+		await waitOnArea(entering_gi)
+		await orby.say("testing_once") # Talking about mag collection
+		await get_tree().create_timer(1.0).timeout
+		orby.say("testing_once") # Meet me over by the door when you're ready
 		await orby.lookAtAndMoveToName("pre_art_heart")
 		await orby.lookAtName("player")
+		await waitOnArea(exiting_gi)
+		await art_heart_door.open()
+		await orby.lookAtAndMoveToName("art_heart")
+		await orby.lookAtAndMoveToName("art_one")
+		orby.lookAtName("player")
+		await waitOnArea(entering_art)
+		
+		await orby.say("testing_once") # Art one dialogue
+		await orby.lookAtAndMoveToName("art_one")
+		orby.lookAtName("player")
+		
+		await orby.say("testing_once") # Art two dialogue
+		await orby.lookAtAndMoveToName("art_two")
+		orby.lookAtName("player")
+		
+		await orby.say("testing_once") # Art three dialogue
+		await orby.lookAtAndMoveToName("art_three")
+		orby.lookAtName("player")
 
 # Track entering_gi overlap
 func _on_entering_gi_area_3d_body_entered(body):
-	print("Entering GI")
+	lobby_heart_door.close()
+	overlap[entering_gi.name] = true
 
-# Exiting GI
+# Track exiting_gi overlap
 func _on_exiting_gi_area_3d_body_entered(body):
-	print("Exiting GI")
+	overlap[exiting_gi.name] = true
+func _on_exiting_gi_area_3d_body_exited(body):
+	overlap.erase(exiting_gi.name)
 
 # Entering art
 func _on_entering_art_area_3d_body_entered(body):
-	print("Entering Art")
+	art_heart_door.close()
+	overlap[entering_art.name] = true
 
 func _on_exiting_art_area_3d_body_entered(body):
 	print("exiting_art")
@@ -174,6 +198,12 @@ func _on_beam_area_area_3d_body_entered(body):
 
 func _on_walking_sim_enter_area_3d_body_entered(body):
 	playWalkingSim()
+
+
+
+
+
+
 
 
 

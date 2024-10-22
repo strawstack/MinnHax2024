@@ -236,4 +236,5 @@ func _on_pause_timer_timeout():
 	temp.call()
 
 func _on_wind_forest_crows_finished():
-	$SubViewport/audioStreams/wind_forest_crows.play()
+	pass
+	# $SubViewport/audioStreams/wind_forest_crows.play()

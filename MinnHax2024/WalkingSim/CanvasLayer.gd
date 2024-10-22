@@ -49,7 +49,10 @@ var symbolLookup = {
 	".": true
 }
 
+var gcc
+
 func _ready():
+	gcc = get_tree().get_root().get_node("main")
 	boxLeft = get_node("textBoxLeft")
 	boxRight = get_node("textBoxRight")
 	achievementBox = get_node("achievementBox")
@@ -197,7 +200,7 @@ func _process(delta):
 					charTimer = charSpeed
 				targetLabel.set_visible_characters(ncv)
 
-	if keyPressActive and Input.is_action_just_pressed("action"):
+	if gcc.playingWalkingSim and keyPressActive and Input.is_action_just_pressed("action"):
 		if textAnimating:
 			textAnimating = false
 			targetAdvance.set_visible(true)

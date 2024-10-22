@@ -12,6 +12,8 @@ var current_clip = null
 var current_look_target_node = null
 var targetingInProgress = false
 
+var isSpeaking = false
+
 signal look_complete
 
 var gc
@@ -54,8 +56,10 @@ func say(clipName):
 	var audioStream = gc.getAudio(clipName)
 	$AudioStreamPlayer3D.set_stream(audioStream)
 	current_clip = clipName
+	isSpeaking = true
 	$AudioStreamPlayer3D.play()
 	await $AudioStreamPlayer3D.finished
+	isSpeaking = false
 
 func getPlayerNodeOrDefault(nodeName, defaultFunc):
 	if nodeName == "player":

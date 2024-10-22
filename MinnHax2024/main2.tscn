@@ -1,10 +1,11 @@
-[gd_scene load_steps=1872 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=1873 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
-[ext_resource type="Script" path="res://script/audioPreload.gd" id="3_2m141"]
+[ext_resource type="Script" path="res://script/audioLoad.gd" id="3_2m141"]
 [ext_resource type="Script" path="res://script/spark.gd" id="3_4dwtl"]
 [ext_resource type="Script" path="res://script/movement.gd" id="3_h4lns"]
+[ext_resource type="AudioStream" uid="uid://npil84jnmvup" path="res://audio/testing_once.mp3" id="4_8fw8k"]
 [ext_resource type="Script" path="res://script/tram.gd" id="4_51gok"]
 [ext_resource type="AudioStream" uid="uid://cqay1tixnp0vg" path="res://audio/testing.mp3" id="4_aay7y"]
 [ext_resource type="Shader" uid="uid://da4ab6ia6skjh" path="res://texture/cone_light_beam.tres" id="4_ddiqk"]
@@ -1840,6 +1841,41 @@ shadow_mesh = SubResource("ArrayMesh_flnah")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j7rlh"]
 data = PackedVector3Array(-1, -5.3333, 3.9999, -1, 1.6667, -4, -1, 1.6667, 3.9999, -1, -5.3333, 3.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, -5.3333, -4, 1, 1.6667, -4, 1, -5.3333, -4, 1, 1.6667, 3.9999, 1, 1.6667, -4, 1, -5.3333, -4, 1, -5.3333, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, 1.6667, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, -5.3333, 3.9999, -1, 1.6667, 3.9999, -1, -5.3333, -4, 1, -5.3333, 3.9999, 1, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 3.9999, 1, -5.3333, 3.9999, 1, 1.6667, -4, -1, 1.6667, 3.9999, -1, 1.6667, -4, 1, 1.6667, -4, 1, 1.6667, 3.9999, -1, 1.6667, 3.9999)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdg62"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7uhfx"]
+_surfaces = [{
+"aabb": AABB(-1, -5.33333, -4, 2, 7, 8.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dy41i"]
+resource_name = "level_Cube_163"
+_surfaces = [{
+"aabb": AABB(-1, -5.33333, -4, 2, 7, 8.00001),
+"attribute_data": PackedByteArray(255, 127, 255, 15, 255, 31, 255, 127, 255, 111, 255, 127, 255, 127, 255, 127, 0, 0, 255, 127, 255, 63, 255, 15, 255, 31, 0, 0, 255, 111, 255, 255, 255, 63, 255, 127, 0, 0, 255, 255, 255, 95, 255, 15, 0, 0, 255, 127, 255, 223, 255, 255, 255, 95, 255, 127, 255, 111, 255, 255, 255, 95, 255, 15, 0, 0, 0, 0, 255, 223, 255, 127, 255, 95, 255, 127, 255, 111, 255, 127, 255, 31, 255, 127, 255, 31, 0, 0, 255, 63, 255, 127, 255, 63, 0, 0),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 9, 0, 4, 0, 2, 0, 7, 0, 9, 0, 5, 0, 18, 0, 8, 0, 5, 0, 15, 0, 18, 0, 17, 0, 14, 0, 19, 0, 17, 0, 12, 0, 14, 0, 10, 0, 3, 0, 13, 0, 10, 0, 0, 0, 3, 0, 6, 0, 11, 0, 16, 0, 6, 0, 1, 0, 11, 0, 23, 0, 20, 0, 21, 0, 23, 0, 22, 0, 20, 0),
+"material": SubResource("StandardMaterial3D_vdg62"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 127, 255, 127, 84, 85, 170, 170, 255, 255, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 255, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7uhfx")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qg6q7"]
+data = PackedVector3Array(-1, -5.3333, 3.9999, -1, 1.6667, -4, -1, 1.6667, 3.9999, -1, -5.3333, 3.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, -5.3333, -4, 1, 1.6667, -4, 1, -5.3333, -4, 1, 1.6667, 3.9999, 1, 1.6667, -4, 1, -5.3333, -4, 1, -5.3333, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, 1.6667, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, -5.3333, 3.9999, -1, 1.6667, 3.9999, -1, -5.3333, -4, 1, -5.3333, 3.9999, 1, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 3.9999, 1, -5.3333, 3.9999, 1, 1.6667, -4, -1, 1.6667, 3.9999, -1, 1.6667, -4, 1, 1.6667, -4, 1, 1.6667, 3.9999, -1, 1.6667, 3.9999)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xd3p"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h527s"]
@@ -2013,41 +2049,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w6wbo")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uigg7"]
-data = PackedVector3Array(-1, -5.3333, 3.9999, -1, 1.6667, -4, -1, 1.6667, 3.9999, -1, -5.3333, 3.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, -5.3333, -4, 1, 1.6667, -4, 1, -5.3333, -4, 1, 1.6667, 3.9999, 1, 1.6667, -4, 1, -5.3333, -4, 1, -5.3333, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, 1.6667, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, -5.3333, 3.9999, -1, 1.6667, 3.9999, -1, -5.3333, -4, 1, -5.3333, 3.9999, 1, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 3.9999, 1, -5.3333, 3.9999, 1, 1.6667, -4, -1, 1.6667, 3.9999, -1, 1.6667, -4, 1, 1.6667, -4, 1, 1.6667, 3.9999, -1, 1.6667, 3.9999)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdg62"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_7uhfx"]
-_surfaces = [{
-"aabb": AABB(-1, -5.33333, -4, 2, 7, 8.00001),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_dy41i"]
-resource_name = "level_Cube_163"
-_surfaces = [{
-"aabb": AABB(-1, -5.33333, -4, 2, 7, 8.00001),
-"attribute_data": PackedByteArray(255, 127, 255, 15, 255, 31, 255, 127, 255, 111, 255, 127, 255, 127, 255, 127, 0, 0, 255, 127, 255, 63, 255, 15, 255, 31, 0, 0, 255, 111, 255, 255, 255, 63, 255, 127, 0, 0, 255, 255, 255, 95, 255, 15, 0, 0, 255, 127, 255, 223, 255, 255, 255, 95, 255, 127, 255, 111, 255, 255, 255, 95, 255, 15, 0, 0, 0, 0, 255, 223, 255, 127, 255, 95, 255, 127, 255, 111, 255, 127, 255, 31, 255, 127, 255, 31, 0, 0, 255, 63, 255, 127, 255, 63, 0, 0),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray(2, 0, 9, 0, 4, 0, 2, 0, 7, 0, 9, 0, 5, 0, 18, 0, 8, 0, 5, 0, 15, 0, 18, 0, 17, 0, 14, 0, 19, 0, 17, 0, 12, 0, 14, 0, 10, 0, 3, 0, 13, 0, 10, 0, 0, 0, 3, 0, 6, 0, 11, 0, 16, 0, 6, 0, 1, 0, 11, 0, 23, 0, 20, 0, 21, 0, 23, 0, 22, 0, 20, 0),
-"material": SubResource("StandardMaterial3D_vdg62"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 127, 255, 127, 84, 85, 170, 170, 255, 255, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 255, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_7uhfx")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qg6q7"]
 data = PackedVector3Array(-1, -5.3333, 3.9999, -1, 1.6667, -4, -1, 1.6667, 3.9999, -1, -5.3333, 3.9999, -1, -5.3333, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, 1.6667, -4, -1, 1.6667, -4, -1, -5.3333, -4, 1, -5.3333, -4, 1, 1.6667, -4, 1, -5.3333, -4, 1, 1.6667, 3.9999, 1, 1.6667, -4, 1, -5.3333, -4, 1, -5.3333, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, 1.6667, 3.9999, 1, 1.6667, 3.9999, 1, -5.3333, 3.9999, -1, -5.3333, 3.9999, -1, 1.6667, 3.9999, -1, -5.3333, -4, 1, -5.3333, 3.9999, 1, -5.3333, -4, -1, -5.3333, -4, -1, -5.3333, 3.9999, 1, -5.3333, 3.9999, 1, 1.6667, -4, -1, 1.6667, 3.9999, -1, 1.6667, -4, 1, 1.6667, -4, 1, 1.6667, 3.9999, -1, 1.6667, 3.9999)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t0gs"]
@@ -18113,7 +18114,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "entering_gi", "lobby_heart_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "entering_gi", "exiting_gi", "entering_art", "lobby_heart_door", "art_heart_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -18127,11 +18128,14 @@ player_start_point = NodePath("tram/player_start")
 walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
 entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
+exiting_gi = NodePath("triggers/exiting_gi/exiting_gi_Area3D")
+entering_art = NodePath("triggers/entering_art/entering_art_Area3D")
 lobby_heart_door = NodePath("areas/lobby/heart_door")
+art_heart_door = NodePath("areas/gi_library/heart_door")
 
 [node name="audioLoad" type="Node3D" parent="."]
 script = ExtResource("3_2m141")
-resource = Array[Resource]([ExtResource("4_aay7y")])
+resource = Array[Resource]([ExtResource("4_aay7y"), ExtResource("4_8fw8k")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2kg6i")
@@ -18174,11 +18178,12 @@ skeleton = NodePath("")
 light_color = Color(0.317647, 0.439216, 1, 1)
 light_energy = 6.0
 
-[node name="eye" type="MeshInstance3D" parent="orby/body" node_paths=PackedStringArray("omniLight3D")]
+[node name="eye" type="MeshInstance3D" parent="orby/body" node_paths=PackedStringArray("orby", "omniLight3D")]
 transform = Transform3D(2.81496e-08, 0, -0.643988, 0, -0.643988, 0, 0.643988, 0, 2.81496e-08, 0, 0, -1.3)
 mesh = SubResource("ArrayMesh_fjv6s")
 skeleton = NodePath("")
 script = ExtResource("7_8xcr3")
+orby = NodePath("../..")
 omniLight3D = NodePath("../OmniLight3D")
 
 [node name="orbyPoints" type="Node3D" parent="."]
@@ -18250,7 +18255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 5, 8)
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 45.717, 1, -12.6302)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 45.717, 1, -13.6302)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
@@ -18740,6 +18745,19 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_gi/entering_gi_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_j7rlh")
 
+[node name="exiting_gi" type="MeshInstance3D" parent="triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, 5.33333, 0)
+visible = false
+mesh = SubResource("ArrayMesh_dy41i")
+skeleton = NodePath("")
+
+[node name="exiting_gi_Area3D" type="Area3D" parent="triggers/exiting_gi"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_gi/exiting_gi_Area3D"]
+shape = SubResource("ConcavePolygonShape3D_qg6q7")
+
 [node name="entering_art" type="MeshInstance3D" parent="triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 5.33333, 0)
 visible = false
@@ -18804,19 +18822,6 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/entering_jenga/entering_jenga_Area3D"]
 shape = SubResource("ConcavePolygonShape3D_uigg7")
-
-[node name="exiting_gi" type="MeshInstance3D" parent="triggers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, 5.33333, 0)
-visible = false
-mesh = SubResource("ArrayMesh_dy41i")
-skeleton = NodePath("")
-
-[node name="exiting_gi_Area3D" type="Area3D" parent="triggers/exiting_gi"]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="triggers/exiting_gi/exiting_gi_Area3D"]
-shape = SubResource("ConcavePolygonShape3D_qg6q7")
 
 [node name="exiting_jenga" type="MeshInstance3D" parent="triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178, 5.33333, -25)
@@ -19186,7 +19191,7 @@ mesh = SubResource("ArrayMesh_87sfe")
 skeleton = NodePath("")
 
 [node name="barrier" type="MeshInstance3D" parent="areas/lobby/heart_door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 4.66667, -34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 4.66667, 0)
 visible = false
 mesh = SubResource("ArrayMesh_87sfe")
 skeleton = NodePath("")
@@ -22754,7 +22759,6 @@ volume_db = -30.0
 [node name="wind_forest_crows" type="AudioStreamPlayer" parent="main/SubViewport/audioStreams"]
 stream = ExtResource("75_avdwc")
 volume_db = -50.0
-autoplay = true
 
 [node name="grass" type="TileMap" parent="main/SubViewport"]
 tile_set = SubResource("TileSet_gw6ap")
@@ -23610,12 +23614,13 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 
 [connection signal="body_entered" from="triggers/reception/reception_Area3D" to="." method="_on_reception_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_gi/entering_gi_Area3D" to="." method="_on_entering_gi_area_3d_body_entered"]
+[connection signal="body_entered" from="triggers/exiting_gi/exiting_gi_Area3D" to="." method="_on_exiting_gi_area_3d_body_entered"]
+[connection signal="body_exited" from="triggers/exiting_gi/exiting_gi_Area3D" to="." method="_on_exiting_gi_area_3d_body_exited"]
 [connection signal="body_entered" from="triggers/entering_art/entering_art_Area3D" to="." method="_on_entering_art_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_arcade/entering_arcade_Area3D" to="." method="_on_entering_arcade_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_art/exiting_art_Area3D" to="." method="_on_exiting_art_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_arcade/exiting_arcade_Area3D" to="." method="_on_exiting_arcade_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_jenga/entering_jenga_Area3D" to="." method="_on_entering_jenga_area_3d_body_entered"]
-[connection signal="body_entered" from="triggers/exiting_gi/exiting_gi_Area3D" to="." method="_on_exiting_gi_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_jenga/exiting_jenga_Area3D" to="." method="_on_exiting_jenga_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_beginner/entering_beginner_Area3D" to="." method="_on_entering_beginner_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_jail/entering_jail_Area3D" to="." method="_on_entering_jail_area_3d_body_entered"]
