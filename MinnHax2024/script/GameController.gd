@@ -28,10 +28,19 @@ var overlap = {}
 @export var entering_gi: Area3D
 @export var exiting_gi: Area3D
 @export var entering_art: Area3D
+@export var exiting_art: Area3D
+@export var entering_arcade: Area3D
+@export var exiting_arcade: Area3D
+@export var entering_jenga: Area3D
+@export var exiting_jenga: Area3D
+@export var entering_beginner: Area3D
 
 # Doors
 @export var lobby_heart_door: Node3D
 @export var art_heart_door: Node3D
+@export var arcade_heart_door: Node3D
+@export var jenga_heart_door: Node3D
+@export var beginner_heart_door: Node3D
 
 func _ready():
 	if debug:
@@ -136,16 +145,55 @@ func _on_reception_area_3d_body_entered(body):
 		await waitOnArea(entering_art)
 		
 		await orby.say("testing_once") # Art one dialogue
-		await orby.lookAtAndMoveToName("art_one")
-		orby.lookAtName("player")
 		
-		await orby.say("testing_once") # Art two dialogue
 		await orby.lookAtAndMoveToName("art_two")
 		orby.lookAtName("player")
+		await orby.say("testing_once") # Art two dialogue
 		
-		await orby.say("testing_once") # Art three dialogue
 		await orby.lookAtAndMoveToName("art_three")
 		orby.lookAtName("player")
+		await orby.say("testing_once") # Art three dialogue
+		await get_tree().create_timer(1.0).timeout
+		
+		orby.say("testing_once") # Go to door to continue the tour
+		await orby.lookAtAndMoveToName("pre_arcade_heart")
+		orby.lookAtName("player")
+		
+		await waitOnArea(exiting_art)
+		await arcade_heart_door.open()
+		await orby.lookAtAndMoveToName("arcade_heart")
+		await orby.lookAtAndMoveToName("arcade_machine")
+		orby.lookAtName("player")
+		await waitOnArea(entering_arcade)
+		await orby.say("testing_once") # Talking about walking simulator
+		await get_tree().create_timer(1.0).timeout
+		
+		await orby.say("testing_once") # Head to the door
+		await orby.lookAtAndMoveToName("pre_arcade_heart")
+		
+		await waitOnArea(exiting_arcade)
+		await jenga_heart_door.open()
+		await orby.lookAtAndMoveToName("jenga_heart")
+		await orby.lookAtAndMoveToName("jenga_tower")
+		orby.lookAtName("player")
+		
+		await waitOnArea(entering_jenga)
+		
+		await orby.say("testing_once") # Talk about the tower
+		await get_tree().create_timer(1.0).timeout
+		
+		await orby.say("testing_once") # Lets go to next section
+		await orby.lookAtAndMoveToName("pre_beginner_heart")
+		
+		await waitOnArea(exiting_jenga)
+		await jenga_heart_door.open()
+		await waitOnArea(entering_beginner)
+		
+		# Player must walk forward more
+		# White door closes, narration starts
+		# Black door opens
+		# maybe change in music
+		# Beginners experience starts (break this into another section of steps; another function)
 
 # Track entering_gi overlap
 func _on_entering_gi_area_3d_body_entered(body):
@@ -163,23 +211,36 @@ func _on_entering_art_area_3d_body_entered(body):
 	art_heart_door.close()
 	overlap[entering_art.name] = true
 
+# Exiting art
 func _on_exiting_art_area_3d_body_entered(body):
-	print("exiting_art")
+	overlap[exiting_art.name] = true
+func _on_exiting_art_area_3d_body_exited(body):
+	overlap.erase(exiting_art.name)
 
+# Entering arcade
 func _on_entering_arcade_area_3d_body_entered(body):
-	print("entering_arcade")
+	arcade_heart_door.close()
+	overlap[exiting_art.name] = true
 
+# Exiting arcade
 func _on_exiting_arcade_area_3d_body_entered(body):
-	print("exiting_arcade")
+	overlap[exiting_arcade.name] = true
+func _on_exiting_arcade_area_3d_body_exited(body):
+	overlap.erase(exiting_arcade.name)
 
 func _on_entering_jenga_area_3d_body_entered(body):
-	print("entering_jenga")
+	jenga_heart_door.close()
+	overlap[entering_jenga.name] = true
 
+# Exiting jenga
 func _on_exiting_jenga_area_3d_body_entered(body):
-	pass # Replace with function body.
+	overlap[exiting_jenga.name] = true
+func _on_exiting_jenga_area_3d_body_exited(body):
+	overlap.erase(exiting_jenga.name)
 
 func _on_entering_beginner_area_3d_body_entered(body):
-	pass # Replace with function body.
+	beginner_heart_door.close()
+	overlap[entering_beginner.name] = true
 
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
@@ -198,12 +259,3 @@ func _on_beam_area_area_3d_body_entered(body):
 
 func _on_walking_sim_enter_area_3d_body_entered(body):
 	playWalkingSim()
-
-
-
-
-
-
-
-
-
