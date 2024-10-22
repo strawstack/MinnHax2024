@@ -45,6 +45,7 @@ func _lookAt(targetNode):
 	await look_complete
 
 func lookAtAndMoveToName(pointName):
+	print(pointName)
 	var targetNode = orbyPoints.get_node(pointName)
 	await _lookAtAndMoveTo(targetNode)
 
@@ -76,7 +77,9 @@ func getPositionOrDefault(node, default):
 func angleDiff(a, b):
 	var aa = atan2(sin(a), cos(a))
 	var bb = atan2(sin(b), cos(b))
-	return max(aa, bb) - min(aa, bb)
+	var ans = max(aa, bb) - min(aa, bb)
+	var special_case = 2 * PI - ans # -PI and +PI but still very close
+	return min(ans, special_case)
 
 func _process(delta):
 	var op = get_position() # Orby position

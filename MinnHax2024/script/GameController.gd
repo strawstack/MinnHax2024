@@ -169,7 +169,8 @@ func _on_reception_area_3d_body_entered(body):
 		await get_tree().create_timer(1.0).timeout
 		
 		await orby.say("testing_once") # Head to the door
-		await orby.lookAtAndMoveToName("pre_arcade_heart")
+		await orby.lookAtAndMoveToName("pre_jenga_heart")
+		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_arcade)
 		await jenga_heart_door.open()
@@ -184,6 +185,7 @@ func _on_reception_area_3d_body_entered(body):
 		
 		await orby.say("testing_once") # Lets go to next section
 		await orby.lookAtAndMoveToName("pre_beginner_heart")
+		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_jenga)
 		await jenga_heart_door.open()
@@ -219,8 +221,8 @@ func _on_exiting_art_area_3d_body_exited(body):
 
 # Entering arcade
 func _on_entering_arcade_area_3d_body_entered(body):
-	arcade_heart_door.close()
-	overlap[exiting_art.name] = true
+	arcade_heart_door.close() 
+	overlap[entering_arcade.name] = true
 
 # Exiting arcade
 func _on_exiting_arcade_area_3d_body_entered(body):
