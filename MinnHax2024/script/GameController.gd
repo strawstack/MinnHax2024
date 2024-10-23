@@ -19,6 +19,7 @@ var debug = true
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
+var isSpeaking = false
 
 # state tracking
 var once = {}
@@ -41,6 +42,8 @@ var overlap = {}
 @export var arcade_heart_door: Node3D
 @export var jenga_heart_door: Node3D
 @export var beginner_heart_door: Node3D
+@export var beginner_back_door: Node3D
+@export var jeffm_door: Node3D
 
 func _ready():
 	if debug:
@@ -108,6 +111,14 @@ func waitOnArea(area3D):
 		return true
 	else:
 		await area3D.body_entered
+
+func say(clipName):
+	var audioStream = getAudio(clipName)
+	$AudioStreamPlayer.set_stream(audioStream)
+	isSpeaking = true
+	$AudioStreamPlayer.play()
+	await $AudioStreamPlayer.finished
+	isSpeaking = false
 
 #
 # Signals
@@ -189,13 +200,6 @@ func _on_reception_area_3d_body_entered(body):
 		
 		await waitOnArea(exiting_jenga)
 		await jenga_heart_door.open()
-		await waitOnArea(entering_beginner)
-		
-		# Player must walk forward more
-		# White door closes, narration starts
-		# Black door opens
-		# maybe change in music
-		# Beginners experience starts (break this into another section of steps; another function)
 
 # Track entering_gi overlap
 func _on_entering_gi_area_3d_body_entered(body):
@@ -242,7 +246,16 @@ func _on_exiting_jenga_area_3d_body_exited(body):
 
 func _on_entering_beginner_area_3d_body_entered(body):
 	beginner_heart_door.close()
+	beginner_back_door.close()
 	overlap[entering_beginner.name] = true
+	
+	if onlyOnce("_on_entering_beginner_area_3d_body_entered"):
+		await say("testing_once")
+		jeffm_door.open()
+		# Black door opens
+		# maybe change in music
+		# Beginners experience starts (break this into another section of steps; another function)
+		pass
 
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
