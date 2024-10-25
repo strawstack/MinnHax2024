@@ -38,6 +38,8 @@ var overlap = {}
 @export var entering_jenga: Area3D
 @export var exiting_jenga: Area3D
 @export var entering_beginner: Area3D
+@export var exiting_knife: Area3D
+@export var entering_gift: Area3D
 
 @export var beginner_one: Area3D
 @export var beginner_two: Area3D
@@ -47,6 +49,8 @@ var overlap = {}
 @export var beginner_six: Area3D
 
 @export var entering_jail: Area3D
+@export var exiting_club: Area3D
+@export var entering_knife: Area3D
 
 # Doors
 @export var lobby_heart_door: Node3D
@@ -59,6 +63,8 @@ var overlap = {}
 @export var maze_door: Node3D
 @export var jail_enter_door: Node3D
 @export var jail_exit_door: Node3D
+@export var knife_door: Node3D
+@export var gift_door: Node3D
 
 func _ready():
 	if debug:
@@ -327,4 +333,29 @@ func _on_beginner_six_area_3d_body_entered(body):
 
 func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
-		beam_elevator.up()
+		await beam_elevator.up()
+		await say("testing_once")
+		await get_tree().create_timer(1.0).timeout # Explore club
+		await say("testing_once") # Head to the door
+		await waitOnArea(exiting_club)
+		await knife_door.open()
+		await entering_knife.body_entered
+		knife_door.close()
+		await say("testing_once") # Knife room intro
+		
+		# Knife battle
+		
+		await waitOnArea(exiting_knife)
+		await gift_door.open()
+		await entering_gift.body_entered
+		gift_door.close()
+
+func _on_exiting_club_area_3d_body_entered(body):
+	overlap[exiting_club.name] = true
+func _on_exiting_club_area_3d_body_exited(body):
+	overlap.erase(exiting_club.name)
+
+func _on_exiting_knife_area_3d_body_entered(body):
+	overlap[exiting_knife.name] = true
+func _on_exiting_knife_area_3d_body_exited(body):
+	overlap.erase(exiting_knife.name)

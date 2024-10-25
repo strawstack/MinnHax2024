@@ -31,6 +31,7 @@ func up():
 	pos.y = end_height
 	tween.tween_property(self, "position", pos, 10)
 	tween.tween_callback(elevator_done)
+	await tween.finished
 
 func _process(delta):
 	pass
