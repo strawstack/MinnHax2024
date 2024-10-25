@@ -25,6 +25,9 @@ var isSpeaking = false
 var once = {}
 var overlap = {}
 
+# Waypoint
+@export var maze_done: Node3D
+
 # Triggers
 @export var entering_gi: Area3D
 @export var exiting_gi: Area3D
@@ -36,6 +39,15 @@ var overlap = {}
 @export var exiting_jenga: Area3D
 @export var entering_beginner: Area3D
 
+@export var beginner_one: Area3D
+@export var beginner_two: Area3D
+@export var beginner_three: Area3D
+@export var beginner_four: Area3D
+@export var beginner_five: Area3D
+@export var beginner_six: Area3D
+
+@export var entering_jail: Area3D
+
 # Doors
 @export var lobby_heart_door: Node3D
 @export var art_heart_door: Node3D
@@ -44,6 +56,9 @@ var overlap = {}
 @export var beginner_heart_door: Node3D
 @export var beginner_back_door: Node3D
 @export var jeffm_door: Node3D
+@export var maze_door: Node3D
+@export var jail_enter_door: Node3D
+@export var jail_exit_door: Node3D
 
 func _ready():
 	if debug:
@@ -102,6 +117,9 @@ func exitWalkingSim():
 	tween.tween_property(playerCamera, "position", Vector3.ZERO, 1)
 	tween.tween_property(playerCamera, "rotation", Vector3.ZERO, 1)
 	tween.tween_callback(callbackUnfreezePlayer)
+
+func movePlayer(waypointNode):
+	player.set_position(waypointNode.get_position())
 
 func getAudio(clipName):
 	return audioLoad.getAudio(clipName)
@@ -252,10 +270,27 @@ func _on_entering_beginner_area_3d_body_entered(body):
 	if onlyOnce("_on_entering_beginner_area_3d_body_entered"):
 		await say("testing_once")
 		jeffm_door.open()
-		# Black door opens
-		# maybe change in music
-		# Beginners experience starts (break this into another section of steps; another function)
-		pass
+		await waitOnArea(beginner_one)
+		await say("testing_once")
+		await waitOnArea(beginner_two)
+		await say("testing_once")
+		await waitOnArea(beginner_three)
+		await say("testing_once")
+		await waitOnArea(beginner_four)
+		await say("testing_once")
+		await get_tree().create_timer(1.0).timeout # Wait a bit for battle
+		maze_door.open()
+		await waitOnArea(beginner_five)
+		await say("testing_once")
+		await waitOnArea(beginner_six)
+		await say("testing_once")
+		await get_tree().create_timer(1.0).timeout # Wait before warping player
+		movePlayer(maze_done)
+		await entering_jail.body_entered
+		await jail_enter_door.close()
+		await get_tree().create_timer(1.0).timeout
+		await say("testing_once")
+		await jail_exit_door.open()
 
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
@@ -269,8 +304,27 @@ func _on_white_room_area_3d_body_entered(body):
 func _on_entering_jail_area_3d_body_entered(body):
 	pass # Replace with function body.
 
-func _on_beam_area_area_3d_body_entered(body):
-	beam_elevator.up()
-
 func _on_walking_sim_enter_area_3d_body_entered(body):
 	playWalkingSim()
+
+func _on_beginner_one_area_3d_body_entered(body):
+	overlap[beginner_one.name] = true
+
+func _on_beginner_two_area_3d_body_entered(body):
+	overlap[beginner_two.name] = true
+
+func _on_beginner_three_area_3d_body_entered(body):
+	overlap[beginner_three.name] = true
+
+func _on_beginner_four_area_3d_body_entered(body):
+	overlap[beginner_four.name] = true
+
+func _on_beginner_five_area_3d_body_entered(body):
+	overlap[beginner_five.name] = true
+
+func _on_beginner_six_area_3d_body_entered(body):
+	overlap[beginner_one.name] = true
+
+func _on_beam_area_area_3d_body_entered(body):
+	if onlyOnce("_on_beam_area_area_3d_body_entered"):
+		beam_elevator.up()
