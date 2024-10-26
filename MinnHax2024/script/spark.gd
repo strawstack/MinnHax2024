@@ -21,6 +21,9 @@ func _ready():
 	gc = get_tree().get_root().get_node("main")
 	player = gc.getPlayer()
 
+func teleportToName(pointName):
+	set_position(orbyPoints.get_node(pointName).get_position())
+
 func moveToName(pointName):
 	var targetNode = orbyPoints.get_node(pointName)
 	await _moveTo(targetNode)

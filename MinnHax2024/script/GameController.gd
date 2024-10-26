@@ -50,6 +50,7 @@ var overlap = {}
 
 @export var entering_jail: Area3D
 @export var exiting_club: Area3D
+@export var knife_trigger: Area3D
 @export var entering_knife: Area3D
 
 # Doors
@@ -68,7 +69,9 @@ var overlap = {}
 
 func _ready():
 	if debug:
-		pass
+		orby.teleportToName("beam_elevator")
+		orby.reparent(beam_elevator)
+		orby.lookAtName("player")
 	else:
 		tram.start_tram()
 		player.set_position(player_start_point.get_position())
@@ -277,6 +280,8 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await say("testing_once")
 		jeffm_door.open()
 		await waitOnArea(beginner_one)
+		orby.teleportToName("beam_elevator")
+		orby.reparent(beam_elevator)
 		await say("testing_once")
 		await waitOnArea(beginner_two)
 		await say("testing_once")
@@ -334,28 +339,41 @@ func _on_beginner_six_area_3d_body_entered(body):
 func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
 		await beam_elevator.up()
-		await say("testing_once")
+		orby.reparent(self)
+		await orby.say("testing_once")
 		await get_tree().create_timer(1.0).timeout # Explore club
-		await say("testing_once") # Head to the door
+		await orby.say("testing_once") # Head to the door
+		orby.lookAtAndMoveToName("club_heart")
+		orby.lookAtName("player")
 		await waitOnArea(exiting_club)
 		await knife_door.open()
-		await entering_knife.body_entered
-		knife_door.close()
-		await say("testing_once") # Knife room intro
-		
-		# Knife battle
-		
-		await waitOnArea(exiting_knife)
-		await gift_door.open()
-		await entering_gift.body_entered
-		gift_door.close()
+		orby.lookAtAndMoveToName("knife_side")
+
+func _on_entering_knife_area_3d_body_entered(body):
+	knife_door.close()
+	orby.lookAtName("player")
+	await orby.say("testing_once") # Knife room intro
+	
+	await waitOnArea(knife_trigger) # Knife battle start
+	
+	await orby.knifeBattle() # wait until battle is done
+	
+	await waitOnArea(exiting_knife)
+	await gift_door.open()
+	await entering_gift.body_entered
+	gift_door.close()
 
 func _on_exiting_club_area_3d_body_entered(body):
 	overlap[exiting_club.name] = true
 func _on_exiting_club_area_3d_body_exited(body):
 	overlap.erase(exiting_club.name)
 
+func _on_knife_trigger_area_3d_body_entered(body):
+	overlap[knife_trigger.name] = true
+
 func _on_exiting_knife_area_3d_body_entered(body):
 	overlap[exiting_knife.name] = true
 func _on_exiting_knife_area_3d_body_exited(body):
 	overlap.erase(exiting_knife.name)
+
+
