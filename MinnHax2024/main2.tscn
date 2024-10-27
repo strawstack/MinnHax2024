@@ -1,4 +1,4 @@
-[gd_scene load_steps=2015 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2019 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cy5m22kbd53u5" path="res://model/mm_v2_minnmax_logo_texture.png" id="8_hsqus"]
 [ext_resource type="Shader" uid="uid://hjqe1q0cjfck" path="res://texture/stripes.tres" id="9_6fepl"]
 [ext_resource type="Texture2D" uid="uid://cy2u1y1bqvhlb" path="res://model/bg3_bg3.jpg" id="9_r66r2"]
+[ext_resource type="Script" path="res://gun.gd" id="10_10f6s"]
 [ext_resource type="Shader" uid="uid://c5qla1qt0uqe0" path="res://texture/dark_waves.tres" id="10_hupfv"]
 [ext_resource type="Script" path="res://camera_preview_render.gd" id="10_yms2k"]
 [ext_resource type="Shader" uid="uid://cr5gkxh158b8i" path="res://texture/grass_and_thread.tres" id="11_6df2w"]
@@ -306,6 +307,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qko4h")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0exfu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3yvbj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lu04"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flb6t"]
 resource_name = "Material"
@@ -19752,12 +19759,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 5, 8)
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/temp"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 220.96, 1, 77.5152)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
 script = ExtResource("3_h4lns")
+gun = NodePath("Camera3D/gun")
 
 [node name="SubViewport" type="SubViewport" parent="Player"]
 
@@ -19772,6 +19780,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489508, -0.750366)
 
 [node name="Camera3D" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="gun" type="Node3D" parent="Player/Camera3D" node_paths=PackedStringArray("laser")]
+script = ExtResource("10_10f6s")
+laser = NodePath("start_point/laser")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Player/Camera3D/gun"]
+transform = Transform3D(0.232825, 0, 0, 0, 0.18625, 0, 0, 0, 0.592271, 0.323784, -0.479352, -0.655151)
+mesh = SubResource("BoxMesh_0exfu")
+
+[node name="start_point" type="Node3D" parent="Player/Camera3D/gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329811, -0.482552, -0.954147)
+
+[node name="laser" type="CSGMesh3D" parent="Player/Camera3D/gun/start_point"]
+transform = Transform3D(0.05, -4.37114e-07, -9.55343e-17, 0, -4.37114e-07, 0.05, -2.18557e-09, -10, -2.18557e-09, 0, 0, -10)
+mesh = SubResource("CylinderMesh_3yvbj")
+material = SubResource("StandardMaterial3D_2lu04")
+
+[node name="end_point" type="Node3D" parent="Player/Camera3D/gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329781, -0.482552, -67.0328)
 
 [node name="camera" type="Node3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637078, -0.692828, -1.00339)
@@ -22315,11 +22342,11 @@ mesh = SubResource("ArrayMesh_i00cm")
 skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere"]
+[node name="StaticBody3Djeff" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere"]
 collision_layer = 64
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere/StaticBody3Djeff"]
 shape = SubResource("ConcavePolygonShape3D_cvvr6")
 
 [node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere"]
@@ -22337,11 +22364,11 @@ mesh = SubResource("ArrayMesh_i00cm")
 skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere"]
+[node name="StaticBody3Djeff" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere"]
 collision_layer = 64
-collision_mask = 32
+collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere/StaticBody3Djeff"]
 shape = SubResource("ConcavePolygonShape3D_3tynl")
 
 [node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere2"]
@@ -22359,11 +22386,11 @@ mesh = SubResource("ArrayMesh_i00cm")
 skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere"]
+[node name="StaticBody3Djeff" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere"]
 collision_layer = 64
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere/StaticBody3Djeff"]
 shape = SubResource("ConcavePolygonShape3D_bmkws")
 
 [node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere3"]
@@ -23421,9 +23448,9 @@ transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 243, 10.
 mesh = SubResource("ArrayMesh_kpu1d")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/walls/Cube_2041"]
+[node name="StaticBody3Dw" type="StaticBody3D" parent="areas/beginner/walls/Cube_2041"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/walls/Cube_2041/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/walls/Cube_2041/StaticBody3Dw"]
 shape = SubResource("ConcavePolygonShape3D_mvbry")
 
 [node name="Cube_2042" type="MeshInstance3D" parent="areas/beginner/walls"]

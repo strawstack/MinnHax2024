@@ -11,6 +11,8 @@ var tweenCameraRot: Tween
 
 var photoScene = preload("res://script/photo.tscn")
 
+@export var gun: Node3D
+
 var gc
 func _ready():
 	gc = get_tree().get_root().get_node("main")
@@ -76,6 +78,17 @@ func takePhoto():
 
 	photo.eject(get_directions()["forward"])
 
+func spacePress():
+	if isCameraUp:
+		isCameraUp = false
+		moveCamera($camera_down.get_position() - $Camera3D.get_position(), $camera_down.get_rotation())
+	else:
+		isCameraUp = true
+		moveCamera($camera_up.get_position() - $Camera3D.get_position(), $camera_up.get_rotation())
+
+func shoot():
+	gun.shoot()
+
 func _process(delta):
 	if gc.isPlayerFrozen():
 		return
@@ -94,20 +107,20 @@ func _process(delta):
 	move_and_slide()
 	
 	# Sync position of sub viewport camera
-	sync_photo_camera()
+	if gc.playerHasCamera:
+		sync_photo_camera()
 	
 	# Camera lift
-	if Input.is_action_just_pressed("space"):
-		if isCameraUp:
-			isCameraUp = false
-			moveCamera($camera_down.get_position() - $Camera3D.get_position(), $camera_down.get_rotation())
-		else:
-			isCameraUp = true
-			moveCamera($camera_up.get_position() - $Camera3D.get_position(), $camera_up.get_rotation())
+	if gc.playerHasCamera and Input.is_action_just_pressed("space"):
+		spacePress()
 	
-	# Take photo
-	if isCameraUp and Input.is_action_just_pressed("lmb"):
-		takePhoto()
+	# Take photo or shoot
+	if Input.is_action_just_pressed("lmb"):
+		if gc.playerHasCamera:
+			if isCameraUp:
+				takePhoto()
+		else:
+			shoot()
 
 var push_force = 10.0
 func _physics_process(delta):

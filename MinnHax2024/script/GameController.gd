@@ -78,6 +78,7 @@ func _ready():
 		orby.lookAtName("player")
 		for js in jeffm_spheres:
 			js.go()
+		hasCamera(false)
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
@@ -85,9 +86,9 @@ func _ready():
 func hasCamera(value):
 	playerHasCamera = value
 	if playerHasCamera:
-		pass
+		handCamera.set_visible(true)
 	else:
-		pass
+		handCamera.set_visible(false)
 
 func opening_tram_ride():
 	var totalDur = duration("A")
