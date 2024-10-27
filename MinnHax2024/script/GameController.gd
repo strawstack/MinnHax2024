@@ -4,6 +4,7 @@ extends Node3D
 @export var playerCamera: Camera3D
 @export var orby: Node3D
 @export var audioLoad: Node3D
+@export var handCamera: Node3D
 
 @export var tram: Node3D
 @export var beam_elevator: Node3D
@@ -14,6 +15,7 @@ extends Node3D
 @export var player_start_point: Node3D
 @export var walkingSimCameraPoint: Node3D
 @export var arcadePlayerWait: Node3D
+@export var jeffm_spheres: Array[Node3D]
 
 # Variables
 var debug = true
@@ -21,6 +23,7 @@ var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
 var isSpeaking = false
+var playerHasCamera = true
 
 # state tracking
 var once = {}
@@ -73,9 +76,18 @@ func _ready():
 		orby.teleportToName("beam_elevator")
 		orby.reparent(beam_elevator)
 		orby.lookAtName("player")
+		for js in jeffm_spheres:
+			js.go()
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
+
+func hasCamera(value):
+	playerHasCamera = value
+	if playerHasCamera:
+		pass
+	else:
+		pass
 
 func opening_tram_ride():
 	var totalDur = duration("A")

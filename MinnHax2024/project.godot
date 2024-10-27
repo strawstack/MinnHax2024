@@ -96,6 +96,8 @@ special={
 3d_physics/layer_3="rigid_body"
 3d_physics/layer_4="photos"
 3d_physics/layer_5="trigger"
+3d_physics/layer_6="bullet"
+3d_physics/layer_7="target"
 
 [rendering]
 

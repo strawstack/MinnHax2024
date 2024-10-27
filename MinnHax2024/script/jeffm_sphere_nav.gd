@@ -9,24 +9,16 @@ var random = RandomNumberGenerator.new()
 func _ready():
 	random.randomize()
 
-func nextPoint():
-	var tween = get_tree().create_tween()
-	var r = randi() % 4
-	var w = (randi() % 3 + 1) / 2
-	tween.tween_property(self, "position", points[r].get_position(), 2)
-	tween.tween_interval(w)
-	await tween.finished
-	if not done:
-		nextPoint()
-
 func go():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", start.get_position(), 1)
 	await tween.finished
-	nextPoint()
+	$Timer.start()
 
 func done():
-	isDone = true
+	$Timer.stop()
 
-func _process(delta):
-	pass
+func _on_timer_timeout():
+	var tween = get_tree().create_tween()
+	var r = randi() % 4
+	tween.tween_property(self, "position", points[r].get_position(), 1)

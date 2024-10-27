@@ -19532,12 +19532,13 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
 orby = NodePath("orby")
 audioLoad = NodePath("audioLoad")
+handCamera = NodePath("Player/Camera3D/camera")
 tram = NodePath("tram")
 beam_elevator = NodePath("areas/beginner/beam")
 photos = NodePath("photos")
@@ -19546,6 +19547,7 @@ planet = NodePath("areas/entry_bridge/Icosphere")
 player_start_point = NodePath("tram/player_start")
 walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
+jeffm_spheres = [NodePath("areas/beginner/jeffm_orbs/jeffm_sphere"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere2"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere3")]
 maze_done = NodePath("waypoints/maze_done")
 entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
 exiting_gi = NodePath("triggers/exiting_gi/exiting_gi_Area3D")
@@ -19751,7 +19753,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 5, 8)
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 214.871, 1, 115.659)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 220.96, 1, 77.5152)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
@@ -22250,29 +22252,62 @@ shape = SubResource("ConcavePolygonShape3D_ox2eg")
 
 [node name="nav_points" type="Node3D" parent="areas/beginner/jeffm_orbs"]
 
-[node name="s1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+[node name="j1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+
+[node name="s1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.258, 5, 94)
 
-[node name="s2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.127, 5, 94)
-
-[node name="p1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+[node name="p1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.127, 5, 86.9073)
 
-[node name="p2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+[node name="p2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.425, 5, 86.9073)
 
-[node name="p3" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+[node name="p3" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.114, 5, 77.9357)
 
-[node name="p4" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+[node name="p4" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.735, 5, 80.1904)
+
+[node name="j2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+
+[node name="s1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.015, 10.8118, 94)
+
+[node name="p1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.599, 8.54886, 88.7362)
+
+[node name="p2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.897, 8.54886, 88.7362)
+
+[node name="p3" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.586, 8.54886, 79.7646)
+
+[node name="p4" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.207, 8.54886, 82.0193)
+
+[node name="j3" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points"]
+
+[node name="s2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.127, 5, 94)
+
+[node name="p1" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.759, 3.94234, 87.7567)
+
+[node name="p2" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.057, 3.94234, 87.7567)
+
+[node name="p3" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.746, 3.94234, 78.7851)
+
+[node name="p4" type="Node3D" parent="areas/beginner/jeffm_orbs/nav_points/j3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.367, 3.94234, 81.0398)
 
 [node name="jeffm_sphere" type="Node3D" parent="areas/beginner/jeffm_orbs" node_paths=PackedStringArray("start", "points")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 229.604, 6.12564, 111.816)
 script = ExtResource("38_0770u")
-start = NodePath("../nav_points/s1")
-points = [NodePath("../nav_points/p1"), NodePath("../nav_points/p2"), NodePath("../nav_points/p3"), NodePath("../nav_points/p4")]
+start = NodePath("../nav_points/j1/s1")
+points = [NodePath("../nav_points/j1/p1"), NodePath("../nav_points/j1/p2"), NodePath("../nav_points/j1/p3"), NodePath("../nav_points/j1/p4")]
 
 [node name="Sphere" type="MeshInstance3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere"]
 transform = Transform3D(0.716176, 0, 0, 0, 0.716176, 0, 0, 0, 0.716176, 0, 0, 0)
@@ -22281,15 +22316,20 @@ skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere"]
+collision_layer = 64
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere/Sphere/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cvvr6")
 
+[node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere"]
+wait_time = 2.2
+
 [node name="jeffm_sphere2" type="Node3D" parent="areas/beginner/jeffm_orbs" node_paths=PackedStringArray("start", "points")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 227.223, 6.12564, 116.252)
 script = ExtResource("38_0770u")
-start = NodePath("../nav_points/s1")
-points = [NodePath("../nav_points/p1"), NodePath("../nav_points/p2"), NodePath("../nav_points/p3"), NodePath("../nav_points/p4")]
+start = NodePath("../nav_points/j2/s1")
+points = [NodePath("../nav_points/j2/p1"), NodePath("../nav_points/j2/p2"), NodePath("../nav_points/j2/p3"), NodePath("../nav_points/j2/p4")]
 
 [node name="Sphere" type="MeshInstance3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2"]
 transform = Transform3D(0.716176, 0, 0, 0, 0.716176, 0, 0, 0, 0.716176, 0, 0, 0)
@@ -22298,15 +22338,20 @@ skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere"]
+collision_layer = 64
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere2/Sphere/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3tynl")
 
+[node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere2"]
+wait_time = 1.5
+
 [node name="jeffm_sphere3" type="Node3D" parent="areas/beginner/jeffm_orbs" node_paths=PackedStringArray("start", "points")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 249.12, 6.12564, 113.621)
 script = ExtResource("38_0770u")
-start = NodePath("../nav_points/s2")
-points = [NodePath("../nav_points/p1"), NodePath("../nav_points/p2"), NodePath("../nav_points/p3"), NodePath("../nav_points/p4")]
+start = NodePath("../nav_points/j3/s2")
+points = [NodePath("../nav_points/j3/p1"), NodePath("../nav_points/j3/p2"), NodePath("../nav_points/j3/p3"), NodePath("../nav_points/j3/p4")]
 
 [node name="Sphere" type="MeshInstance3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3"]
 transform = Transform3D(0.716176, 0, 0, 0, 0.716176, 0, 0, 0, 0.716176, 0, 0, 0)
@@ -22315,9 +22360,14 @@ skeleton = NodePath("")
 script = ExtResource("39_iqb56")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere"]
+collision_layer = 64
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/jeffm_orbs/jeffm_sphere3/Sphere/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bmkws")
+
+[node name="Timer" type="Timer" parent="areas/beginner/jeffm_orbs/jeffm_sphere3"]
+wait_time = 2.8
 
 [node name="floor" type="MeshInstance3D" parent="areas/beginner"]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 214, -0.5, -25)
@@ -25881,6 +25931,9 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 [connection signal="body_entered" from="triggers/knife_trigger/knife_trigger_Area3D" to="." method="_on_knife_trigger_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_knife/exiting_knife_Area3D" to="." method="_on_exiting_knife_area_3d_body_entered"]
 [connection signal="body_exited" from="triggers/exiting_knife/exiting_knife_Area3D" to="." method="_on_exiting_knife_area_3d_body_exited"]
+[connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere" method="_on_timer_timeout"]
+[connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere2/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere2" method="_on_timer_timeout"]
+[connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere3/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere3" method="_on_timer_timeout"]
 [connection signal="timeout" from="main/SubViewport/CanvasLayer/achievementBox/upTimer" to="main/SubViewport/CanvasLayer" method="_on_up_timer_timeout"]
 [connection signal="timeout" from="main/SubViewport/pauseTimer" to="main" method="_on_pause_timer_timeout"]
 [connection signal="finished" from="main/SubViewport/audioStreams/wind_forest_crows" to="main" method="_on_wind_forest_crows_finished"]
