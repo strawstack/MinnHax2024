@@ -191,7 +191,7 @@ func _on_reception_area_3d_body_entered(body):
 	if onlyOnce("_on_reception_area_3d_body_entered"):
 		orby.lookAtName("player")
 		await orby.moveToName("r1")
-		await orby.say("testing_once") # Tour guide introduction, and lets start the tour
+		await orby.say("F") # Tour guide introduction, and lets start the tour
 		await orby.lookAtAndMoveToName("pre_gi_heart")
 		await orby.lookAtName("gi_heart")
 		await lobby_heart_door.open()
@@ -199,9 +199,9 @@ func _on_reception_area_3d_body_entered(body):
 		await orby.lookAtAndMoveToName("mag_two")
 		orby.lookAtName("player")
 		await waitOnArea(entering_gi)
-		await orby.say("testing_once") # Talking about mag collection
+		await orby.say("G") # Talking about mag collection
 		await get_tree().create_timer(1.0).timeout
-		orby.say("testing_once") # Meet me over by the door when you're ready
+		orby.say("H") # Meet me over by the door when you're ready
 		await orby.lookAtAndMoveToName("pre_art_heart")
 		await orby.lookAtName("player")
 		await waitOnArea(exiting_gi)
@@ -211,18 +211,18 @@ func _on_reception_area_3d_body_entered(body):
 		orby.lookAtName("player")
 		await waitOnArea(entering_art)
 		
-		await orby.say("testing_once") # Art one dialogue
+		await orby.say("J") # Art one dialogue
 		
 		await orby.lookAtAndMoveToName("art_two")
 		orby.lookAtName("player")
-		await orby.say("testing_once") # Art two dialogue
+		await orby.say("K") # Art two dialogue
 		
 		await orby.lookAtAndMoveToName("art_three")
 		orby.lookAtName("player")
-		await orby.say("testing_once") # Art three dialogue
+		await orby.say("M") # Art three dialogue
 		await get_tree().create_timer(1.0).timeout
 		
-		orby.say("testing_once") # Go to door to continue the tour
+		orby.say("H") # Go to door to continue the tour
 		await orby.lookAtAndMoveToName("pre_arcade_heart")
 		orby.lookAtName("player")
 		
@@ -232,10 +232,10 @@ func _on_reception_area_3d_body_entered(body):
 		await orby.lookAtAndMoveToName("arcade_machine")
 		orby.lookAtName("player")
 		await waitOnArea(entering_arcade)
-		await orby.say("testing_once") # Talking about walking simulator
+		await orby.say("N") # Talking about walking simulator
 		await get_tree().create_timer(1.0).timeout
-		
-		await orby.say("testing_once") # Head to the door
+		await orby.say("O") # Talking about walking simulator
+
 		await orby.lookAtAndMoveToName("pre_jenga_heart")
 		orby.lookAtName("player")
 		
@@ -247,10 +247,10 @@ func _on_reception_area_3d_body_entered(body):
 		
 		await waitOnArea(entering_jenga)
 		
-		await orby.say("testing_once") # Talk about the tower
+		await orby.say("P") # Talk about the tower
 		await get_tree().create_timer(1.0).timeout
 		
-		await orby.say("testing_once") # Lets go to next section
+		await orby.say("Q") # Lets go to next section
 		await orby.lookAtAndMoveToName("pre_beginner_heart")
 		orby.lookAtName("player")
 		
@@ -306,31 +306,36 @@ func _on_entering_beginner_area_3d_body_entered(body):
 	overlap[entering_beginner.name] = true
 	
 	if onlyOnce("_on_entering_beginner_area_3d_body_entered"):
-		await say("testing_once")
+		await say("BEG1")
+		await get_tree().create_timer(1.0).timeout
+		await say("BEG2")
 		jeffm_door.open()
 		await waitOnArea(beginner_one)
 		orby.teleportToName("beam_elevator")
 		orby.reparent(beam_elevator)
-		await say("testing_once")
+		await say("BEG3")
 		await waitOnArea(beginner_two)
-		await say("testing_once")
+		await say("BEG4")
 		await waitOnArea(beginner_three)
-		await say("testing_once")
+		await say("BEG5")
 		await waitOnArea(beginner_four)
-		await say("testing_once")
+		await say("BEG6")
 		await get_tree().create_timer(1.0).timeout # Wait a bit for battle
+		await say("BEG7")
 		maze_door.open()
 		await waitOnArea(beginner_five)
-		await say("testing_once")
+		await say("BEG8")
 		await waitOnArea(beginner_six)
-		await say("testing_once")
+		await say("BEG9")
 		await get_tree().create_timer(1.0).timeout # Wait before warping player
 		movePlayer(maze_done)
 		await entering_jail.body_entered
 		await jail_enter_door.close()
 		await get_tree().create_timer(1.0).timeout
-		await say("testing_once")
-		await jail_exit_door.open()
+		await say("BEG10")
+		say("BEG11")
+		jail_exit_door.open()
+		
 
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
@@ -369,9 +374,12 @@ func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
 		await beam_elevator.up()
 		orby.reparent(self)
-		await orby.say("testing_once")
+		await say("BEG12")
+		await say("BEG13")
+		await get_tree().create_timer(1.0).timeout
+		await orby.say("R")
 		await get_tree().create_timer(1.0).timeout # Explore club
-		await orby.say("testing_once") # Head to the door
+		await orby.say("S") # Head to the door
 		orby.lookAtAndMoveToName("club_heart")
 		orby.lookAtName("player")
 		await waitOnArea(exiting_club)
@@ -381,7 +389,9 @@ func _on_beam_area_area_3d_body_entered(body):
 func _on_entering_knife_area_3d_body_entered(body):
 	knife_door.close()
 	orby.lookAtName("player")
-	await orby.say("testing_once") # Knife room intro
+	await orby.say("T1") # Knife room intro
+	await orby.say("T2") # Knife room intro
+	await orby.say("T3") # Knife room intro
 	
 	await waitOnArea(knife_trigger) # Knife battle start
 	
