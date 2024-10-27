@@ -19726,7 +19726,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637078, -0.692828, -1.0033
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 0.00373173, 0.0541982, -0.233826)
 
 [node name="camera_preview_render" type="Sprite3D" parent="Player/Camera3D/camera" node_paths=PackedStringArray("subview")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0488453, -0.0807756, 0.289093)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.049, -0.081, 0.3)
 script = ExtResource("10_yms2k")
 subview = NodePath("../../../SubViewport")
 

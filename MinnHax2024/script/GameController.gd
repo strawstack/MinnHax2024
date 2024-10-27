@@ -255,7 +255,7 @@ func _on_reception_area_3d_body_entered(body):
 		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_jenga)
-		await jenga_heart_door.open()
+		await beginner_heart_door.open()
 
 # Track entering_gi overlap
 func _on_entering_gi_area_3d_body_entered(body):
