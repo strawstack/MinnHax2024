@@ -24,10 +24,10 @@ func tramStops():
 	tween.set_parallel()
 	tween.tween_property(door_right, "position", door_right_open_pos.get_position(), 1).set_trans(Tween.TRANS_SINE)
 
-func start_tram():
+func start_tram(duration):
 	gc.boardTram()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", tram_end_point.get_position(), 5).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", tram_end_point.get_position(), duration).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(tramStops)
 
 func _process(delta):

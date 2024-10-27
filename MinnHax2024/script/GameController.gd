@@ -9,6 +9,7 @@ extends Node3D
 @export var beam_elevator: Node3D
 @export var photos: Node3D
 @export var tower: Node3D
+@export var planet: MeshInstance3D
 
 @export var player_start_point: Node3D
 @export var walkingSimCameraPoint: Node3D
@@ -73,8 +74,32 @@ func _ready():
 		orby.reparent(beam_elevator)
 		orby.lookAtName("player")
 	else:
-		tram.start_tram()
 		player.set_position(player_start_point.get_position())
+		opening_tram_ride()
+
+func opening_tram_ride():
+	var totalDur = duration("A")
+	totalDur += duration("B")
+	totalDur += duration("C")
+	totalDur += duration("D")
+	totalDur += duration("E")
+	totalDur += 3 + 1 + 1 + 1 + 3 + 2 # wait between clips
+	
+	planet.begin_rotate(totalDur)
+	tram.start_tram(totalDur)
+	
+	await get_tree().create_timer(3.0).timeout
+	await say("A")
+	await get_tree().create_timer(1.0).timeout
+	await say("B")
+	await get_tree().create_timer(1.0).timeout
+	await say("C")
+	await get_tree().create_timer(1.0).timeout
+	await say("D")
+	await get_tree().create_timer(3.0).timeout
+	await say("E")
+	await get_tree().create_timer(2.0).timeout
+	print("dock")
 
 func _process(delta):
 	if debug and Input.is_action_just_pressed("special"):
@@ -138,6 +163,10 @@ func waitOnArea(area3D):
 		return true
 	else:
 		await area3D.body_entered
+
+func duration(clipName):
+	var audioStream = getAudio(clipName)
+	return audioStream.get_length()
 
 func say(clipName):
 	var audioStream = getAudio(clipName)

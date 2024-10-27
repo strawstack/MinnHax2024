@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://script/audioLoad.gd" id="3_2m141"]
 [ext_resource type="Script" path="res://script/spark.gd" id="3_4dwtl"]
 [ext_resource type="Script" path="res://script/movement.gd" id="3_h4lns"]
+[ext_resource type="AudioStream" uid="uid://npil84jnmvup" path="res://audio/testing_once.mp3" id="4_8fw8k"]
 [ext_resource type="Script" path="res://script/tram.gd" id="4_51gok"]
 [ext_resource type="AudioStream" uid="uid://cqay1tixnp0vg" path="res://audio/testing.mp3" id="4_aay7y"]
 [ext_resource type="Shader" uid="uid://da4ab6ia6skjh" path="res://texture/cone_light_beam.tres" id="4_ddiqk"]
@@ -26,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://3x8ipmy1yyvh" path="res://model/mags/b1.glb" id="18_aaq35"]
 [ext_resource type="Shader" uid="uid://c8e0f7fpweaqx" path="res://earth.tres" id="18_y2u1h"]
 [ext_resource type="PackedScene" uid="uid://c6apymxu1ulwh" path="res://model/mags/b2.glb" id="19_3m0t6"]
-[ext_resource type="Script" path="res://turn.gd" id="19_lf18l"]
 [ext_resource type="PackedScene" uid="uid://0n4hc6nw6823" path="res://model/mags/b3.glb" id="20_g6ab8"]
 [ext_resource type="PackedScene" uid="uid://dmu6kbu1aqrtn" path="res://model/mags/b4.glb" id="21_6511t"]
 [ext_resource type="Shader" uid="uid://d48kijsl8yqf" path="res://texture/orange_map.tres" id="22_1np4v"]
@@ -19482,7 +19482,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "tram", "beam_elevator", "photos", "tower", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -19492,7 +19492,6 @@ tram = NodePath("tram")
 beam_elevator = NodePath("areas/beginner/beam")
 photos = NodePath("photos")
 tower = NodePath("areas/jenga/tower")
-planet = NodePath("areas/entry_bridge/Icosphere")
 player_start_point = NodePath("tram/player_start")
 walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
@@ -19535,6 +19534,7 @@ gift_door = NodePath("areas/gift/heart_door")
 
 [node name="audioLoad" type="Node3D" parent="."]
 script = ExtResource("3_2m141")
+resource = Array[Resource]([ExtResource("4_aay7y"), ExtResource("4_8fw8k")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2kg6i")
@@ -19781,7 +19781,7 @@ door_left_open_pos = NodePath("door_left_open_pos")
 door_right_open_pos = NodePath("door_right_open_pos")
 
 [node name="player_start" type="Node3D" parent="tram"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
 
 [node name="door_left_open_pos" type="Node3D" parent="tram"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2)
@@ -20766,10 +20766,9 @@ font_size = 42
 horizontal_alignment = 0
 
 [node name="Icosphere" type="MeshInstance3D" parent="areas/entry_bridge"]
-transform = Transform3D(-0.326384, 1.02059, -1.20165, -0.899638, 0.887163, 0.997842, 1.29469, 0.873745, 0.390439, 379, -17, -294.457)
+transform = Transform3D(-1.18176, 0.0318937, -1.09294, -0.899485, 0.886633, 0.998453, 0.621668, 1.34349, -0.632981, 379, -17, -294.457)
 mesh = SubResource("ArrayMesh_2bd40")
 skeleton = NodePath("")
-script = ExtResource("19_lf18l")
 
 [node name="Cube_442" type="MeshInstance3D" parent="areas/entry_bridge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)

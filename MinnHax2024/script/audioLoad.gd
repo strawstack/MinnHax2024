@@ -1,18 +1,18 @@
 extends Node3D
 
-@export var resource: Array[Resource]
+var audioDir:DirAccess = DirAccess.open("res://audio")
 
 var files = {}
-
 func _ready():
-	for res in resource:
-		files[getName(res)] = res
+	for filename in audioDir.get_files():
+		var fname = getName(filename)
+		if fname != null:
+			files[fname] = load("res://audio/" + filename)
 
-func getName(resource):
-	var split = resource.get_path().split("/")
-	var file = split[split.size() - 1]
-	var fileName = file.split(".")[0]
-	return fileName
+func getName(fileName):
+	if ".import" in fileName:
+		return null
+	return fileName.split(".")[0]
 
 func getAudio(clipName):
 	return files[clipName]

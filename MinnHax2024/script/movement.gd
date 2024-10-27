@@ -9,7 +9,7 @@ var isCameraUp = false
 var tweenCamera: Tween
 var tweenCameraRot: Tween
 
-var photoScene = preload("res://photo.tscn")
+var photoScene = preload("res://script/photo.tscn")
 
 var gc
 func _ready():
