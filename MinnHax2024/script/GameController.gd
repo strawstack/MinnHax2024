@@ -16,7 +16,7 @@ extends Node3D
 @export var arcadePlayerWait: Node3D
 
 # Variables
-var debug = false
+var debug = true
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
