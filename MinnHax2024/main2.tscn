@@ -1,7 +1,8 @@
-[gd_scene load_steps=2019 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2023 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
+[ext_resource type="Script" path="res://particles.gd" id="2_pyv0u"]
 [ext_resource type="Script" path="res://script/audioLoad.gd" id="3_2m141"]
 [ext_resource type="Script" path="res://script/spark.gd" id="3_4dwtl"]
 [ext_resource type="Script" path="res://script/movement.gd" id="3_h4lns"]
@@ -150,6 +151,21 @@
 [ext_resource type="Texture2D" uid="uid://bt1org0pse514" path="res://WalkingSim/sketchTiles/road.png" id="115_hm26m"]
 [ext_resource type="Texture2D" uid="uid://d0eexcrkvglwl" path="res://WalkingSim/sketchTiles/water.png" id="116_6c3aa"]
 [ext_resource type="Texture2D" uid="uid://bifmed7hcc6ph" path="res://images/jeffm.png" id="121_iny2t"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k8oey"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aary"]
+albedo_color = Color(0.845636, 0.408097, 5.77569e-07, 1)
+emission_enabled = true
+emission = Color(0.792157, 0.360784, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6l1a2"]
+material = SubResource("StandardMaterial3D_0aary")
+size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_paypk"]
 shader = ExtResource("2_heo15")
@@ -19539,7 +19555,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -19555,6 +19571,7 @@ player_start_point = NodePath("tram/player_start")
 walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
 jeffm_spheres = [NodePath("areas/beginner/jeffm_orbs/jeffm_sphere"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere2"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere3")]
+particles = NodePath("particles")
 maze_done = NodePath("waypoints/maze_done")
 entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
 exiting_gi = NodePath("triggers/exiting_gi/exiting_gi_Area3D")
@@ -19589,6 +19606,109 @@ jail_enter_door = NodePath("areas/beginner/jail/bars_one")
 jail_exit_door = NodePath("areas/beginner/jail/bars_two")
 knife_door = NodePath("areas/knife/heart_door")
 gift_door = NodePath("areas/gift/heart_door")
+
+[node name="particles" type="Node3D" parent="."]
+script = ExtResource("2_pyv0u")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D7" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D8" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D9" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
+
+[node name="GPUParticles3D10" type="GPUParticles3D" parent="particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+emitting = false
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_k8oey")
+draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

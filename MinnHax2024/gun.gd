@@ -6,15 +6,16 @@ var physics_check = false
 var laserTime = 0.025 # Laser shows for this time on shoot
 var laserTimer = 0
 
+var gc
 func _ready():
+	gc = get_tree().get_root().get_node("main")
 	laser.set_visible(false)
 
 func shoot_callback(result):
 	if result != null:
 		var dist = (result.position - $start_point.get_global_position()).length()
 		laserLength(dist)
-		result.collider.set_visible(false)
-		print(result.collider.name)
+		gc.particles.fire(result.position)
 	else:
 		laserLength(100)
 

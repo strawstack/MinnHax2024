@@ -16,6 +16,7 @@ extends Node3D
 @export var walkingSimCameraPoint: Node3D
 @export var arcadePlayerWait: Node3D
 @export var jeffm_spheres: Array[Node3D]
+@export var particles: Node3D
 
 # Variables
 var debug = true
