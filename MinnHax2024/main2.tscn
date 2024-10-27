@@ -16,6 +16,7 @@
 [ext_resource type="Shader" uid="uid://hjqe1q0cjfck" path="res://texture/stripes.tres" id="9_6fepl"]
 [ext_resource type="Texture2D" uid="uid://cy2u1y1bqvhlb" path="res://model/bg3_bg3.jpg" id="9_r66r2"]
 [ext_resource type="Shader" uid="uid://c5qla1qt0uqe0" path="res://texture/dark_waves.tres" id="10_hupfv"]
+[ext_resource type="Script" path="res://camera_preview_render.gd" id="10_yms2k"]
 [ext_resource type="Shader" uid="uid://cr5gkxh158b8i" path="res://texture/grass_and_thread.tres" id="11_6df2w"]
 [ext_resource type="Script" path="res://script/door.gd" id="12_gelxa"]
 [ext_resource type="Shader" uid="uid://do34cg1yoq5q3" path="res://texture/white.tres" id="13_pyrfr"]
@@ -302,9 +303,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qko4h")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_gous0"]
-viewport_path = NodePath("Player/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flb6t"]
 resource_name = "Material"
@@ -19727,9 +19725,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637078, -0.692828, -1.0033
 [node name="photo_camera_placeholder" type="Node3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 0.00373173, 0.0541982, -0.233826)
 
-[node name="camera_preview_render" type="Sprite3D" parent="Player/Camera3D/camera"]
+[node name="camera_preview_render" type="Sprite3D" parent="Player/Camera3D/camera" node_paths=PackedStringArray("subview")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0488453, -0.0807756, 0.289093)
-texture = SubResource("ViewportTexture_gous0")
+script = ExtResource("10_yms2k")
+subview = NodePath("../../../SubViewport")
 
 [node name="body" type="MeshInstance3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503292, -0.1266, -0.019104)
