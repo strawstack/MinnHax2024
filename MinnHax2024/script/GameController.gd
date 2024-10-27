@@ -372,7 +372,8 @@ func _on_beginner_six_area_3d_body_entered(body):
 
 func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
-		await beam_elevator.up()
+		var totalDur = duration("BEG12") + duration("BEG13") + 2 + duration("R")
+		beam_elevator.up(totalDur)
 		orby.reparent(self)
 		await say("BEG12")
 		await say("BEG13")

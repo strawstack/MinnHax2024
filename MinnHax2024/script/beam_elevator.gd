@@ -19,7 +19,7 @@ func elevator_done():
 	for barrier in barriers:
 		barrier.add_collision_exception_with(player)
 
-func up():
+func up(duration):
 	for barrier in barriers:
 		barrier.remove_collision_exception_with(player)
 	
@@ -29,7 +29,7 @@ func up():
 	var tween = get_tree().create_tween()
 	var pos = get_position()
 	pos.y = end_height
-	tween.tween_property(self, "position", pos, 10)
+	tween.tween_property(self, "position", pos, duration)
 	tween.tween_callback(elevator_done)
 	await tween.finished
 
