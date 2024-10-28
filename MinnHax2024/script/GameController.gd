@@ -450,12 +450,42 @@ func _on_exiting_knife_area_3d_body_exited(body):
 func _on_house_appear_area_3d_body_entered(body):
 	house.appear()
 
+func hidePlayer():
+	player.set_visible(false)
+
 func _on_house_enter_area_3d_body_entered(body):
-	playerFrozen = true
-	endingInProgress = true
-	handCamera.set_visible(false)
-	playerCamera.reparent(self)
-	var tween = get_tree().create_tween().set_parallel(true)
-	tween.tween_property(playerCamera, "position", endPoints.get_node("camera_pull_back").get_global_position(), 1)
-	tween.tween_property(playerCamera, "rotation", endPoints.get_node("camera_pull_back").get_global_rotation(), 1)
+	if onlyOnce("_on_house_enter_area_3d_body_entered"):
+		playerFrozen = true
+		endingInProgress = true
+		handCamera.set_visible(false)
+		playerCamera.reparent(self)
+
+		var tween = get_tree().create_tween().set_parallel(true)
+		var rot = player.get_rotation()
+		rot.y += PI
+		tween.tween_property(playerCamera, "position", endPoints.get_node("camera_pull_back").get_global_position(), 1)
+		tween.tween_property(playerCamera, "rotation", endPoints.get_node("camera_pull_back").get_global_rotation(), 1)
+		tween.set_parallel(false)
+		tween.tween_callback(player.showFace)
+		tween.tween_property(player, "position", endPoints.get_node("bottom_steps").get_global_position(), 2)
+		tween.tween_property(player, "position", endPoints.get_node("top_steps").get_global_position(), 1)
+		tween.set_parallel(true)
+		tween.tween_callback(house.open)
+		tween.set_parallel(false)
+		tween.tween_property(player, "position", endPoints.get_node("inside").get_global_position(), 1)
+		tween.tween_property(player, "rotation", rot, 1)
+		tween.tween_property(playerCamera, "position", endPoints.get_node("close_up").get_global_position(), 1)
+		tween.set_parallel(true)
+		tween.tween_property(playerCamera, "rotation", endPoints.get_node("close_up").get_global_rotation(), 1)
+		tween.set_parallel(false)
+		tween.tween_callback(house.close)
+		tween.tween_interval(1)
+		tween.tween_property(playerCamera, "position", endPoints.get_node("camera_pull_back").get_global_position(), 1)
+		tween.set_parallel(true)
+		tween.tween_property(playerCamera, "rotation", endPoints.get_node("camera_pull_back").get_global_rotation(), 1)
+		tween.set_parallel(false)
+		tween.tween_interval(1.0)
+		tween.tween_callback(hidePlayer)
+		tween.tween_callback(house.vanish)
+
 

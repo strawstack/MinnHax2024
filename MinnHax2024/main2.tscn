@@ -1,4 +1,4 @@
-[gd_scene load_steps=2040 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2043 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -22,6 +22,7 @@
 [ext_resource type="Shader" uid="uid://cr5gkxh158b8i" path="res://texture/grass_and_thread.tres" id="11_6df2w"]
 [ext_resource type="AudioStream" uid="uid://4kgcbo505acc" path="res://audio/camera_shutter.mp3" id="11_i5bks"]
 [ext_resource type="Script" path="res://script/door.gd" id="12_gelxa"]
+[ext_resource type="Shader" uid="uid://wh45o7u4kpai" path="res://logo_player.tres" id="13_5cx81"]
 [ext_resource type="Shader" uid="uid://do34cg1yoq5q3" path="res://texture/white.tres" id="13_pyrfr"]
 [ext_resource type="Shader" uid="uid://d3a4v4xdmc0x6" path="res://texture/pulse_red.tres" id="14_nl1m8"]
 [ext_resource type="Shader" uid="uid://7vkih0rc0dhq" path="res://texture/red_map.tres" id="15_rkmnd"]
@@ -489,6 +490,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_le0n2")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a767s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gjrb1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_co5pt"]
+render_priority = 0
+shader = ExtResource("13_5cx81")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3gtxy"]
 render_priority = 0
@@ -15598,6 +15605,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_035wq")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lar5e"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 18.0
+initial_velocity_max = 18.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxonl"]
+albedo_color = Color(0.46334, 0.384807, 0.651499, 1)
+emission_enabled = true
+emission = Color(0.587326, 0.515495, 0.775301, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w8iio"]
+material = SubResource("StandardMaterial3D_vxonl")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87wl4"]
 resource_name = "Material.043"
 cull_mode = 2
@@ -15635,21 +15657,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_siwxt")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lar5e"]
-direction = Vector3(0, 1, 0)
-spread = 90.0
-initial_velocity_min = 18.0
-initial_velocity_max = 18.0
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxonl"]
-albedo_color = Color(0.46334, 0.384807, 0.651499, 1)
-emission_enabled = true
-emission = Color(0.587326, 0.515495, 0.775301, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_w8iio"]
-material = SubResource("StandardMaterial3D_vxonl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fkrd"]
 resource_name = "Material.048"
@@ -19889,7 +19896,19 @@ environment = SubResource("Environment_2kg6i")
 [node name="endPoints" type="Node3D" parent="."]
 
 [node name="camera_pull_back" type="Node3D" parent="endPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.02, 65.9554, 32.3138)
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 210.02, 66.8877, 32.3138)
+
+[node name="bottom_steps" type="Node3D" parent="endPoints"]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 189.996, 50, 28.3138)
+
+[node name="top_steps" type="Node3D" parent="endPoints"]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 184.996, 52.7885, 27.8872)
+
+[node name="inside" type="Node3D" parent="endPoints"]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 182.631, 52.7885, 27.8872)
+
+[node name="close_up" type="Node3D" parent="endPoints"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 187.381, 54.4868, 27.9071)
 
 [node name="lights" type="Node3D" parent="."]
 
@@ -20183,7 +20202,7 @@ visible = false
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 251.5, 50.0095, 31.5047)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 218.5, 50.0095, 31.5047)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
@@ -20267,6 +20286,15 @@ current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_a767s")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_gjrb1")
+material = SubResource("ShaderMaterial_co5pt")
+
+[node name="face" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243668, -0.507111)
+visible = false
+texture = ExtResource("121_iny2t")
 
 [node name="waypoints" type="Node3D" parent="."]
 
@@ -24832,18 +24860,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="dash" type="Node3D" parent="areas"]
 
-[node name="house" type="Node3D" parent="areas/dash"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.2218, -40.1867)
-visible = false
-script = ExtResource("66_qj040")
-
-[node name="door" type="MeshInstance3D" parent="areas/dash/house"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 184.5, 86.5, 68)
-mesh = SubResource("ArrayMesh_a3hwt")
-skeleton = NodePath("")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="areas/dash/house"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.106, 85.9993, 71.5107)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="areas/dash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.106, 54.7775, 31.324)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -24851,6 +24869,16 @@ one_shot = true
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_lar5e")
 draw_pass_1 = SubResource("SphereMesh_w8iio")
+
+[node name="house" type="Node3D" parent="areas/dash" node_paths=PackedStringArray("particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.2218, -40.1867)
+script = ExtResource("66_qj040")
+particles = NodePath("../GPUParticles3D")
+
+[node name="door" type="MeshInstance3D" parent="areas/dash/house"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 184.5, 86.5, 68)
+mesh = SubResource("ArrayMesh_a3hwt")
+skeleton = NodePath("")
 
 [node name="Cube_231" type="MeshInstance3D" parent="areas/dash/house"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 180, 80.5, 72)

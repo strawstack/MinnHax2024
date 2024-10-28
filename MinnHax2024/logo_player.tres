@@ -1,0 +1,60 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://wh45o7u4kpai"]
+
+[ext_resource type="Texture2D" uid="uid://bj5yhdvvbkm06" path="res://images/minnmax_logo_texture.png" id="1_adsd2"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_khuaq"]
+texture = ExtResource("1_adsd2")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_2uiv0"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_g665m"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_07meo"]
+constant = 10.0
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// FloatConstant:5
+	float n_out5p0 = 10.000000;
+
+
+// VectorOp:4
+	vec2 n_out4p0 = n_out3p0 * vec2(n_out5p0);
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-766.625, -110.705)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_khuaq")
+nodes/fragment/2/position = Vector2(-100, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_2uiv0")
+nodes/fragment/3/position = Vector2(-920, 100)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_g665m")
+nodes/fragment/4/position = Vector2(-457.714, 265.433)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatConstant_07meo")
+nodes/fragment/5/position = Vector2(-680, 400)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 4, 0, 4, 0, 2, 0, 5, 0, 4, 1)

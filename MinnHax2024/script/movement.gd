@@ -127,6 +127,9 @@ func _process(delta):
 		else:
 			shoot()
 
+func showFace():
+	$face.set_visible(true)
+
 var push_force = 10.0
 func _physics_process(delta):
 	for i in get_slide_collision_count():
