@@ -1,4 +1,4 @@
-[gd_scene load_steps=2036 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2040 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -102,6 +102,7 @@
 [ext_resource type="AudioStream" uid="uid://treg2hvn5nyq" path="res://WalkingSim/eventAudio/smell_that.mp3" id="65_vh1vc"]
 [ext_resource type="AudioStream" uid="uid://e3wb2i4rfeeb" path="res://WalkingSim/eventAudio/alone_thing.mp3" id="66_7r5y7"]
 [ext_resource type="Texture2D" uid="uid://bucu8ko3oamol" path="res://model/house_leo_house.png" id="66_8002o"]
+[ext_resource type="Script" path="res://house.gd" id="66_qj040"]
 [ext_resource type="AudioStream" uid="uid://c82m8duvxrjq1" path="res://WalkingSim/eventAudio/what_a_hero.mp3" id="67_p534a"]
 [ext_resource type="AudioStream" uid="uid://disnksh83hl1a" path="res://WalkingSim/eventAudio/bombs_havent_touched.mp3" id="68_mnisb"]
 [ext_resource type="AudioStream" uid="uid://do005otl61peu" path="res://WalkingSim/eventAudio/infalable.mp3" id="69_2xonl"]
@@ -15635,6 +15636,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_siwxt")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lar5e"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 18.0
+initial_velocity_max = 18.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxonl"]
+albedo_color = Color(0.46334, 0.384807, 0.651499, 1)
+emission_enabled = true
+emission = Color(0.587326, 0.515495, 0.775301, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w8iio"]
+material = SubResource("StandardMaterial3D_vxonl")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fkrd"]
 resource_name = "Material.048"
 cull_mode = 2
@@ -19673,7 +19689,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -19690,6 +19706,8 @@ walkingSimCameraPoint = NodePath("areas/arcade/machine/cameraPoint")
 arcadePlayerWait = NodePath("areas/arcade/machine/player_wait")
 jeffm_spheres = [NodePath("areas/beginner/jeffm_orbs/jeffm_sphere"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere2"), NodePath("areas/beginner/jeffm_orbs/jeffm_sphere3")]
 particles = NodePath("particles")
+house = NodePath("areas/dash/house")
+endPoints = NodePath("endPoints")
 maze_done = NodePath("waypoints/maze_done")
 entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
 exiting_gi = NodePath("triggers/exiting_gi/exiting_gi_Area3D")
@@ -19867,6 +19885,11 @@ script = ExtResource("3_2m141")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2kg6i")
+
+[node name="endPoints" type="Node3D" parent="."]
+
+[node name="camera_pull_back" type="Node3D" parent="endPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.02, 65.9554, 32.3138)
 
 [node name="lights" type="Node3D" parent="."]
 
@@ -20160,7 +20183,7 @@ visible = false
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 300.96, 50.0095, 20.0065)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 251.5, 50.0095, 31.5047)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
@@ -20979,6 +21002,7 @@ shape = SubResource("ConcavePolygonShape3D_0ol8x")
 
 [node name="house_appear" type="MeshInstance3D" parent="triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.24, 56.3333, 9)
+visible = false
 mesh = SubResource("ArrayMesh_wgmiw")
 skeleton = NodePath("")
 
@@ -20990,7 +21014,8 @@ collision_mask = 2
 shape = SubResource("ConcavePolygonShape3D_plaof")
 
 [node name="house_enter" type="MeshInstance3D" parent="triggers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.87, 56.3333, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.074, 56.3333, 9)
+visible = false
 mesh = SubResource("ArrayMesh_snrwi")
 skeleton = NodePath("")
 
@@ -24809,11 +24834,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="house" type="Node3D" parent="areas/dash"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.2218, -40.1867)
+visible = false
+script = ExtResource("66_qj040")
 
 [node name="door" type="MeshInstance3D" parent="areas/dash/house"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 184.5, 86.5, 68)
 mesh = SubResource("ArrayMesh_a3hwt")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="areas/dash/house"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.106, 85.9993, 71.5107)
+emitting = false
+amount = 128
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_lar5e")
+draw_pass_1 = SubResource("SphereMesh_w8iio")
 
 [node name="Cube_231" type="MeshInstance3D" parent="areas/dash/house"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 180, 80.5, 72)
@@ -26412,6 +26449,8 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 [connection signal="body_entered" from="triggers/knife_trigger/knife_trigger_Area3D" to="." method="_on_knife_trigger_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_knife/exiting_knife_Area3D" to="." method="_on_exiting_knife_area_3d_body_entered"]
 [connection signal="body_exited" from="triggers/exiting_knife/exiting_knife_Area3D" to="." method="_on_exiting_knife_area_3d_body_exited"]
+[connection signal="body_entered" from="triggers/house_appear/house_appear_Area3D" to="." method="_on_house_appear_area_3d_body_entered"]
+[connection signal="body_entered" from="triggers/house_enter/house_enter_Area3D" to="." method="_on_house_enter_area_3d_body_entered"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere" method="_on_timer_timeout"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere2/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere2" method="_on_timer_timeout"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere3/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere3" method="_on_timer_timeout"]

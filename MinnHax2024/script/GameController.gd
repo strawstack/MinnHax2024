@@ -18,6 +18,9 @@ extends Node3D
 @export var jeffm_spheres: Array[Node3D]
 @export var particles: Node3D
 
+@export var house: Node3D
+@export var endPoints: Node3D
+
 # Variables
 var debug = true
 var playerFrozen = false
@@ -25,6 +28,7 @@ var playingWalkingSim = false
 var towerTouched = false
 var isSpeaking = false
 var playerHasCamera = true
+var endingInProgress = false
 
 # state tracking
 var once = {}
@@ -443,4 +447,15 @@ func _on_exiting_knife_area_3d_body_entered(body):
 func _on_exiting_knife_area_3d_body_exited(body):
 	overlap.erase(exiting_knife.name)
 
+func _on_house_appear_area_3d_body_entered(body):
+	house.appear()
+
+func _on_house_enter_area_3d_body_entered(body):
+	playerFrozen = true
+	endingInProgress = true
+	handCamera.set_visible(false)
+	playerCamera.reparent(self)
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property(playerCamera, "position", endPoints.get_node("camera_pull_back").get_global_position(), 1)
+	tween.tween_property(playerCamera, "rotation", endPoints.get_node("camera_pull_back").get_global_rotation(), 1)
 
