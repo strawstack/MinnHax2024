@@ -1,4 +1,4 @@
-[gd_scene load_steps=2044 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2050 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -4114,6 +4114,72 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cr4dw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkcvb"]
+albedo_color = Color(0.0588235, 0.219608, 0.435294, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t16xm"]
+_surfaces = [{
+"aabb": AABB(-117.5, -52, -0.5, 235, 104, 1.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5wtau"]
+resource_name = "big_wall_Cube_616"
+_surfaces = [{
+"aabb": AABB(-117.5, -52, -0.5, 235, 104, 1.00001),
+"attribute_data": PackedByteArray(45, 254, 255, 255, 45, 254, 255, 255, 99, 255, 89, 199, 22, 191, 255, 255, 200, 254, 255, 127, 99, 255, 255, 255, 22, 191, 255, 127, 200, 254, 255, 255, 255, 255, 89, 199, 255, 127, 255, 127, 99, 255, 255, 127, 255, 255, 255, 255, 45, 254, 255, 127, 45, 254, 255, 127, 255, 255, 180, 142, 22, 191, 255, 127, 200, 254, 255, 255, 255, 255, 89, 199, 22, 191, 255, 255, 200, 254, 255, 127, 99, 255, 180, 142, 255, 127, 255, 255, 99, 255, 255, 255, 99, 255, 89, 199),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_kkcvb"),
+"primitive": 3,
+"uv_scale": Vector4(1.79575, 2, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 127, 255, 127, 84, 85, 84, 85, 255, 63, 255, 127, 255, 127, 255, 127, 84, 213, 170, 42, 255, 63, 255, 127, 255, 191, 255, 63, 84, 85, 84, 85, 255, 63, 255, 127, 255, 191, 255, 63, 84, 213, 170, 42, 255, 63, 255, 127, 255, 127, 255, 127, 84, 85, 84, 85, 255, 191, 255, 127, 255, 127, 255, 127, 84, 213, 170, 42, 255, 191, 255, 127, 255, 191, 255, 63, 84, 85, 84, 85, 255, 191, 255, 127, 255, 191, 255, 63, 84, 213, 170, 42, 255, 191, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t16xm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uddxt"]
+albedo_color = Color(0.0588235, 0.219608, 0.435294, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ref4m"]
+_surfaces = [{
+"aabb": AABB(-0.5, -23, -46, 1, 46, 92),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_poger"]
+resource_name = "big_wall_Cube_619"
+_surfaces = [{
+"aabb": AABB(-0.5, -23, -46, 1, 46, 92),
+"attribute_data": PackedByteArray(255, 255, 21, 8, 155, 250, 255, 255, 244, 123, 21, 8, 255, 255, 10, 132, 155, 250, 255, 255, 0, 0, 21, 8, 77, 253, 10, 132, 155, 250, 21, 8, 244, 123, 254, 255, 77, 253, 255, 255, 155, 250, 21, 8, 0, 0, 255, 255, 77, 253, 21, 8, 233, 247, 255, 255, 233, 247, 254, 255, 77, 253, 10, 132, 77, 253, 255, 255, 244, 123, 255, 255, 255, 255, 10, 132, 233, 247, 21, 8, 233, 247, 21, 8, 255, 255, 255, 255, 77, 253, 21, 8, 244, 123, 21, 8),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_uddxt"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 84, 213, 255, 127, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 127, 255, 127, 255, 255, 255, 127, 84, 85, 169, 170, 255, 255, 255, 127, 255, 127, 255, 63, 84, 85, 170, 170, 255, 255, 255, 127, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 127, 255, 127, 255, 255, 255, 127, 170, 170, 84, 85, 255, 255, 255, 127, 255, 127, 255, 63, 170, 170, 84, 85, 255, 255, 255, 127, 255, 255, 255, 127, 170, 170, 85, 85)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ref4m")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kggf"]
 render_priority = 0
@@ -19701,13 +19767,15 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "camera_preview_render", "subview", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "bg3", "bigWall", "camera_preview_render", "subview", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
 orby = NodePath("orby")
 audioLoad = NodePath("audioLoad")
 handCamera = NodePath("Player/Camera3D/camera")
+bg3 = NodePath("bg3")
+bigWall = NodePath("areas/entry_bridge/big_wall")
 camera_preview_render = NodePath("Player/Camera3D/camera/camera_preview_render")
 subview = NodePath("Player/SubViewport")
 tram = NodePath("tram")
@@ -21365,6 +21433,18 @@ font_size = 640
 horizontal_alignment = 0
 autowrap_mode = 2
 width = 8000.0
+
+[node name="big_wall" type="Node3D" parent="areas/entry_bridge"]
+
+[node name="Cube_619" type="MeshInstance3D" parent="areas/entry_bridge/big_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.5, 51, -49.5)
+mesh = SubResource("ArrayMesh_5wtau")
+skeleton = NodePath("")
+
+[node name="Cube_620" type="MeshInstance3D" parent="areas/entry_bridge/big_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 37, -4)
+mesh = SubResource("ArrayMesh_poger")
+skeleton = NodePath("")
 
 [node name="lobby" type="Node3D" parent="areas"]
 
@@ -25416,6 +25496,7 @@ skeleton = NodePath("")
 
 [node name="bg3" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.833, 0, 1.07547e-06, 0, 4.833, 0, -1.07547e-06, 0, 4.833, 338.503, -223.855, 388.195)
+visible = false
 mesh = SubResource("ArrayMesh_anyn3")
 skeleton = NodePath("")
 

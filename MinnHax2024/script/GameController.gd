@@ -6,6 +6,9 @@ extends Node3D
 @export var audioLoad: Node3D
 @export var handCamera: Node3D
 
+@export var bg3: MeshInstance3D
+@export var bigWall: Node3D
+
 @export var camera_preview_render: Sprite3D
 @export var subview: SubViewport
 
@@ -218,6 +221,7 @@ func _on_reception_area_3d_body_entered(body):
 		orby.lookAtName("player")
 		await orby.moveToName("r1")
 		await orby.say("F") # Tour guide introduction, and lets start the tour
+		bigWall.set_visible(false)
 		await orby.lookAtAndMoveToName("pre_gi_heart")
 		await orby.lookAtName("gi_heart")
 		await lobby_heart_door.open()
@@ -336,6 +340,7 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await get_tree().create_timer(1.0).timeout
 		await say("BEG2")
 		jeffm_door.open()
+		bg3.set_visible(true)
 		await waitOnArea(beginner_one)
 		orby.teleportToName("beam_elevator")
 		orby.reparent(beam_elevator)
