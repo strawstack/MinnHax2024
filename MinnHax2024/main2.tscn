@@ -1,4 +1,4 @@
-[gd_scene load_steps=2043 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2044 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -389,7 +389,7 @@ data = PackedVector3Array(0, -0.7071, -0.7071, 0.1622, -0.5556, -0.8155, 0, -0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flb6t"]
 resource_name = "Material"
 cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_color = Color(0.695504, 0.695503, 0.695503, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xcgjf"]
@@ -456,6 +456,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f5gr2")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owlt"]
+albedo_color = Color(0.42979, 0.517554, 0.660704, 1)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_le0n2"]
 _surfaces = [{
 "aabb": AABB(-0.05, -0.075, -0.15, 0.10001, 0.15001, 0.3),
@@ -478,7 +481,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(1, 0, 19, 0, 13, 0, 1, 0, 7, 0, 19, 0, 9, 0, 18, 0, 6, 0, 9, 0, 21, 0, 18, 0, 23, 0, 14, 0, 20, 0, 23, 0, 17, 0, 14, 0, 16, 0, 10, 0, 4, 0, 16, 0, 22, 0, 10, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 15, 0, 0, 0, 12, 0, 15, 0, 3, 0, 0, 0),
-"material": SubResource("StandardMaterial3D_flb6t"),
+"material": SubResource("StandardMaterial3D_4owlt"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -20205,13 +20208,14 @@ visible = false
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/temp"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 142.553, 1.01858, -20.2512)
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun", "camera_trigger")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 190.922, 1.01858, -23.2512)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
 script = ExtResource("3_h4lns")
 gun = NodePath("Camera3D/gun")
+camera_trigger = NodePath("Camera3D/camera/trigger")
 
 [node name="CameraShutter" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("11_i5bks")
@@ -20273,19 +20277,37 @@ mesh = SubResource("ArrayMesh_3eyhh")
 skeleton = NodePath("")
 
 [node name="trigger" type="MeshInstance3D" parent="Player/Camera3D/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149671, 0.1909, 0.030899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.19, 0.031)
 layers = 16
 mesh = SubResource("ArrayMesh_kbtxb")
 skeleton = NodePath("")
 
+[node name="lmb" type="Label3D" parent="Player/Camera3D/camera/trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000356674, 0.0323616, 0.152832)
+modulate = Color(0.561993, 0.540845, 0.678748, 1)
+outline_modulate = Color(0.25098, 0.235294, 0.329412, 1)
+text = "lmb
+"
+font_size = 8
+outline_size = 3
+
 [node name="photo_start" type="Node3D" parent="Player/Camera3D/camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0520163, -0.17057, -0.0679169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0520172, -0.188945, -0.0639648)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.224518)
 light_energy = 0.0
 spot_range = 11.4787
 spot_angle = 71.1257
+
+[node name="space" type="Label3D" parent="Player/Camera3D/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0476856, 0.175889, 0.181992)
+modulate = Color(0.866071, 0.80336, 0.823761, 1)
+outline_modulate = Color(0.403922, 0.309804, 0.341176, 1)
+text = "space"
+font_size = 12
+outline_size = 3
+metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Player/Camera3D"]
 current = true

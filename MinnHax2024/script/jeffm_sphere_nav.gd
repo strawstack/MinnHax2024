@@ -17,6 +17,7 @@ func go():
 
 func done():
 	$Timer.stop()
+	$Sphere.done()
 
 func _on_timer_timeout():
 	var tween = get_tree().create_tween()

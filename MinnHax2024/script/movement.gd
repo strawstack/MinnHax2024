@@ -12,6 +12,7 @@ var tweenCameraRot: Tween
 var photoScene = preload("res://script/photo.tscn")
 
 @export var gun: Node3D
+@export var camera_trigger: MeshInstance3D
 
 var gc
 func _ready():
@@ -66,13 +67,19 @@ func takePhoto():
 	gc.photos.add_child(photo)
 	photo.set_position($Camera3D/camera/photo_start.get_global_position())
 
+	var trig_up = 0.19
+	var trig_down = 0.05
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera_trigger, "position:y", trig_down, 0.1)
+	tween.tween_property(camera_trigger, "position:y", trig_up, 0.1)
+	await tween.finished
 	$CameraShutter.play()
 
 	# Turn flash on then off after some time
 	$Camera3D/camera/SpotLight3D.set_param(Light3D.PARAM_ENERGY, 3.0)
-	var tween = get_tree().create_tween()
-	tween.tween_interval(0.1).finished
-	tween.tween_callback(flashOff)
+	var tween2 = get_tree().create_tween()
+	tween2.tween_interval(0.1).finished
+	tween2.tween_callback(flashOff)
 	
 	var vp = $Camera3D/camera/camera_preview_render.get_texture()
 	var texture = ImageTexture.create_from_image(vp.get_image())

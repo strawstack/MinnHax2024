@@ -354,7 +354,10 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		maze_door.open()
 		await say("Q")
 		await waitOnArea(beginner_five)
+		maze_door.close()
 		await say("BEG8")
+		for js in jeffm_spheres:
+			js.done()
 		await waitOnArea(beginner_six)
 		await say("BEG9")
 		await get_tree().create_timer(1.0).timeout # Wait before warping player
