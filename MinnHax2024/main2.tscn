@@ -1,4 +1,4 @@
-[gd_scene load_steps=2043 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2042 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://cy2u1y1bqvhlb" path="res://model/bg3_bg3.jpg" id="9_r66r2"]
 [ext_resource type="Script" path="res://gun.gd" id="10_10f6s"]
 [ext_resource type="Shader" uid="uid://c5qla1qt0uqe0" path="res://texture/dark_waves.tres" id="10_hupfv"]
-[ext_resource type="Script" path="res://camera_preview_render.gd" id="10_yms2k"]
 [ext_resource type="Shader" uid="uid://cr5gkxh158b8i" path="res://texture/grass_and_thread.tres" id="11_6df2w"]
 [ext_resource type="AudioStream" uid="uid://4kgcbo505acc" path="res://audio/camera_shutter.mp3" id="11_i5bks"]
 [ext_resource type="Script" path="res://script/door.gd" id="12_gelxa"]
@@ -19696,13 +19695,15 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "camera_preview_render", "subview", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
 orby = NodePath("orby")
 audioLoad = NodePath("audioLoad")
 handCamera = NodePath("Player/Camera3D/camera")
+camera_preview_render = NodePath("Player/Camera3D/camera/camera_preview_render")
+subview = NodePath("Player/SubViewport")
 tram = NodePath("tram")
 beam_elevator = NodePath("areas/beginner/beam")
 photos = NodePath("photos")
@@ -20215,7 +20216,7 @@ stream = ExtResource("11_i5bks")
 [node name="SubViewport" type="SubViewport" parent="Player"]
 
 [node name="photo_camera" type="Camera3D" parent="Player/SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 148.237, 0.860527, -15.0627)
+cull_mask = 1048559
 
 [node name="camera_down" type="Node3D" parent="Player"]
 transform = Transform3D(0.906308, -0.178606, 0.383022, 0, 0.906308, 0.422618, -0.422618, -0.383022, 0.821394, -0.619675, -0.317438, -0.963455)
@@ -20252,23 +20253,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637078, -0.692828, -1.0033
 [node name="photo_camera_placeholder" type="Node3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 0.00373173, 0.0541982, -0.233826)
 
-[node name="camera_preview_render" type="Sprite3D" parent="Player/Camera3D/camera" node_paths=PackedStringArray("subview")]
+[node name="camera_preview_render" type="Sprite3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.049, -0.081, 0.3)
-script = ExtResource("10_yms2k")
-subview = NodePath("../../../SubViewport")
+layers = 16
 
 [node name="body" type="MeshInstance3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503292, -0.1266, -0.019104)
+layers = 16
 mesh = SubResource("ArrayMesh_a1dsi")
 skeleton = NodePath("")
 
 [node name="viewfinder" type="MeshInstance3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503292, 0.1659, 0.030899)
+layers = 16
 mesh = SubResource("ArrayMesh_3eyhh")
 skeleton = NodePath("")
 
 [node name="trigger" type="MeshInstance3D" parent="Player/Camera3D/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149671, 0.1909, 0.030899)
+layers = 16
 mesh = SubResource("ArrayMesh_kbtxb")
 skeleton = NodePath("")
 

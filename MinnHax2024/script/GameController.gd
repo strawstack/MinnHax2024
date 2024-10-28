@@ -6,6 +6,9 @@ extends Node3D
 @export var audioLoad: Node3D
 @export var handCamera: Node3D
 
+@export var camera_preview_render: Sprite3D
+@export var subview: SubViewport
+
 @export var tram: Node3D
 @export var beam_elevator: Node3D
 @export var photos: Node3D
@@ -22,7 +25,7 @@ extends Node3D
 @export var endPoints: Node3D
 
 # Variables
-var debug = true
+var debug = false
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -82,6 +85,7 @@ func _ready():
 		orby.lookAtName("player")
 		hasCamera(true)
 	else:
+		hasCamera(true)
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
 
@@ -131,12 +135,17 @@ func isPlayerFrozen():
 func getPlayer():
 	return player
 
+func setCameraTexture():
+	camera_preview_render.set_texture(subview.get_texture())
+
 func boardTram():
 	player.reparent(tram)
+	setCameraTexture()
 	player.set_position(player_start_point.get_position())
 
 func exitTram():
 	player.reparent(self)
+	setCameraTexture()
 
 func playWalkingSim():
 	playerFrozen = true
