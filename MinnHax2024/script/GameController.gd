@@ -25,7 +25,7 @@ extends Node3D
 @export var endPoints: Node3D
 
 # Variables
-var debug = false
+var debug = true
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -80,12 +80,12 @@ var overlap = {}
 @export var gift_door: Node3D
 
 func _ready():
+	setCameraTexture()
+	hasCamera(true)
 	if debug:
 		orby.teleportToName("knife_side")
 		orby.lookAtName("player")
-		hasCamera(true)
 	else:
-		hasCamera(true)
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
 
