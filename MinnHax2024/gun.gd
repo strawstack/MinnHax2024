@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var laser: CSGMesh3D
+@export var orby: Node3D
 
 var physics_check = false
 var laserTime = 0.025 # Laser shows for this time on shoot
@@ -16,6 +17,8 @@ func shoot_callback(result):
 		var dist = (result.position - $start_point.get_global_position()).length()
 		laserLength(dist)
 		gc.particles.fire(result.position)
+		if result.collider.name == "orby_hit_zone":
+			orby.takeDamage()
 	else:
 		laserLength(100)
 

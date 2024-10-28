@@ -5,6 +5,10 @@ extends Node3D
 @export var healthBarUI: CanvasLayer
 @export var healthBar: ProgressBar
 
+@export var knife_stand: Node3D
+@export var knife_self: Node3D
+@export var knife_ground: Node3D
+
 var speed = 5
 var isTrackingPlayer = false
 var player
@@ -38,6 +42,7 @@ func teleportToName(pointName):
 	set_position(orbyPoints.get_node(pointName).get_position())
 
 func moveToName(pointName):
+	print(pointName)
 	var targetNode = orbyPoints.get_node(pointName)
 	await _moveTo(targetNode)
 
@@ -98,11 +103,14 @@ func angleDiff(a, b):
 	return min(ans, special_case)
 
 func battleComplete():
-	healthBarUI.set_visibility(false)
+	healthBarUI.set_visible(false)
 	speed = 5
 	inBattle = false
 	$Timer.stop()
+	$moveTimer.stop()
 	await moveToName("battle5")
+	knife_self.set_visible(false)
+	knife_ground.set_visible(true)
 	await say("T11")
 	await say("T12")
 	lookAtAndMoveToName("club_heart")
@@ -111,6 +119,7 @@ func battleComplete():
 func shield():
 	hasShield = true
 	$shield.set_visible(true)
+	$shieldTimer.start()
 
 func takeDamage():
 	if not hasShield:
@@ -122,10 +131,13 @@ func takeDamage():
 			shield()
 
 func knifeBattle():
-	healthBarUI.set_visibility(true)
+	knife_stand.set_visible(false)
+	knife_self.set_visible(true)
+	healthBarUI.set_visible(true)
 	speed = 20
 	inBattle = true
 	$Timer.start()
+	$moveTimer.start()
 	lookAtName("player")
 
 func _process(delta):
@@ -157,4 +169,4 @@ func _on_shield_timer_timeout():
 func _on_move_timer_timeout():
 	var r = randi() % battlePoints.size()
 	var pName = battlePoints[r].name
-	moveToName(pName)
+	moveToName(NodePath(pName))

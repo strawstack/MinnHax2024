@@ -74,8 +74,7 @@ var overlap = {}
 
 func _ready():
 	if debug:
-		orby.teleportToName("beam_elevator")
-		orby.reparent(beam_elevator)
+		orby.teleportToName("knife_side")
 		orby.lookAtName("player")
 		hasCamera(true)
 	else:
@@ -88,6 +87,7 @@ func hasCamera(value):
 		handCamera.set_visible(true)
 		player.gun.set_visible(false)
 	else:
+		say("gun_cock")
 		handCamera.set_visible(false)
 		player.gun.set_visible(true)
 
@@ -405,29 +405,30 @@ func _on_beam_area_area_3d_body_entered(body):
 		orby.lookAtAndMoveToName("knife_side")
 
 func _on_entering_knife_area_3d_body_entered(body):
-	knife_door.close()
-	orby.lookAtName("player")
-	await orby.say("T1") # Knife room intro
-	await orby.say("T2") # Knife room intro
-	await orby.say("T3") # Knife room intro
-	orby.lookAtName("knife_itself")
-	await orby.say("T4")
-	await get_tree().create_timer(0.5).timeout
-	await orby.say("T5")
-	await get_tree().create_timer(0.5).timeout
-	await orby.say("T6")
-	await get_tree().create_timer(0.5).timeout
-	
-	await waitOnArea(knife_trigger) # Knife battle start
-	await orby.say("T7")
-	
-	orby.knifeBattle() # wait until battle is done
-	await orby.battle_complete
-	
-	await waitOnArea(exiting_knife)
-	await gift_door.open()
-	await entering_gift.body_entered
-	gift_door.close()
+	if onlyOnce("_on_entering_knife_area_3d_body_entered"):
+		knife_door.close()
+		orby.lookAtName("player")
+		await orby.say("T1") # Knife room intro
+		await orby.say("T2") # Knife room intro
+		await orby.say("T3") # Knife room intro
+		orby.lookAtName("knife_itself")
+		await orby.say("T4")
+		await get_tree().create_timer(0.5).timeout
+		await orby.say("T5")
+		await get_tree().create_timer(0.5).timeout
+		await orby.say("T6")
+		
+		await waitOnArea(knife_trigger) # Knife battle start
+		await orby.say("T7")
+		
+		hasCamera(false)
+		orby.knifeBattle() # wait until battle is done
+		await orby.battle_complete
+		
+		await waitOnArea(exiting_knife)
+		await gift_door.open()
+		await entering_gift.body_entered
+		gift_door.close()
 
 func _on_exiting_club_area_3d_body_entered(body):
 	overlap[exiting_club.name] = true
