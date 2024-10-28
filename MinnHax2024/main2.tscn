@@ -1,4 +1,4 @@
-[gd_scene load_steps=2023 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2033 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -20,6 +20,7 @@
 [ext_resource type="Shader" uid="uid://c5qla1qt0uqe0" path="res://texture/dark_waves.tres" id="10_hupfv"]
 [ext_resource type="Script" path="res://camera_preview_render.gd" id="10_yms2k"]
 [ext_resource type="Shader" uid="uid://cr5gkxh158b8i" path="res://texture/grass_and_thread.tres" id="11_6df2w"]
+[ext_resource type="AudioStream" uid="uid://4kgcbo505acc" path="res://audio/camera_shutter.mp3" id="11_i5bks"]
 [ext_resource type="Script" path="res://script/door.gd" id="12_gelxa"]
 [ext_resource type="Shader" uid="uid://do34cg1yoq5q3" path="res://texture/white.tres" id="13_pyrfr"]
 [ext_resource type="Shader" uid="uid://d3a4v4xdmc0x6" path="res://texture/pulse_red.tres" id="14_nl1m8"]
@@ -152,6 +153,9 @@
 [ext_resource type="Texture2D" uid="uid://d0eexcrkvglwl" path="res://WalkingSim/sketchTiles/water.png" id="116_6c3aa"]
 [ext_resource type="Texture2D" uid="uid://bifmed7hcc6ph" path="res://images/jeffm.png" id="121_iny2t"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1u1s"]
+bg_color = Color(0.750539, 0, 0.110806, 1)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k8oey"]
 direction = Vector3(0, 1, 0)
 initial_velocity_min = 2.0
@@ -176,6 +180,13 @@ sky_material = SubResource("ShaderMaterial_paypk")
 [sub_resource type="Environment" id="Environment_2kg6i"]
 background_mode = 2
 sky = SubResource("Sky_aajaa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngcnf"]
+transparency = 1
+albedo_color = Color(0.270588, 0.333333, 1, 0.364706)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pskge"]
+material = SubResource("StandardMaterial3D_ngcnf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pwc4"]
 render_priority = 0
@@ -8469,6 +8480,28 @@ shadow_mesh = SubResource("ArrayMesh_co2o3")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ox2eg"]
 data = PackedVector3Array(-1, -4.6667, 4.9998, -1, 2.3333, -5, -1, 2.3333, 4.9998, -1, -4.6667, 4.9998, -1, -4.6667, -5, -1, 2.3333, -5, -1, -4.6667, -5, 1, 2.3333, -5, -1, 2.3333, -5, -1, -4.6667, -5, 1, -4.6667, -5, 1, 2.3333, -5, 1, -4.6667, -5, 1, 2.3333, 4.9998, 1, 2.3333, -5, 1, -4.6667, -5, 1, -4.6667, 4.9998, 1, 2.3333, 4.9998, 1, -4.6667, 4.9998, -1, 2.3333, 4.9998, 1, 2.3333, 4.9998, 1, -4.6667, 4.9998, -1, -4.6667, 4.9998, -1, 2.3333, 4.9998, -1, -4.6667, -5, 1, -4.6667, 4.9998, 1, -4.6667, -5, -1, -4.6667, -5, -1, -4.6667, 4.9998, 1, -4.6667, 4.9998, 1, 2.3333, -5, -1, 2.3333, 4.9998, -1, 2.3333, -5, 1, 2.3333, -5, 1, 2.3333, 4.9998, -1, 2.3333, 4.9998)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_01ywf"]
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p00wo"]
+transparency = 1
+albedo_color = Color(0.866667, 0, 0.105882, 0.521569)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5trk5"]
+material = SubResource("StandardMaterial3D_p00wo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gmof5"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q5w2l"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glvk1"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwvxt"]
 resource_name = "Material.001"
@@ -19607,11 +19640,43 @@ jail_exit_door = NodePath("areas/beginner/jail/bars_two")
 knife_door = NodePath("areas/knife/heart_door")
 gift_door = NodePath("areas/gift/heart_door")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Evil Orby the Fourth: Museum Curator and Chief Preservationist"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_o1u1s")
+value = 100.0
+
 [node name="particles" type="Node3D" parent="."]
 script = ExtResource("2_pyv0u")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19621,7 +19686,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19631,7 +19696,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19641,7 +19706,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D4" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19651,7 +19716,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D5" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19661,7 +19726,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D6" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19671,7 +19736,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D7" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19681,7 +19746,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D8" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19691,7 +19756,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D9" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19701,7 +19766,7 @@ process_material = SubResource("ParticleProcessMaterial_k8oey")
 draw_pass_1 = SubResource("BoxMesh_6l1a2")
 
 [node name="GPUParticles3D10" type="GPUParticles3D" parent="particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.804, 6.89407, 82.8256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8764, 6.89407, 37.7708)
 emitting = false
 lifetime = 3.0
 one_shot = true
@@ -19724,10 +19789,28 @@ environment = SubResource("Environment_2kg6i")
 transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 69, 0)
 light_energy = 0.3
 
-[node name="orby" type="Node3D" parent="." node_paths=PackedStringArray("orbyPoints")]
+[node name="orby" type="Node3D" parent="." node_paths=PackedStringArray("orbyPoints", "battlePoints", "healthBarUI", "healthBar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 4, 0)
 script = ExtResource("3_4dwtl")
 orbyPoints = NodePath("../orbyPoints")
+battlePoints = [NodePath("../orbyPoints/battle1"), NodePath("../orbyPoints/battle2"), NodePath("../orbyPoints/battle3"), NodePath("../orbyPoints/battle4")]
+healthBarUI = NodePath("../CanvasLayer")
+healthBar = NodePath("../CanvasLayer/VBoxContainer/MarginContainer/ProgressBar")
+
+[node name="Timer" type="Timer" parent="orby"]
+wait_time = 3.0
+
+[node name="shieldTimer" type="Timer" parent="orby"]
+wait_time = 5.0
+one_shot = true
+
+[node name="shield" type="CSGMesh3D" parent="orby"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_pskge")
+
+[node name="moveTimer" type="Timer" parent="orby"]
+wait_time = 4.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="orby"]
 stream = ExtResource("4_aay7y")
@@ -19773,108 +19856,172 @@ skeleton = NodePath("")
 
 [node name="r1" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 8, 0)
+visible = false
 
 [node name="pre_gi_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 7, 6)
+visible = false
 
 [node name="gi_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 4.09421, 2.32798)
+visible = false
 
 [node name="mag_one" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 5, 2)
+visible = false
 
 [node name="mag_two" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 5, 2)
+visible = false
 
 [node name="mag_three" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99, 5, 2)
+visible = false
 
 [node name="pre_art_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 6, -4)
+visible = false
 
 [node name="art_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 4, -2)
+visible = false
 
 [node name="art_one" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 5, -5)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/art_one"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="art_two" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 5, 5)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/art_two"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="art_three" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 5, 8)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/art_three"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="pre_arcade_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, 7, -9)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/pre_arcade_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="arcade_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, 3, -14)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/arcade_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="arcade_machine" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 3, -30)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/arcade_machine"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="pre_jenga_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122, 6, -28)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/pre_jenga_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="jenga_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 4, -27)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/jenga_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="jenga_tower" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163, 11, -13)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/jenga_tower"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="pre_beginner_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176, 6, -21)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/pre_beginner_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="beam_elevator" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314, 7, -27)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/beam_elevator"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="club_heart" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 304, 55, -4)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/club_heart"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="knife_side" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313, 51, 30)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/knife_side"]
 size = Vector3(0.5, 0.5, 0.5)
 
+[node name="knife_itself" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 309.665, 50.7217, 30)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/knife_itself"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="battle1" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.905, 51.4516, 30)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/battle1"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="battle2" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.905, 51.4516, 15.5889)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/battle2"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="battle3" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316.425, 51.4516, 15.5889)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/battle3"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="battle4" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316.425, 51.4516, 34.1509)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/battle4"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="battle5" type="Node3D" parent="orbyPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.817, 51.4516, 24.2309)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/battle5"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="temp" type="Node3D" parent="orbyPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 5, 8)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="orbyPoints/temp"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -19886,6 +20033,9 @@ collision_mask = 21
 safe_margin = 0.01
 script = ExtResource("3_h4lns")
 gun = NodePath("Camera3D/gun")
+
+[node name="CameraShutter" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("11_i5bks")
 
 [node name="SubViewport" type="SubViewport" parent="Player"]
 
@@ -20448,6 +20598,7 @@ shape = SubResource("ConcavePolygonShape3D_ayeum")
 
 [node name="walking_sim_enter_Area3D" type="Area3D" parent="triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.187, 0, -24.5119)
+visible = false
 collision_layer = 16
 collision_mask = 2
 
@@ -20521,6 +20672,7 @@ collision_mask = 2
 shape = SubResource("ConcavePolygonShape3D_cq7qi")
 
 [node name="beginner_audio_triggers" type="Node3D" parent="triggers"]
+visible = false
 
 [node name="beginner_one" type="MeshInstance3D" parent="triggers/beginner_audio_triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 5.33333, -26)
@@ -22395,6 +22547,52 @@ shape = SubResource("ConcavePolygonShape3D_ox2eg")
 
 [node name="beginner" type="Node3D" parent="areas"]
 
+[node name="hallway_fire" type="Node3D" parent="areas/beginner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.981, 0, 27.8967)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655716, 1.68084, -0.32567)
+amount = 32
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_01ywf")
+draw_pass_1 = SubResource("SphereMesh_5trk5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(10.3179, 0, -1.26064, 0, 5.225, 0, 2.47235, 0, 5.26107, 0.410751, 2.53008, -0.325993)
+visible = false
+mesh = SubResource("BoxMesh_gmof5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="areas/beginner/hallway_fire/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/beginner/hallway_fire/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_q5w2l")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(2.82363, -0.703712, -0.729301, 0, 2.15886, -2.08311, 1.01345, 1.96065, 2.03194, 0, 1.53806, 0.421017)
+material = SubResource("StandardMaterial3D_glvk1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(2.70629, 1.02237, 0.794204, -1.2946, 2.1372, 1.66023, 0, -1.84042, 2.36915, 2.98312, 1.53806, 0)
+material = SubResource("StandardMaterial3D_glvk1")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(2.70323, 1.26057, 0.321736, -0.741982, 2.10325, -2.00644, -1.06865, 1.72838, 2.20697, -2.10674, 1.54818, -0.959553)
+material = SubResource("StandardMaterial3D_glvk1")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(-1.26801, -2.09756, -1.72986, -0.741982, 2.10325, -2.00644, 2.61565, -0.420216, -1.40776, -1.34917, 3.6481, -0.959553)
+material = SubResource("StandardMaterial3D_glvk1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(-1.26801, -2.09756, -1.72986, -0.741982, 2.10325, -2.00644, 2.61565, -0.420216, -1.40776, 3.22371, 3.6481, -0.225201)
+material = SubResource("StandardMaterial3D_glvk1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="areas/beginner/hallway_fire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48331, 5.461, -2.00013)
+light_color = Color(0.891727, 0.192247, 0, 1)
+light_energy = 15.0
+omni_range = 10.0
+
 [node name="jeffm_orbs" type="Node3D" parent="areas/beginner"]
 
 [node name="nav_points" type="Node3D" parent="areas/beginner/jeffm_orbs"]
@@ -22598,8 +22796,6 @@ skeleton = NodePath("")
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 319, 7.5, -21)
 mesh = SubResource("ArrayMesh_n27th")
 skeleton = NodePath("")
-
-[node name="Node3D" type="Node3D" parent="areas/beginner"]
 
 [node name="maze" type="Node3D" parent="areas/beginner"]
 
@@ -26048,6 +26244,9 @@ rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 131083, 3, 0, 131084, 3, 0, 131085, 3, 0, 131086, 3, 0, 131087, 3, 0, 131088, 3, 0, 131089, 3, 0, 131090, 3, 0, 131091, 3, 0, 65555, 3, 0, 65554, 3, 0, 65553, 3, 0, 65552, 3, 0, 65551, 3, 0, 65550, 3, 0, 65549, 3, 0, 65548, 3, 0, 65547, 3, 0, 65546, 3, 0, 65545, 3, 0, 65544, 3, 0, 65543, 3, 0, 65542, 3, 0, 65541, 3, 0, 65540, 3, 0, 65539, 3, 0, 65538, 3, 0, 65537, 3, 0, 65536, 3, 0, 131069, 3, 0, 131070, 3, 0, 196606, 3, 0, 196607, 3, 0, 131071, 3, 0, 196605, 3, 0, 65556, 3, 0, 65557, 3, 0, 65558, 3, 0, 131094, 3, 0, 131093, 3, 0, 131092, 3, 0, 65569, 3, 0, 65568, 3, 0, 65567, 3, 0, 65566, 3, 0, 65565, 3, 0, 65564, 3, 0, 65563, 3, 0, 65562, 3, 0, 65561, 3, 0, 65560, 3, 0, 65559, 3, 0, 131095, 3, 0, 131096, 3, 0, 131097, 3, 0, 131098, 3, 0, 131099, 3, 0, 131100, 3, 0, 131101, 3, 0, 131102, 3, 0, 131103, 3, 0, 131104, 3, 0, 131105, 3, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 2, 0, 196624, 2, 0, 196625, 2, 0, 196626, 2, 0, 196627, 2, 0, 196628, 2, 0, 196629, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0, 262159, 2, 0, 262160, 2, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 2, 0, 262165, 2, 0, 65533, 3, 0, -3, 3, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, -65519, 3, 0, -65518, 3, 0, -65517, 3, 0, -65516, 3, 0, -65515, 3, 0, -65514, 3, 0, -65513, 3, 0, -65512, 3, 0, -65511, 3, 0, -65510, 3, 0, -65509, 3, 0, -65508, 3, 0, -65507, 3, 0, -65506, 3, 0, -65505, 3, 0, -65504, 3, 0, -65503, 3, 0, 33, 3, 0, 32, 3, 0, 31, 3, 0, 30, 3, 0, 29, 3, 0, 28, 3, 0, 27, 3, 0, 26, 3, 0, 25, 3, 0, 24, 3, 0, 23, 3, 0, 22, 3, 0, 21, 3, 0, 20, 3, 0, 19, 3, 0, 18, 3, 0, 17, 3, 0, 16, 3, 0, 15, 3, 0, 14, 3, 0, 13, 3, 0, 12, 3, 0, 11, 3, 0, 10, 3, 0, 9, 3, 0, 8, 3, 0, 7, 3, 0, 6, 3, 0, 5, 3, 0, 4, 3, 0, 3, 3, 0, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 196636, 2, 0, 262172, 2, 0, 262171, 2, 0, 262170, 2, 0, 262169, 2, 0, 262168, 2, 0, 262167, 2, 0, 262166, 2, 0, 327707, 2, 0, 393243, 2, 0, 458779, 2, 0, 524315, 2, 0, 589851, 2, 0, 655387, 2, 0, 720923, 2, 0, 327708, 2, 0, 393244, 2, 0, 458780, 2, 0, 524316, 2, 0, 589852, 2, 0, 655388, 2, 0, 720924, 2, 0, 131106, 3, 0, 131107, 3, 0, 131108, 3, 0, 131109, 3, 0, 131110, 3, 0, 131111, 3, 0, 131112, 3, 0, 131113, 3, 0, 131114, 3, 0, 131115, 3, 0, 131116, 3, 0, 131117, 3, 0, 65581, 3, 0, 45, 3, 0, -65491, 3, 0, -65492, 3, 0, -65493, 3, 0, -65494, 3, 0, -65495, 3, 0, -65496, 3, 0, -65497, 3, 0, -65498, 3, 0, -65502, 3, 0, -65501, 3, 0, -65500, 3, 0, -65499, 3, 0, 38, 3, 0, 39, 3, 0, 37, 3, 0, 36, 3, 0, 35, 3, 0, 34, 3, 0, 65572, 3, 0, 65573, 3, 0, 65574, 3, 0, 65575, 3, 0, 65576, 3, 0, 65577, 3, 0, 65578, 3, 0, 65579, 3, 0, 65571, 3, 0, 65570, 3, 0, 40, 3, 0, 41, 3, 0, 42, 3, 0, 43, 3, 0, 44, 3, 0, 65580, 3, 0, 917532, 2, 0, 917531, 2, 0, 917530, 2, 0, 917529, 2, 0, 786460, 2, 0, 851996, 2, 0, 851995, 2, 0, 786459, 2, 0, 983068, 2, 0, 983067, 2, 0, 983066, 2, 0, 983065, 2, 0, 983064, 2, 0, 983063, 2, 0, 983062, 2, 0, 983061, 2, 0, 983060, 2, 0, 983059, 2, 0, 983058, 2, 0, 983057, 2, 0, 917528, 2, 0, 917527, 2, 0, 917526, 2, 0, 917525, 2, 0, 917524, 2, 0, 917523, 2, 0, 917522, 2, 0, 917521, 2, 0, 917520, 2, 0, 983056, 2, 0, 917519, 2, 0, 917518, 2, 0, 917517, 2, 0, 917516, 2, 0, 983052, 2, 0, 1048588, 2, 0, 1114124, 2, 0, 1114125, 2, 0, 1048589, 2, 0, 983053, 2, 0, 983055, 2, 0, 983054, 2, 0, 1179660, 2, 0, 1245196, 2, 0, 1310732, 2, 0, 1376268, 2, 0, 1441804, 2, 0, 1441805, 2, 0, 1441806, 2, 0, 1441807, 2, 0, 1441808, 2, 0, 1507344, 2, 0, 1572880, 2, 0, 1638416, 2, 0, 1703952, 2, 0, 1179661, 2, 0, 1245197, 2, 0, 1310733, 2, 0, 1376269, 2, 0, 1507345, 2, 0, 1441809, 2, 0, 1572881, 2, 0, 1638417, 2, 0, 1703953, 2, 0, 1507343, 2, 0, 1507342, 2, 0, 1507341, 2, 0, 1507340, 2, 0, 2293760, 4, 0, 2293761, 4, 0, 2293762, 4, 0, 2293763, 4, 0, 2293764, 4, 0, 2293765, 4, 0, 2293766, 4, 0, 2293767, 4, 0, 2293768, 4, 0, 2293769, 4, 0, 2293770, 4, 0, 2293771, 4, 0, 2293772, 4, 0, 2293773, 4, 0, 2293774, 4, 0, 2293775, 4, 0, 2293776, 4, 0, 2293777, 4, 0, 2293778, 4, 0, 2293779, 4, 0, 2293780, 4, 0, 2293781, 4, 0, 2293782, 4, 0, 2293783, 4, 0, 2293784, 4, 0, 2293785, 4, 0, 2293786, 4, 0, 2293787, 4, 0, 2293788, 4, 0, 2293789, 4, 0, 2293790, 4, 0, 2293791, 4, 0, 2293792, 4, 0, 2293793, 4, 0, 2293794, 4, 0, 2293795, 4, 0, 2293796, 4, 0, 2293797, 4, 0, 2293798, 4, 0, 2293799, 4, 0, 2293800, 4, 0, 2293801, 4, 0, 2293802, 4, 0, 2293803, 4, 0, 2293804, 4, 0, 2293805, 4, 0, 2293806, 4, 0, 2293807, 4, 0, 2293808, 4, 0, 2293809, 4, 0, 2293810, 4, 0, 2359296, 4, 0, 2359297, 4, 0, 2359298, 4, 0, 2359299, 4, 0, 2359300, 4, 0, 2359301, 4, 0, 2359302, 4, 0, 2359303, 4, 0, 2359304, 4, 0, 2359305, 4, 0, 2359306, 4, 0, 2359307, 4, 0, 2359308, 4, 0, 2359309, 4, 0, 2359310, 4, 0, 2424847, 4, 0, 2424848, 4, 0, 2424849, 4, 0, 2424850, 4, 0, 2424851, 4, 0, 2424852, 4, 0, 2424853, 4, 0, 2424854, 4, 0, 2424855, 4, 0, 2424856, 4, 0, 2424857, 4, 0, 2424858, 4, 0, 2424859, 4, 0, 2424860, 4, 0, 2424861, 4, 0, 2424862, 4, 0, 2424863, 4, 0, 2424864, 4, 0, 2424865, 4, 0, 2424866, 4, 0, 2424867, 4, 0, 2424868, 4, 0, 2359333, 4, 0, 2359334, 4, 0, 2359335, 4, 0, 2359336, 4, 0, 2359337, 4, 0, 2359338, 4, 0, 2359339, 4, 0, 2359340, 4, 0, 2359341, 4, 0, 2359342, 4, 0, 2359343, 4, 0, 2359344, 4, 0, 2359345, 4, 0, 2359346, 4, 0, 2359332, 4, 0, 2359331, 4, 0, 2359330, 4, 0, 2359329, 4, 0, 2359328, 4, 0, 2359327, 4, 0, 2359326, 4, 0, 2359325, 4, 0, 2359324, 4, 0, 2359323, 4, 0, 2359322, 4, 0, 2359321, 4, 0, 2359320, 4, 0, 2359319, 4, 0, 2359318, 4, 0, 2359317, 4, 0, 2359316, 4, 0, 2359315, 4, 0, 2359314, 4, 0, 2359313, 4, 0, 2359312, 4, 0, 2359311, 4, 0, 2424846, 4, 0, 2424845, 4, 0, 2424844, 4, 0, 2424843, 4, 0, 2424842, 4, 0, 2424841, 4, 0, 2424840, 4, 0, 2424839, 4, 0, 2424838, 4, 0, 2424837, 4, 0, 2424836, 4, 0, 2424835, 4, 0, 2424834, 4, 0, 2424833, 4, 0, 2424832, 4, 0, 2424870, 4, 0, 2424871, 4, 0, 2424872, 4, 0, 2424873, 4, 0, 2424874, 4, 0, 2424875, 4, 0, 2424876, 4, 0, 2424877, 4, 0, 2424878, 4, 0, 2424879, 4, 0, 2424880, 4, 0, 2424881, 4, 0, 2424869, 4, 0, 2424882, 4, 0, 1769488, 2, 0, 1835024, 2, 0, 1900560, 2, 0, 1966096, 2, 0, 2031632, 2, 0, 2031633, 2, 0, 2097169, 2, 0, 2097170, 2, 0, 2097171, 2, 0, 2097172, 2, 0, 2097173, 2, 0, 2097174, 2, 0, 2097168, 2, 0, 1769489, 2, 0, 1835025, 2, 0, 1900561, 2, 0, 1966097, 2, 0, 2031634, 2, 0, 2031635, 2, 0, 2031639, 2, 0, 2031640, 2, 0, 2031636, 2, 0, 2031637, 2, 0, 2031638, 2, 0, 2097175, 2, 0, 2097176, 2, 0, 2097177, 2, 0, 2097178, 2, 0, 2097179, 2, 0, 2097180, 2, 0, 2097181, 2, 0, 2097182, 2, 0, 2097183, 2, 0, 2097184, 2, 0, 2097185, 2, 0, 2031641, 2, 0, 2031642, 2, 0, 2031643, 2, 0, 2031644, 2, 0, 2031645, 2, 0, 2031646, 2, 0, 2031647, 2, 0, 2031648, 2, 0, 2031649, 2, 0, 327679, 2, 0, 327678, 2, 0, 327677, 2, 0, 327676, 2, 0, 262141, 2, 0, 262140, 2, 0, 262142, 2, 0, 262143, 2, 0, 262139, 2, 0, 262138, 2, 0, 327674, 2, 0, 327675, 2, 0)
 
+[connection signal="timeout" from="orby/Timer" to="orby" method="_on_timer_timeout"]
+[connection signal="timeout" from="orby/shieldTimer" to="orby" method="_on_shield_timer_timeout"]
+[connection signal="timeout" from="orby/moveTimer" to="orby" method="_on_move_timer_timeout"]
 [connection signal="body_entered" from="triggers/reception/reception_Area3D" to="." method="_on_reception_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/entering_gi/entering_gi_Area3D" to="." method="_on_entering_gi_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/exiting_gi/exiting_gi_Area3D" to="." method="_on_exiting_gi_area_3d_body_entered"]

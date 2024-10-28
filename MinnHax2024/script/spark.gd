@@ -1,6 +1,9 @@
 extends Node3D
 
 @export var orbyPoints: Node3D
+@export var battlePoints: Array[Node3D]
+@export var healthBarUI: CanvasLayer
+@export var healthBar: ProgressBar
 
 var speed = 5
 var isTrackingPlayer = false
@@ -14,12 +17,22 @@ var targetingInProgress = false
 
 var isSpeaking = false
 
+var inBattle = false
+var batteClips = ["T8", "T9", "T10"]
+var battleClipIndex = 0
+var health = 100
+var hasShield = false
+
 signal look_complete
+signal battle_complete
+
+var random = RandomNumberGenerator.new()
 
 var gc
 func _ready():
 	gc = get_tree().get_root().get_node("main")
 	player = gc.getPlayer()
+	random.randomize()
 
 func teleportToName(pointName):
 	set_position(orbyPoints.get_node(pointName).get_position())
@@ -84,6 +97,37 @@ func angleDiff(a, b):
 	var special_case = 2 * PI - ans # -PI and +PI but still very close
 	return min(ans, special_case)
 
+func battleComplete():
+	healthBarUI.set_visibility(false)
+	speed = 5
+	inBattle = false
+	$Timer.stop()
+	await moveToName("battle5")
+	await say("T11")
+	await say("T12")
+	lookAtAndMoveToName("club_heart")
+	battle_complete.emit()
+
+func shield():
+	hasShield = true
+	$shield.set_visible(true)
+
+func takeDamage():
+	if not hasShield:
+		health -= 5
+		healthBar.set_value(health)
+		if health <= 0:
+			battleComplete()
+		if health % 20 == 0:
+			shield()
+
+func knifeBattle():
+	healthBarUI.set_visibility(true)
+	speed = 20
+	inBattle = true
+	$Timer.start()
+	lookAtName("player")
+
 func _process(delta):
 	var op = get_position() # Orby position
 	var pp = getPositionOrDefault(current_look_target_node, get_position() + Vector3.DOWN)
@@ -99,3 +143,18 @@ func _process(delta):
 	if dya < small and targetingInProgress:
 		targetingInProgress = false
 		look_complete.emit()
+
+func _on_timer_timeout():
+	if inBattle:
+		var clipName = batteClips[battleClipIndex]
+		battleClipIndex = (battleClipIndex + 1) % batteClips.size()
+		say(clipName)
+
+func _on_shield_timer_timeout():
+	hasShield = false
+	$shield.set_visible(false)
+
+func _on_move_timer_timeout():
+	var r = randi() % battlePoints.size()
+	var pName = battlePoints[r].name
+	moveToName(pName)

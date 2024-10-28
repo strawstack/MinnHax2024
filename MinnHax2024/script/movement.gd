@@ -66,6 +66,8 @@ func takePhoto():
 	gc.photos.add_child(photo)
 	photo.set_position($Camera3D/camera/photo_start.get_global_position())
 
+	$CameraShutter.play()
+
 	# Turn flash on then off after some time
 	$Camera3D/camera/SpotLight3D.set_param(Light3D.PARAM_ENERGY, 3.0)
 	var tween = get_tree().create_tween()

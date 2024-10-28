@@ -77,9 +77,7 @@ func _ready():
 		orby.teleportToName("beam_elevator")
 		orby.reparent(beam_elevator)
 		orby.lookAtName("player")
-		for js in jeffm_spheres:
-			js.go()
-		hasCamera(false)
+		hasCamera(true)
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
@@ -88,8 +86,10 @@ func hasCamera(value):
 	playerHasCamera = value
 	if playerHasCamera:
 		handCamera.set_visible(true)
+		player.gun.set_visible(false)
 	else:
 		handCamera.set_visible(false)
+		player.gun.set_visible(true)
 
 func opening_tram_ride():
 	var totalDur = duration("A")
@@ -113,7 +113,6 @@ func opening_tram_ride():
 	await get_tree().create_timer(3.0).timeout
 	await say("E")
 	await get_tree().create_timer(2.0).timeout
-	print("dock")
 
 func _process(delta):
 	if debug and Input.is_action_just_pressed("special"):
@@ -334,9 +333,13 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await say("BEG5")
 		await waitOnArea(beginner_four)
 		await say("BEG6")
-		await get_tree().create_timer(1.0).timeout # Wait a bit for battle
+		for js in jeffm_spheres:
+			js.go()
+		await get_tree().create_timer(3.0).timeout # Wait a bit for battle
 		await say("BEG7")
+		await get_tree().create_timer(5.0).timeout # Wait a bit for battle
 		maze_door.open()
+		await say("Q")
 		await waitOnArea(beginner_five)
 		await say("BEG8")
 		await waitOnArea(beginner_six)
@@ -349,7 +352,6 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await say("BEG10")
 		say("BEG11")
 		jail_exit_door.open()
-		
 
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
@@ -386,6 +388,7 @@ func _on_beginner_six_area_3d_body_entered(body):
 
 func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
+		jail_exit_door.close()
 		var totalDur = duration("BEG12") + duration("BEG13") + 2 + duration("R")
 		beam_elevator.up(totalDur)
 		orby.reparent(self)
@@ -407,10 +410,19 @@ func _on_entering_knife_area_3d_body_entered(body):
 	await orby.say("T1") # Knife room intro
 	await orby.say("T2") # Knife room intro
 	await orby.say("T3") # Knife room intro
+	orby.lookAtName("knife_itself")
+	await orby.say("T4")
+	await get_tree().create_timer(0.5).timeout
+	await orby.say("T5")
+	await get_tree().create_timer(0.5).timeout
+	await orby.say("T6")
+	await get_tree().create_timer(0.5).timeout
 	
 	await waitOnArea(knife_trigger) # Knife battle start
+	await orby.say("T7")
 	
-	await orby.knifeBattle() # wait until battle is done
+	orby.knifeBattle() # wait until battle is done
+	await orby.battle_complete
 	
 	await waitOnArea(exiting_knife)
 	await gift_door.open()
