@@ -84,6 +84,9 @@ var overlap = {}
 @export var gift_door: Node3D
 
 @export var colorRect: ColorRect
+@export var audioCock: AudioStreamPlayer
+@export var audioClub: AudioStreamPlayer
+@export var audioBoss: AudioStreamPlayer
 
 func _ready():
 	setCameraTexture()
@@ -103,7 +106,7 @@ func hasCamera(value):
 		handCamera.set_visible(true)
 		player.gun.set_visible(false)
 	else:
-		say("gun_cock")
+		audioCock.play()
 		handCamera.set_visible(false)
 		player.gun.set_visible(true)
 
@@ -395,6 +398,7 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await say("BEG9")
 		await get_tree().create_timer(1.0).timeout # Wait before warping player
 		movePlayer(maze_done)
+		hasCamera(true)
 		await entering_jail.body_entered
 		await jail_enter_door.close()
 		await get_tree().create_timer(1.0).timeout
@@ -454,7 +458,7 @@ func _on_beam_area_area_3d_body_entered(body):
 		await say("BEG12")
 		await say("BEG13")
 		await get_tree().create_timer(1.0).timeout
-		playMusic("disco_cat")
+		audioClub.play()
 		mewtwoStart()
 		await orby.say("R")
 		await get_tree().create_timer(1.0).timeout # Explore club
@@ -463,7 +467,7 @@ func _on_beam_area_area_3d_body_entered(body):
 		orby.lookAtName("player")
 		await waitOnArea(exiting_club)
 		mewtwoStop()
-		stopMusic()
+		audioClub.stop()
 		await knife_door.open()
 		orby.lookAtAndMoveToName("knife_side")
 
@@ -483,11 +487,11 @@ func _on_entering_knife_area_3d_body_entered(body):
 		
 		await waitOnArea(knife_trigger) # Knife battle start
 		await orby.say("T7")
-		playMusic("boss_vibration")
+		audioBoss.play()
 		hasCamera(false)
 		orby.knifeBattle() # wait until battle is done
 		await orby.battle_complete
-		stopMusic()
+		audioBoss.stop()
 		
 		await waitOnArea(exiting_knife)
 		playMusic("bgm_main")
