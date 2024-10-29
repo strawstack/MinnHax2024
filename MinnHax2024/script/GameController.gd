@@ -30,7 +30,7 @@ extends Node3D
 @export var towerTimer: Timer
 
 # Variables
-var debug = false
+var debug = true
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -494,11 +494,8 @@ func _on_entering_knife_area_3d_body_entered(body):
 		hasCamera(false)
 		orby.knifeBattle() # wait until battle is done
 		await orby.battle_complete
-		hasCamera(true)
-		audioBoss.stop()
-		
+
 		await waitOnArea(exiting_knife)
-		playMusic("bgm_main")
 		await gift_door.open()
 		await entering_gift.body_entered
 		gift_door.close()
