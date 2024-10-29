@@ -545,3 +545,9 @@ func _on_house_enter_area_3d_body_entered(body):
 		tween.tween_interval(1.0)
 		tween.tween_callback(hidePlayer)
 		tween.tween_callback(house.vanish)
+		
+		var t2 = get_tree().create_tween()
+		t2.tween_property(colorRect, "color:a", 1, 2)
+		await tween.finished
+		
+		get_tree().change_scene_to_file("res://menu_orbital.tscn")

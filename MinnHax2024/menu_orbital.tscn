@@ -69,16 +69,16 @@ layout_mode = 0
 offset_top = 24.0
 offset_right = 200.0
 offset_bottom = 73.0
-text = "Created by Richard for MinnHax in Oct 2024"
+text = "Created by Richard for MinnHax Oct 2024"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="ColorRect3" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_left = 27.0
-offset_top = 425.0
+offset_top = 279.0
 offset_right = 228.0
-offset_bottom = 591.0
+offset_bottom = 586.0
 color = Color(0, 0, 0, 0.482353)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect3"]
@@ -99,10 +99,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/ColorRect3/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Controls
+
 Move: WASD or Arrows
 Run: Hold Shift
 Raise Camera: Space
 Photo/shoot: LMB
-Advance TextBox: Enter"
+Skip TextBox: Enter
+
+Game contains audio dialogue with no subtitles"
+autowrap_mode = 2
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
