@@ -27,9 +27,10 @@ extends Node3D
 
 @export var house: Node3D
 @export var endPoints: Node3D
+@export var towerTimer: Timer
 
 # Variables
-var debug = false 
+var debug = true
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -91,13 +92,13 @@ var overlap = {}
 func _ready():
 	setCameraTexture()
 	hasCamera(true)
+	var tween = get_tree().create_tween()
+	tween.tween_property(colorRect, "color:a", 0, 2)
 	if debug:
 		orby.teleportToName("knife_side")
 		orby.lookAtName("player")
 	else:
 		player.set_position(player_start_point.get_position())
-		var tween = get_tree().create_tween()
-		tween.tween_property(colorRect, "color:a", 0, 2)
 		opening_tram_ride()
 
 func hasCamera(value):
@@ -409,6 +410,7 @@ func _on_entering_beginner_area_3d_body_entered(body):
 func _on_hit_zone_area_3d_body_entered(body):
 	if not towerTouched:
 		towerTouched = true
+		towerTimer.start()
 		for block in tower.get_children():
 			block.set_gravity_scale(0.5)
 

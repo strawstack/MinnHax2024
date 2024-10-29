@@ -1,4 +1,4 @@
-[gd_scene load_steps=3491 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=3492 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -475,6 +475,7 @@
 [ext_resource type="Texture2D" uid="uid://dag63gxnlh05c" path="res://model/mags/b2_99.jpg" id="196_7s750"]
 [ext_resource type="Texture2D" uid="uid://bx7fllp15u3vn" path="res://model/mags/b4_262.jpg" id="196_uovxb"]
 [ext_resource type="Texture2D" uid="uid://cawi84aooodeg" path="res://model/mags/b4_263.jpg" id="197_li3n7"]
+[ext_resource type="Script" path="res://tower.gd" id="364_1bo24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1u1s"]
 bg_color = Color(0.750539, 0, 0.110806, 1)
@@ -33659,7 +33660,7 @@ sources/2 = SubResource("TileSetAtlasSource_ity5p")
 sources/3 = SubResource("TileSetAtlasSource_hc6do")
 sources/4 = SubResource("TileSetAtlasSource_aathe")
 
-[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "bg3", "bigWall", "bag", "camera_preview_render", "subview", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door", "colorRect", "audioCock", "audioClub", "audioBoss")]
+[node name="main" type="Node3D" node_paths=PackedStringArray("player", "playerCamera", "orby", "audioLoad", "handCamera", "bg3", "bigWall", "bag", "camera_preview_render", "subview", "tram", "beam_elevator", "photos", "tower", "planet", "player_start_point", "walkingSimCameraPoint", "arcadePlayerWait", "jeffm_spheres", "particles", "house", "endPoints", "towerTimer", "maze_done", "entering_gi", "exiting_gi", "entering_art", "exiting_art", "entering_arcade", "exiting_arcade", "entering_jenga", "exiting_jenga", "entering_beginner", "exiting_knife", "entering_gift", "beginner_one", "beginner_two", "beginner_three", "beginner_four", "beginner_five", "beginner_six", "entering_jail", "exiting_club", "knife_trigger", "entering_knife", "lobby_heart_door", "art_heart_door", "arcade_heart_door", "jenga_heart_door", "beginner_heart_door", "beginner_back_door", "jeffm_door", "maze_door", "jail_enter_door", "jail_exit_door", "knife_door", "gift_door", "colorRect", "audioCock", "audioClub", "audioBoss")]
 script = ExtResource("1_ffem2")
 player = NodePath("Player")
 playerCamera = NodePath("Player/Camera3D/Camera3D")
@@ -33683,6 +33684,7 @@ jeffm_spheres = [NodePath("areas/beginner/jeffm_orbs/jeffm_sphere"), NodePath("a
 particles = NodePath("particles")
 house = NodePath("areas/dash/house")
 endPoints = NodePath("endPoints")
+towerTimer = NodePath("areas/jenga/Timer")
 maze_done = NodePath("waypoints/maze_done")
 entering_gi = NodePath("triggers/entering_gi/entering_gi_Area3D")
 exiting_gi = NodePath("triggers/exiting_gi/exiting_gi_Area3D")
@@ -34283,7 +34285,7 @@ visible = false
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gun", "camera_trigger")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 190.922, 1.01858, -23.2512)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 167.739, 1.01858, -23.2512)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
@@ -38087,7 +38089,13 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas/jenga/walls/Cube_514/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s77uv")
 
-[node name="tower" type="Node3D" parent="areas/jenga"]
+[node name="Timer" type="Timer" parent="areas/jenga"]
+wait_time = 10.0
+one_shot = true
+
+[node name="tower" type="Node3D" parent="areas/jenga" node_paths=PackedStringArray("timer")]
+script = ExtResource("364_1bo24")
+timer = NodePath("../Timer")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="areas/jenga/tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 0, -4)
@@ -42706,6 +42714,7 @@ layer_0/tile_data = PackedInt32Array(131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 1
 [connection signal="body_exited" from="triggers/exiting_knife/exiting_knife_Area3D" to="." method="_on_exiting_knife_area_3d_body_exited"]
 [connection signal="body_entered" from="triggers/house_appear/house_appear_Area3D" to="." method="_on_house_appear_area_3d_body_entered"]
 [connection signal="body_entered" from="triggers/house_enter/house_enter_Area3D" to="." method="_on_house_enter_area_3d_body_entered"]
+[connection signal="timeout" from="areas/jenga/Timer" to="areas/jenga/tower" method="_on_timer_timeout"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere" method="_on_timer_timeout"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere2/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere2" method="_on_timer_timeout"]
 [connection signal="timeout" from="areas/beginner/jeffm_orbs/jeffm_sphere3/Timer" to="areas/beginner/jeffm_orbs/jeffm_sphere3" method="_on_timer_timeout"]
