@@ -1,4 +1,4 @@
-[gd_scene load_steps=2088 format=3 uid="uid://baeyvpsxdj0lh"]
+[gd_scene load_steps=2090 format=3 uid="uid://baeyvpsxdj0lh"]
 
 [ext_resource type="Script" path="res://script/GameController.gd" id="1_ffem2"]
 [ext_resource type="Shader" uid="uid://d32t88eel2xsm" path="res://texture/sky.tres" id="2_heo15"]
@@ -40,6 +40,8 @@
 [ext_resource type="Shader" uid="uid://8phsmkc8r42s" path="res://texture/roof.tres" id="22_imdys"]
 [ext_resource type="Shader" uid="uid://8a6kkq5rfffn" path="res://texture/dark_map.tres" id="23_rafli"]
 [ext_resource type="Shader" uid="uid://3qe5jigw32sw" path="res://texture/wood.tres" id="24_ftlt0"]
+[ext_resource type="Shader" uid="uid://cdit7eebk1iya" path="res://texture/roof_mewtwo.tres" id="24_t23ty"]
+[ext_resource type="Shader" uid="uid://db7oddshawtmv" path="res://texture/roof_knife.tres" id="25_eg2wv"]
 [ext_resource type="Script" path="res://script/beam_elevator.gd" id="25_ytbsl"]
 [ext_resource type="Shader" uid="uid://wnlf74rb44h4" path="res://texture/white_black_stripe.tres" id="26_s2ohu"]
 [ext_resource type="Shader" uid="uid://d0vshnmxcw61m" path="res://texture/beginner_wall.tres" id="27_an55x"]
@@ -2908,9 +2910,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lbo7w")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a4qs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jncpf"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uk30n"]
 _surfaces = [{
@@ -2933,7 +2935,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_1a4qs"),
+"material": SubResource("ShaderMaterial_jncpf"),
 "primitive": 3,
 "uv_scale": Vector4(2, 2, 0, 0),
 "vertex_count": 24,
@@ -2942,9 +2944,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uk30n")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lypc8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37onp"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y161v"]
 _surfaces = [{
@@ -2967,7 +2969,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_lypc8"),
+"material": SubResource("ShaderMaterial_37onp"),
 "primitive": 3,
 "uv_scale": Vector4(1.58824, 2, 0, 0),
 "vertex_count": 24,
@@ -2976,9 +2978,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y161v")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_idsuc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aplmy"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0cwck"]
 _surfaces = [{
@@ -3001,7 +3003,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_idsuc"),
+"material": SubResource("ShaderMaterial_aplmy"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -3010,9 +3012,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0cwck")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_olngo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7tt0x"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_onk40"]
 _surfaces = [{
@@ -3035,7 +3037,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_olngo"),
+"material": SubResource("ShaderMaterial_7tt0x"),
 "primitive": 3,
 "uv_scale": Vector4(1.53333, 2, 0, 0),
 "vertex_count": 24,
@@ -3044,9 +3046,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_onk40")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0aht"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0vd1"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xenck"]
 _surfaces = [{
@@ -3069,7 +3071,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_x0aht"),
+"material": SubResource("ShaderMaterial_c0vd1"),
 "primitive": 3,
 "uv_scale": Vector4(1.53333, 2, 0, 0),
 "vertex_count": 24,
@@ -3078,9 +3080,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xenck")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_073xd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrqwf"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mcing"]
 _surfaces = [{
@@ -3103,7 +3105,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_073xd"),
+"material": SubResource("ShaderMaterial_vrqwf"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -3112,9 +3114,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mcing")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pch53"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6o0xj"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4m2b8"]
 _surfaces = [{
@@ -3139,7 +3141,7 @@ _surfaces = [{
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 7, 0, 22, 0, 10, 0, 7, 0, 19, 0, 22, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 16, 0, 13, 0, 1, 0, 4, 0, 6, 0, 12, 0, 18, 0, 6, 0, 0, 0, 12, 0, 21, 0, 3, 0, 9, 0, 21, 0, 15, 0, 3, 0),
 "lods": [4.49883, PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 7, 0, 25, 0, 10, 0, 7, 0, 24, 0, 25, 0, 13, 0, 4, 0, 16, 0, 13, 0, 1, 0, 4, 0, 6, 0, 0, 0, 12, 0, 15, 0, 3, 0, 9, 0)],
-"material": SubResource("ShaderMaterial_pch53"),
+"material": SubResource("ShaderMaterial_6o0xj"),
 "primitive": 3,
 "uv_scale": Vector4(1.46667, 2, 0, 0),
 "vertex_count": 26,
@@ -3148,9 +3150,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4m2b8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyxpg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tob12"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f3fvc"]
 _surfaces = [{
@@ -3175,7 +3177,7 @@ _surfaces = [{
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 7, 0, 23, 0, 10, 0, 7, 0, 20, 0, 23, 0, 19, 0, 16, 0, 22, 0, 19, 0, 13, 0, 16, 0, 14, 0, 4, 0, 17, 0, 14, 0, 1, 0, 4, 0, 6, 0, 12, 0, 18, 0, 6, 0, 0, 0, 12, 0, 21, 0, 3, 0, 9, 0, 21, 0, 15, 0, 3, 0),
 "lods": [4.17485, PackedByteArray(24, 0, 23, 0, 25, 0, 24, 0, 20, 0, 23, 0, 19, 0, 16, 0, 22, 0, 19, 0, 13, 0, 16, 0, 14, 0, 4, 0, 17, 0, 14, 0, 1, 0, 4, 0, 0, 0, 12, 0, 18, 0, 21, 0, 15, 0, 3, 0)],
-"material": SubResource("ShaderMaterial_eyxpg"),
+"material": SubResource("ShaderMaterial_tob12"),
 "primitive": 3,
 "uv_scale": Vector4(1.46667, 2, 0, 0),
 "vertex_count": 26,
@@ -3184,9 +3186,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f3fvc")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5en8j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a008s"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7yn48"]
 _surfaces = [{
@@ -3209,7 +3211,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_5en8j"),
+"material": SubResource("ShaderMaterial_a008s"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -3218,9 +3220,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7yn48")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fd0n7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e185n"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ouk2v"]
 _surfaces = [{
@@ -3243,7 +3245,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_fd0n7"),
+"material": SubResource("ShaderMaterial_e185n"),
 "primitive": 3,
 "uv_scale": Vector4(1.2, 2, 0, 0),
 "vertex_count": 24,
@@ -3252,9 +3254,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ouk2v")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdq1o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4hpp"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7dtuk"]
 _surfaces = [{
@@ -3277,7 +3279,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_vdq1o"),
+"material": SubResource("ShaderMaterial_q4hpp"),
 "primitive": 3,
 "uv_scale": Vector4(1.2, 2, 0, 0),
 "vertex_count": 24,
@@ -3286,9 +3288,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7dtuk")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyou1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_newyx"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dpjh5"]
 _surfaces = [{
@@ -3311,7 +3313,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_uyou1"),
+"material": SubResource("ShaderMaterial_newyx"),
 "primitive": 3,
 "uv_scale": Vector4(1.35294, 2, 0, 0),
 "vertex_count": 24,
@@ -3320,9 +3322,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dpjh5")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6s22"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4f6a"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rxn2j"]
 _surfaces = [{
@@ -3345,7 +3347,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_c6s22"),
+"material": SubResource("ShaderMaterial_y4f6a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -3354,9 +3356,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rxn2j")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lu8ew"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y841f"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("27_an55x")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j7efr"]
 _surfaces = [{
@@ -3379,7 +3381,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("ShaderMaterial_lu8ew"),
+"material": SubResource("ShaderMaterial_y841f"),
 "primitive": 3,
 "uv_scale": Vector4(1.53333, 2, 0, 0),
 "vertex_count": 24,
@@ -3390,7 +3392,7 @@ shadow_mesh = SubResource("ArrayMesh_j7efr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82gqk"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("24_t23ty")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_x28ni"]
 _surfaces = [{
@@ -3424,7 +3426,7 @@ shadow_mesh = SubResource("ArrayMesh_x28ni")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yb50u"]
 render_priority = 0
-shader = ExtResource("22_imdys")
+shader = ExtResource("25_eg2wv")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ilnid"]
 _surfaces = [{

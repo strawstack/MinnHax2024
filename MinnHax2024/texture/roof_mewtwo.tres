@@ -1,11 +1,11 @@
-[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://8phsmkc8r42s"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://cdit7eebk1iya"]
 
-[ext_resource type="Script" path="res://addons/shaderV/tools/sinTime.gd" id="1_o0nnp"]
+[ext_resource type="Script" path="res://addons/shaderV/tools/sinTime.gd" id="1_kc28x"]
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_rp571"]
 default_input_values = [0, 0.1, 1, 0.125]
 initialized = true
-script = ExtResource("1_o0nnp")
+script = ExtResource("1_kc28x")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ydehq"]
 input_name = "uv"
@@ -19,7 +19,7 @@ default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5), 2, Vector2(0.25,
 op_type = 1
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_au7by"]
-constant = Color(0.189619, 0.422674, 1, 1)
+constant = Color(0.682353, 0.00784314, 1, 1)
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_byw7v"]
 
@@ -56,7 +56,7 @@ uniform sampler2D tex_frg_8 : source_color;
 
 void fragment() {
 // ColorConstant:2
-	vec4 n_out2p0 = vec4(0.189619, 0.422674, 1.000000, 1.000000);
+	vec4 n_out2p0 = vec4(0.682353, 0.007843, 1.000000, 1.000000);
 
 
 	vec3 n_out7p0;
@@ -135,7 +135,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1037.72, 11.9837)
+graph_offset = Vector2(-1099.22, -63.4876)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_au7by")
 nodes/fragment/2/position = Vector2(-820, 60)
 nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDecompose_byw7v")
