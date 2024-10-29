@@ -59,7 +59,7 @@ uniform sampler2D tex_frg_2 : source_color;
 
 void fragment() {
 // ColorConstant:8
-	vec4 n_out8p0 = vec4(0.615686, 0.058824, 0.137255, 1.000000);
+	vec4 n_out8p0 = vec4(0.615686, 0.058823, 0.137255, 1.000000);
 
 
 	vec3 n_out13p0;
@@ -134,7 +134,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-926.162, 109.841)
 nodes/fragment/0/position = Vector2(640, 80)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ytjef")
 nodes/fragment/2/position = Vector2(-300, 160)

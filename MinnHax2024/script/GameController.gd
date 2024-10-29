@@ -90,6 +90,9 @@ var overlap = {}
 @export var audioBoss: AudioStreamPlayer
 
 func _ready():
+	
+	await audioLoad.loadAudio()
+	
 	setCameraTexture()
 	hasCamera(true)
 	var tween = get_tree().create_tween()
