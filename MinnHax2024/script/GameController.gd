@@ -83,6 +83,8 @@ var overlap = {}
 @export var knife_door: Node3D
 @export var gift_door: Node3D
 
+@export var colorRect: ColorRect
+
 func _ready():
 	setCameraTexture()
 	hasCamera(true)
@@ -91,6 +93,8 @@ func _ready():
 		orby.lookAtName("player")
 	else:
 		player.set_position(player_start_point.get_position())
+		var tween = get_tree().create_tween()
+		tween.tween_property(colorRect, "color:a", 0, 2)
 		opening_tram_ride()
 
 func hasCamera(value):

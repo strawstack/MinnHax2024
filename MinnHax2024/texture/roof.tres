@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://8phsmkc8r42s"]
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://8phsmkc8r42s"]
 
 [ext_resource type="Script" path="res://addons/shaderV/tools/sinTime.gd" id="1_o0nnp"]
 
@@ -15,8 +15,7 @@ default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
 op_type = 0
 
 [sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_u36e8"]
-default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5), 2, Vector2(0.25, 0.25)]
-op_type = 1
+default_input_values = [0, 0.0, 1, 0.5, 2, 0.25]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_au7by"]
 constant = Color(0.189619, 0.422674, 1, 1)
@@ -33,14 +32,7 @@ function = 1
 [sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_ofdkq"]
 function = 2
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3becc"]
-frequency = 0.02
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_go0ev"]
-noise = SubResource("FastNoiseLite_3becc")
-
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ijn0x"]
-texture = SubResource("NoiseTexture2D_go0ev")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_i2vkj"]
@@ -83,9 +75,9 @@ void fragment() {
 
 
 // MultiplyAdd:15
-	vec2 n_in15p1 = vec2(0.50000, 0.50000);
-	vec2 n_in15p2 = vec2(0.25000, 0.25000);
-	vec2 n_out15p0 = (n_out11p0 * n_in15p1) + n_in15p2;
+	float n_in15p1 = 0.50000;
+	float n_in15p2 = 0.25000;
+	float n_out15p0 = (n_out11p0.x * n_in15p1) + n_in15p2;
 
 
 	float n_out10p0;
@@ -98,7 +90,7 @@ void fragment() {
 
 
 // VectorOp:12
-	vec2 n_out12p0 = n_out15p0 + vec2(n_out10p0);
+	vec2 n_out12p0 = vec2(n_out15p0) + vec2(n_out10p0);
 
 
 // Texture2D:8

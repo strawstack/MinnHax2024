@@ -6,13 +6,13 @@ var bagUp = 0.9
 var bagDown = 0
 
 func _ready():
-	$SpotLight3D.set_visible(false)
+	spotLight3D.set_visible(false)
 
 func lightOn():
-	$SpotLight3D.set_visible(true)
+	spotLight3D.set_visible(true)
 
 func lightOff():
-	$SpotLight3D.set_visible(false)
+	spotLight3D.set_visible(false)
 
 func lift():
 	var tween = get_tree().create_tween()
