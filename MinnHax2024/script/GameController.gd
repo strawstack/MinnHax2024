@@ -137,6 +137,7 @@ func opening_tram_ride():
 	await say("D")
 	await get_tree().create_timer(3.0).timeout
 	await say("E")
+	bag.down()
 	await get_tree().create_timer(1.0).timeout
 	playMusic("bgm_main")
 
@@ -360,6 +361,8 @@ func _on_entering_beginner_area_3d_body_entered(body):
 	overlap[entering_beginner.name] = true
 	
 	if onlyOnce("_on_entering_beginner_area_3d_body_entered"):
+		orby.set_visible(false)
+		hasCamera(false)
 		await say("BEG1")
 		await get_tree().create_timer(1.0).timeout
 		await say("BEG2")
@@ -368,6 +371,7 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await waitOnArea(beginner_one)
 		orby.teleportToName("beam_elevator")
 		orby.reparent(beam_elevator)
+		orby.set_visible(true)
 		await say("BEG3")
 		await waitOnArea(beginner_two)
 		await say("BEG4")
