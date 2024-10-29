@@ -8,6 +8,7 @@ extends Node3D
 
 @export var bg3: MeshInstance3D
 @export var bigWall: Node3D
+@export var bag: Node3D
 
 @export var camera_preview_render: Sprite3D
 @export var subview: SubViewport
@@ -28,7 +29,7 @@ extends Node3D
 @export var endPoints: Node3D
 
 # Variables
-var debug = true
+var debug = false 
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -102,6 +103,14 @@ func hasCamera(value):
 		handCamera.set_visible(false)
 		player.gun.set_visible(true)
 
+func playMusic(clipName):
+	var audioStream = getAudio(clipName)
+	$AudioStreamBGM.set_stream(audioStream)
+	$AudioStreamBGM.play()
+
+func stopMusic():
+	$AudioStreamBGM.stop()
+
 func opening_tram_ride():
 	var totalDur = duration("A")
 	totalDur += duration("B")
@@ -120,10 +129,12 @@ func opening_tram_ride():
 	await get_tree().create_timer(1.0).timeout
 	await say("C")
 	await get_tree().create_timer(1.0).timeout
+	bag.lift()
 	await say("D")
 	await get_tree().create_timer(3.0).timeout
 	await say("E")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
+	playMusic("bgm_main")
 
 func _process(delta):
 	if debug and Input.is_action_just_pressed("special"):
@@ -219,6 +230,7 @@ func onlyOnce(signalName):
 func _on_reception_area_3d_body_entered(body):
 	if onlyOnce("_on_reception_area_3d_body_entered"):
 		orby.lookAtName("player")
+		stopMusic()
 		await orby.moveToName("r1")
 		await orby.say("F") # Tour guide introduction, and lets start the tour
 		bigWall.set_visible(false)
@@ -232,9 +244,11 @@ func _on_reception_area_3d_body_entered(body):
 		await orby.say("G") # Talking about mag collection
 		await get_tree().create_timer(1.0).timeout
 		orby.say("H") # Meet me over by the door when you're ready
+		playMusic("bgm_main")
 		await orby.lookAtAndMoveToName("pre_art_heart")
 		await orby.lookAtName("player")
 		await waitOnArea(exiting_gi)
+		stopMusic()
 		await art_heart_door.open()
 		await orby.lookAtAndMoveToName("art_heart")
 		await orby.lookAtAndMoveToName("art_one")
@@ -253,10 +267,12 @@ func _on_reception_area_3d_body_entered(body):
 		await get_tree().create_timer(1.0).timeout
 		
 		orby.say("H") # Go to door to continue the tour
+		playMusic("bgm_main")
 		await orby.lookAtAndMoveToName("pre_arcade_heart")
 		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_art)
+		stopMusic()
 		await arcade_heart_door.open()
 		await orby.lookAtAndMoveToName("arcade_heart")
 		await orby.lookAtAndMoveToName("arcade_machine")
@@ -265,11 +281,13 @@ func _on_reception_area_3d_body_entered(body):
 		await orby.say("N") # Talking about walking simulator
 		await get_tree().create_timer(1.0).timeout
 		await orby.say("O") # Talking about walking simulator
-
+		
+		playMusic("bgm_main")
 		await orby.lookAtAndMoveToName("pre_jenga_heart")
 		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_arcade)
+		stopMusic()
 		await jenga_heart_door.open()
 		await orby.lookAtAndMoveToName("jenga_heart")
 		await orby.lookAtAndMoveToName("jenga_tower")
@@ -281,10 +299,12 @@ func _on_reception_area_3d_body_entered(body):
 		await get_tree().create_timer(1.0).timeout
 		
 		await orby.say("Q") # Lets go to next section
+		playMusic("bgm_main")
 		await orby.lookAtAndMoveToName("pre_beginner_heart")
 		orby.lookAtName("player")
 		
 		await waitOnArea(exiting_jenga)
+		stopMusic()
 		await beginner_heart_door.open()
 
 # Track entering_gi overlap
@@ -407,6 +427,16 @@ func _on_beginner_five_area_3d_body_entered(body):
 func _on_beginner_six_area_3d_body_entered(body):
 	overlap[beginner_one.name] = true
 
+func mewtwoStart():
+	$AudioStreamMewTwo.play()
+	$TimerMewTwo.start()
+
+func _on_timer_mew_two_timeout():
+	$AudioStreamMewTwo.play()
+
+func mewtwoStop():
+	$TimerMewTwo.stop()
+
 func _on_beam_area_area_3d_body_entered(body):
 	if onlyOnce("_on_beam_area_area_3d_body_entered"):
 		jail_exit_door.close()
@@ -416,12 +446,16 @@ func _on_beam_area_area_3d_body_entered(body):
 		await say("BEG12")
 		await say("BEG13")
 		await get_tree().create_timer(1.0).timeout
+		playMusic("disco_cat")
+		mewtwoStart()
 		await orby.say("R")
 		await get_tree().create_timer(1.0).timeout # Explore club
 		await orby.say("S") # Head to the door
 		orby.lookAtAndMoveToName("club_heart")
 		orby.lookAtName("player")
 		await waitOnArea(exiting_club)
+		mewtwoStop()
+		stopMusic()
 		await knife_door.open()
 		orby.lookAtAndMoveToName("knife_side")
 
@@ -441,12 +475,14 @@ func _on_entering_knife_area_3d_body_entered(body):
 		
 		await waitOnArea(knife_trigger) # Knife battle start
 		await orby.say("T7")
-		
+		playMusic("boss_vibration")
 		hasCamera(false)
 		orby.knifeBattle() # wait until battle is done
 		await orby.battle_complete
+		stopMusic()
 		
 		await waitOnArea(exiting_knife)
+		playMusic("bgm_main")
 		await gift_door.open()
 		await entering_gift.body_entered
 		gift_door.close()
@@ -466,6 +502,7 @@ func _on_exiting_knife_area_3d_body_exited(body):
 
 func _on_house_appear_area_3d_body_entered(body):
 	house.appear()
+	stopMusic()
 
 func hidePlayer():
 	player.set_visible(false)
@@ -504,5 +541,3 @@ func _on_house_enter_area_3d_body_entered(body):
 		tween.tween_interval(1.0)
 		tween.tween_callback(hidePlayer)
 		tween.tween_callback(house.vanish)
-
-
