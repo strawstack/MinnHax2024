@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://po76yrfsgj7y"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://dl3v04em20sbg"]
 
 [sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_2pjnu"]
 function = 1
@@ -32,7 +32,7 @@ op_type = 0
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_pxli5"]
-constant = 64.0
+constant = 8.0
 
 [sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_mj87y"]
 default_input_values = [0, Vector2(0, 0)]
@@ -45,7 +45,7 @@ op_type = 0
 operator = 3
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_mye11"]
-constant = Color(1.98539e-07, 0.294622, 0.134755, 1)
+constant = Color(0.615686, 0.0588235, 0.137255, 1)
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_qp1om"]
 
@@ -59,7 +59,7 @@ uniform sampler2D tex_frg_2 : source_color;
 
 void fragment() {
 // ColorConstant:8
-	vec4 n_out8p0 = vec4(0.000000, 0.294622, 0.134755, 1.000000);
+	vec4 n_out8p0 = vec4(0.615686, 0.058824, 0.137255, 1.000000);
 
 
 	vec3 n_out13p0;
@@ -86,7 +86,7 @@ void fragment() {
 
 
 // FloatConstant:5
-	float n_out5p0 = 64.000000;
+	float n_out5p0 = 8.000000;
 
 
 // VectorOp:4
@@ -134,7 +134,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-624.299, -152.043)
+graph_offset = Vector2(-675.825, -137.95)
 nodes/fragment/0/position = Vector2(640, 80)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ytjef")
 nodes/fragment/2/position = Vector2(-300, 160)
