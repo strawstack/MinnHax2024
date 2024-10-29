@@ -1447,7 +1447,9 @@ shadow_mesh = SubResource("ArrayMesh_j36um")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wqch8"]
 data = PackedVector3Array(-1, -2, 3.9998, -1, -1, -12, -1, -1, 3.9998, -1, -2, 3.9998, -1, -2, -12, -1, -1, -12, -1, -2, -12, 5, -1, -12, -1, -1, -12, -1, -2, -12, 5, -2, -12, 5, -1, -12, 5, -2, -12, 5, -1, 3.9998, 5, -1, -12, 5, -2, -12, 5, -2, 3.9998, 5, -1, 3.9998, 5, -2, 3.9998, -1, -1, 3.9998, 5, -1, 3.9998, 5, -2, 3.9998, -1, -2, 3.9998, -1, -1, 3.9998, -1, -2, -12, 5, -2, 3.9998, 5, -2, -12, -1, -2, -12, -1, -2, 3.9998, 5, -2, 3.9998, 5, -1, -12, -1, -1, 3.9998, -1, -1, -12, 5, -1, -12, 5, -1, 3.9998, -1, -1, 3.9998)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae2cs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppd0f"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_158lh"]
 _surfaces = [{
@@ -1470,7 +1472,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_ae2cs"),
+"material": SubResource("ShaderMaterial_ppd0f"),
 "primitive": 3,
 "uv_scale": Vector4(1.6, 2, 0, 0),
 "vertex_count": 24,
@@ -1482,7 +1484,9 @@ shadow_mesh = SubResource("ArrayMesh_158lh")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3m28j"]
 data = PackedVector3Array(0, -1, 2, 0, 0, 0, 0, 0, 2, 0, -1, 2, 0, -1, 0, 0, 0, 0, 0, -1, 0, 2, 0, 0, 0, 0, 0, 0, -1, 0, 2, -1, 0, 2, 0, 0, 2, -1, 0, 2, 0, 2, 2, 0, 0, 2, -1, 0, 2, -1, 2, 2, 0, 2, 2, -1, 2, 0, 0, 2, 2, 0, 2, 2, -1, 2, 0, -1, 2, 0, 0, 2, 0, -1, 0, 2, -1, 2, 2, -1, 0, 0, -1, 0, 0, -1, 2, 2, -1, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 2, 0, 0, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o38d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1axu"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p344p"]
 _surfaces = [{
@@ -1505,7 +1509,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_3o38d"),
+"material": SubResource("ShaderMaterial_s1axu"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1517,7 +1521,9 @@ shadow_mesh = SubResource("ArrayMesh_p344p")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qi1kp"]
 data = PackedVector3Array(0, -1, 2, 0, 0, 0, 0, 0, 2, 0, -1, 2, 0, -1, 0, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0, 1, -1, 0, 1, 0, 0, 1, -1, 0, 1, 0, 2, 1, 0, 0, 1, -1, 0, 1, -1, 2, 1, 0, 2, 1, -1, 2, 0, 0, 2, 1, 0, 2, 1, -1, 2, 0, -1, 2, 0, 0, 2, 0, -1, 0, 1, -1, 2, 1, -1, 0, 0, -1, 0, 0, -1, 2, 1, -1, 2, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8mye"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgu75"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d1ujr"]
 _surfaces = [{
@@ -1540,7 +1546,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_m8mye"),
+"material": SubResource("ShaderMaterial_hgu75"),
 "primitive": 3,
 "uv_scale": Vector4(1.6, 2, 0, 0),
 "vertex_count": 24,
@@ -1552,7 +1558,9 @@ shadow_mesh = SubResource("ArrayMesh_d1ujr")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m3rs7"]
 data = PackedVector3Array(0, -1, 2, 0, 0, 0, 0, 0, 2, 0, -1, 2, 0, -1, 0, 0, 0, 0, 0, -1, 0, 2, 0, 0, 0, 0, 0, 0, -1, 0, 2, -1, 0, 2, 0, 0, 2, -1, 0, 2, 0, 2, 2, 0, 0, 2, -1, 0, 2, -1, 2, 2, 0, 2, 2, -1, 2, 0, 0, 2, 2, 0, 2, 2, -1, 2, 0, -1, 2, 0, 0, 2, 0, -1, 0, 2, -1, 2, 2, -1, 0, 0, -1, 0, 0, -1, 2, 2, -1, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 2, 0, 0, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdl6q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqvsb"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oq0wu"]
 _surfaces = [{
@@ -1575,7 +1583,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_jdl6q"),
+"material": SubResource("ShaderMaterial_iqvsb"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -1587,7 +1595,9 @@ shadow_mesh = SubResource("ArrayMesh_oq0wu")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rsiu6"]
 data = PackedVector3Array(0, -1, 2, 0, 0, 0, 0, 0, 2, 0, -1, 2, 0, -1, 0, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0, 1, -1, 0, 1, 0, 0, 1, -1, 0, 1, 0, 2, 1, 0, 0, 1, -1, 0, 1, -1, 2, 1, 0, 2, 1, -1, 2, 0, 0, 2, 1, 0, 2, 1, -1, 2, 0, -1, 2, 0, 0, 2, 0, -1, 0, 1, -1, 2, 1, -1, 0, 0, -1, 0, 0, -1, 2, 1, -1, 2, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 2, 0, 0, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_243tt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvggw"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a552r"]
 _surfaces = [{
@@ -1610,7 +1620,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_243tt"),
+"material": SubResource("ShaderMaterial_cvggw"),
 "primitive": 3,
 "uv_scale": Vector4(1.6, 2, 0, 0),
 "vertex_count": 24,
@@ -1622,7 +1632,9 @@ shadow_mesh = SubResource("ArrayMesh_a552r")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_en6va"]
 data = PackedVector3Array(0, -1, 2, 0, 0, 0, 0, 0, 2, 0, -1, 2, 0, -1, 0, 0, 0, 0, 0, -1, 0, 2, 0, 0, 0, 0, 0, 0, -1, 0, 2, -1, 0, 2, 0, 0, 2, -1, 0, 2, 0, 2, 2, 0, 0, 2, -1, 0, 2, -1, 2, 2, 0, 2, 2, -1, 2, 0, 0, 2, 2, 0, 2, 2, -1, 2, 0, -1, 2, 0, 0, 2, 0, -1, 0, 2, -1, 2, 2, -1, 0, 0, -1, 0, 0, -1, 2, 2, -1, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 2, 0, 0, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abiuk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75srb"]
+render_priority = 0
+shader = ExtResource("75_b6ci2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6by4g"]
 _surfaces = [{
@@ -1645,7 +1657,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
-"material": SubResource("StandardMaterial3D_abiuk"),
+"material": SubResource("ShaderMaterial_75srb"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
