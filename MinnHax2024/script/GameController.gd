@@ -30,7 +30,7 @@ extends Node3D
 @export var towerTimer: Timer
 
 # Variables
-var debug = true
+var debug = false
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -99,6 +99,7 @@ func _ready():
 		#orby.teleportToName("beam_elevator")
 		#orby.reparent(beam_elevator)
 		#orby.lookAtName("player")
+		hasCamera(false)
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()

@@ -3,7 +3,7 @@ extends Node
 var once = true
 
 func _ready():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):

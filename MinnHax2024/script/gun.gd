@@ -16,7 +16,7 @@ func shoot_callback(result):
 	if result != null:
 		var dist = (result.position - $start_point.get_global_position()).length()
 		laserLength(dist)
-		gc.particles.fire(result.position)
+		gc.particles.fire(result.position, result.collider.name == "target")
 		if result.collider.name == "orby_hit_zone":
 			orby.takeDamage()
 	else:
@@ -46,7 +46,7 @@ func _physics_process(delta):
 	if physics_check:
 		physics_check = false
 		var space_state = get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create($start_point.get_global_position(), $end_point.get_global_position(), 0b01000000)
+		var query = PhysicsRayQueryParameters3D.create($start_point.get_global_position(), $end_point.get_global_position(), 0b11101111)
 		var result = space_state.intersect_ray(query)
 		if result:
 			shoot_callback(result)
