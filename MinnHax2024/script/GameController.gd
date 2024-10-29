@@ -30,7 +30,7 @@ extends Node3D
 @export var towerTimer: Timer
 
 # Variables
-var debug = true
+var debug = false
 var playerFrozen = false
 var playingWalkingSim = false
 var towerTouched = false
@@ -96,7 +96,9 @@ func _ready():
 	tween.tween_property(colorRect, "color:a", 0, 2)
 	if debug:
 		orby.teleportToName("knife_side")
-		orby.lookAtName("player")
+		#orby.teleportToName("beam_elevator")
+		#orby.reparent(beam_elevator)
+		#orby.lookAtName("player")
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
@@ -404,7 +406,7 @@ func _on_entering_beginner_area_3d_body_entered(body):
 		await jail_enter_door.close()
 		await get_tree().create_timer(1.0).timeout
 		await say("BEG10")
-		say("BEG11")
+		await say("BEG11")
 		jail_exit_door.open()
 
 func _on_hit_zone_area_3d_body_entered(body):
@@ -456,15 +458,14 @@ func _on_beam_area_area_3d_body_entered(body):
 		jail_exit_door.close()
 		var totalDur = duration("BEG12") + duration("BEG13") + 2 + duration("R")
 		beam_elevator.up(totalDur)
-		orby.reparent(self)
 		await say("BEG12")
 		await say("BEG13")
 		await get_tree().create_timer(1.0).timeout
-		audioClub.play()
-		mewtwoStart()
 		await orby.say("R")
+		audioClub.play()
 		await get_tree().create_timer(1.0).timeout # Explore club
-		await orby.say("S") # Head to the door
+		mewtwoStart()
+		orby.reparent(self)
 		orby.lookAtAndMoveToName("club_heart")
 		orby.lookAtName("player")
 		await waitOnArea(exiting_club)
@@ -493,6 +494,7 @@ func _on_entering_knife_area_3d_body_entered(body):
 		hasCamera(false)
 		orby.knifeBattle() # wait until battle is done
 		await orby.battle_complete
+		hasCamera(true)
 		audioBoss.stop()
 		
 		await waitOnArea(exiting_knife)
@@ -555,9 +557,12 @@ func _on_house_enter_area_3d_body_entered(body):
 		tween.tween_interval(1.0)
 		tween.tween_callback(hidePlayer)
 		tween.tween_callback(house.vanish)
+		await tween.finished
+		
+		await get_tree().create_timer(3).timeout
 		
 		var t2 = get_tree().create_tween()
 		t2.tween_property(colorRect, "color:a", 1, 2)
-		await tween.finished
+		await t2.finished
 		
 		get_tree().change_scene_to_file("res://menu_orbital.tscn")

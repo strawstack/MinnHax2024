@@ -6,7 +6,8 @@ func _ready():
 	pass
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_start_pressed():
 	if once:

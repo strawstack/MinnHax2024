@@ -42,7 +42,6 @@ func teleportToName(pointName):
 	set_position(orbyPoints.get_node(pointName).get_position())
 
 func moveToName(pointName):
-	print(pointName)
 	var targetNode = orbyPoints.get_node(pointName)
 	await _moveTo(targetNode)
 
@@ -66,7 +65,6 @@ func _lookAt(targetNode):
 	await look_complete
 
 func lookAtAndMoveToName(pointName):
-	print(pointName)
 	var targetNode = orbyPoints.get_node(pointName)
 	await _lookAtAndMoveTo(targetNode)
 
@@ -122,7 +120,7 @@ func shield():
 	$shieldTimer.start()
 
 func takeDamage():
-	if not hasShield:
+	if not hasShield and health > 0:
 		health -= 5
 		healthBar.set_value(health)
 		if health <= 0:
