@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://duv8n0iy2ynhb"]
+
+[ext_resource type="Script" path="res://base.gd" id="1_lxflu"]
+
+[node name="base" type="Node3D"]
+script = ExtResource("1_lxflu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Loading..."
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Browser version may load for 20sec or more
+Windows desktop exe available on itch if needed"

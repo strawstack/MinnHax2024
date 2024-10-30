@@ -15,4 +15,4 @@ func _on_start_pressed():
 		var tween = get_tree().create_tween()
 		tween.tween_property($CanvasModulate, "color", Color.BLACK, 1)
 		await tween.finished
-		get_tree().change_scene_to_file("res://main2.tscn")
+		get_tree().change_scene_to_file("res://base.tscn")
