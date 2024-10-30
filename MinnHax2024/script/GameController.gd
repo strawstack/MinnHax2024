@@ -94,11 +94,15 @@ func _ready():
 	setCameraTexture()
 	hasCamera(true)
 	if debug:
-		orby.teleportToName("knife_side")
+		#orby.teleportToName("knife_side")
 		#orby.teleportToName("beam_elevator")
 		#orby.reparent(beam_elevator)
 		#orby.lookAtName("player")
-		hasCamera(false)
+		#hasCamera(false)
+		player.reparent(self)
+		get_tree().get_root().get_node("base").hideLoading()
+		var tween = get_tree().create_tween()
+		tween.tween_property(colorRect, "color:a", 0, 2)
 	else:
 		player.set_position(player_start_point.get_position())
 		opening_tram_ride()
@@ -531,6 +535,8 @@ func _on_house_enter_area_3d_body_entered(body):
 		handCamera.set_visible(false)
 		playerCamera.reparent(self)
 
+		player.set_rotation(Vector3(0, PI/2, 0))
+
 		var tween = get_tree().create_tween().set_parallel(true)
 		var rot = player.get_rotation()
 		rot.y += PI
@@ -567,3 +573,4 @@ func _on_house_enter_area_3d_body_entered(body):
 		await t2.finished
 		
 		get_tree().change_scene_to_file("res://menu_orbital.tscn")
+		get_node("/root/main").free()

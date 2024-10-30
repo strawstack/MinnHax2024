@@ -34724,7 +34724,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_tjwyf")
 
 [node name="Player" type="CharacterBody3D" parent="tram" node_paths=PackedStringArray("gun", "camera_trigger")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 95.8233, 0.993397, 52.1914)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 201.773, 50.0205, 34.4977)
 collision_layer = 2
 collision_mask = 21
 safe_margin = 0.01
