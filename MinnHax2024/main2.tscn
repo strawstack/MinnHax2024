@@ -34211,11 +34211,11 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_sm8t0")
 skeleton = NodePath("")
 
-[node name="target" type="StaticBody3D" parent="orby/body/Sphere"]
+[node name="orby_target" type="StaticBody3D" parent="orby/body/Sphere"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="orby/body/Sphere/target"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="orby/body/Sphere/orby_target"]
 shape = SubResource("ConcavePolygonShape3D_tw44v")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="orby/body"]
@@ -34230,11 +34230,11 @@ script = ExtResource("7_8xcr3")
 orby = NodePath("../..")
 omniLight3D = NodePath("../OmniLight3D")
 
-[node name="target" type="StaticBody3D" parent="orby/body/eye"]
+[node name="orby_target" type="StaticBody3D" parent="orby/body/eye"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="target" type="CollisionShape3D" parent="orby/body/eye/target"]
+[node name="target" type="CollisionShape3D" parent="orby/body/eye/orby_target"]
 shape = SubResource("ConcavePolygonShape3D_xut3j")
 
 [node name="orbyPoints" type="Node3D" parent="."]

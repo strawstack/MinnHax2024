@@ -16,8 +16,8 @@ func shoot_callback(result):
 	if result != null:
 		var dist = (result.position - $start_point.get_global_position()).length()
 		laserLength(dist)
-		gc.particles.fire(result.position, result.collider.name == "target")
-		if result.collider.name == "orby_hit_zone":
+		gc.particles.fire(result.position, result.collider.name == "target" or result.collider.name == "orby_target")
+		if result.collider.name == "orby_target":
 			orby.takeDamage()
 	else:
 		laserLength(100)
