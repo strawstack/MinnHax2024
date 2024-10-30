@@ -42,5 +42,6 @@ text = "Loading..."
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Browser version may load for 20sec or more
-Windows desktop exe available on itch if needed"
+text = "Browser version may load/freeze for 10s at the start.
+Gameplay should be smooth after that.
+A Windows exe is available on itch."

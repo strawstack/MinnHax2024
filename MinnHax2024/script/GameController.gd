@@ -131,11 +131,11 @@ func opening_tram_ride():
 	
 	planet.begin_rotate(totalDur)
 	tram.start_tram(totalDur)
-	
+
 	get_tree().get_root().get_node("base").hideLoading()
 	var tween = get_tree().create_tween()
 	tween.tween_property(colorRect, "color:a", 0, 2)
-	
+
 	await get_tree().create_timer(3.0).timeout
 	await say("A")
 	await get_tree().create_timer(1.0).timeout
